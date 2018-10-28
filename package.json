@@ -11,5 +11,8 @@
   },
   "scripts": {
     "start": "nodemon ./app.js"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0"
   }
 }
