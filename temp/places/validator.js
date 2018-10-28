@@ -33,7 +33,7 @@ db.createCollection("places", {
 						},
 						coordinates: {
 							bsonType: ["decimal"],
-							minimum: 1,
+							minimum: 0,
 							description: "must be an array of decimals and is required",
 						}
 					}
@@ -44,6 +44,18 @@ db.createCollection("places", {
 });
 
 const sample = {
+	city: "Wrocław",
+	country: "PL",
+	location: {
+		type: "Point",
+		coordinates: [
+			NumberDecimal("17.0592778"),
+			NumberDecimal("51.1317836")
+		]
+	}
+}
+
+const complete = {
 	city: "Wrocław",
 	country: "PL",
 	institution: ObjectId(),
