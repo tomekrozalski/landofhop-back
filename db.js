@@ -1,7 +1,7 @@
 const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
-const mongoDbUrl = 'mongodb+srv://<USERNAME>:<PASSWORD>@brewlychamps-ku9ye.mongodb.net/test?retryWrites=true';
+const mongoDbUrl = 'mongodb+srv://${env:MONGODB_USERNAME}:${env:MONGODB_PASSWORD}@brewlychamps-ku9ye.mongodb.net/brewly?retryWrites=true';
 
 let _db;
 

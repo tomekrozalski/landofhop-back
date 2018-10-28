@@ -4,6 +4,9 @@
 **/.vscode
 **/node_modules
 
+# Environmental passwords
+.env
+
 # testing
 **/coverage
 
