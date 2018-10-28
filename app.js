@@ -4,11 +4,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const productRoutes = require('./routes/products');
 const beverageRoutes = require('./routes/beverages');
 const institutionRoutes = require('./routes/institutions');
-
 const authRoutes = require('./routes/auth');
+
 const db = require('./db');
 
 const app = express();
@@ -23,14 +22,12 @@ app.use((req, res, next) => {
 		'Access-Control-Allow-Methods',
 		'GET,POST,PUT,PATCH,DELETE,OPTIONS'
 	);
-	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 	next();
 });
 
-app.use('/products', productRoutes);
 app.use('/beverages', beverageRoutes);
 app.use('/institutions', institutionRoutes);
-
 app.use('/', authRoutes);
 
 db.initDb((err, db) => {
