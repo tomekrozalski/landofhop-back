@@ -32,9 +32,12 @@ db.createCollection("places", {
 							description: "can only be one of the enum values and is required"
 						},
 						coordinates: {
-							bsonType: ["decimal"],
-							minimum: 0,
+							bsonType: "array",
+							minimum: 1,
 							description: "must be an array of decimals and is required",
+							items: {
+								bsonType: "decimal"
+							}
 						}
 					}
 				}

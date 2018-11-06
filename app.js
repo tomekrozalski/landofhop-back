@@ -4,9 +4,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const authRoutes = require('./routes/auth');
 const beverageRoutes = require('./routes/beverages');
 const institutionRoutes = require('./routes/institutions');
-const authRoutes = require('./routes/auth');
+const placeRoutes = require('./routes/places');
 
 const db = require('./db');
 
@@ -26,9 +27,10 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use('/', authRoutes);
 app.use('/beverages', beverageRoutes);
 app.use('/institutions', institutionRoutes);
-app.use('/', authRoutes);
+app.use('/places', placeRoutes);
 
 db.initDb((err, db) => {
 	if(err) {
