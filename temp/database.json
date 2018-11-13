@@ -13620,3 +13620,362 @@ wys 25
 }
 
 wys 25
+
+{
+	"badge": "art21",
+	"name": "Art 21",
+	"cooperation"/kolaboracja: {
+		zagovor
+	},
+	"brewery": {
+		"badge": "browar-stu-mostow",
+		"name": {
+			"pl": "Browar Stu Mostów",
+			"en": "Stu Mostów Brewery"
+		},
+		"website": "100mostow.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"Pineapple and passionfruit sour ale"
+		],
+		"extract": {
+			"value": 15.2,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 6.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"ingredients": {
+			"pl": "woda, słód jęczmienny, słód pszeniczny, płatki owsiane i pszenne, przecier z marakui (5%), przecier z ananasa (10%), chmiel, drożdże, bakterie kwasu mlekowego",
+		}
+		pełnia/słodowość: 10%,
+		goryczka: 5%,
+		barwa: 5%,
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905279213838,
+	"added": 1542133229066
+}
+
+wys 23
+
+{
+	"badge": "art22",
+	"name": "Art 22",
+	"cooperation"/kolaboracja: {
+		northern monk
+	},
+	"brewery": {
+		"badge": "browar-stu-mostow",
+		"name": {
+			"pl": "Browar Stu Mostów",
+			"en": "Stu Mostów Brewery"
+		},
+		"website": "100mostow.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"DDH DIPL"
+		],
+		"extract": {
+			"value": 18.0,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 7.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"ingredients": {
+			"pl": "woda, słód jęczmienny, kaszka kukurydziana, płatki ryżowe, chmiel, drożdże",
+		}
+		pełnia/słodowość: 30%,
+		goryczka: 70%,
+		barwa: 5%,
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905279213845,
+	"added": 1542133902913
+}
+
+wys 23
+
+{
+	"badge": "kontenerowiec",
+	"name": "Kontenerowiec",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"New England Pale Ale"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 4,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, płatki pszenne, płatki owsiane, chmiel, drożdże",
+		}
+		temp: 9-12
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388486,
+	"added": 1542134074728
+}
+
+wys 25
+
+{
+	"badge": "amarillo",
+	"name": "Amarillo",
+	"brewery": {
+		"badge": "alebrowar",
+		"name": {
+			"pl": "AleBrowar",
+			"en": "AleBrowar"
+		},
+		"website": "www.alebrowar.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Lębork",
+		"style": [
+			"Single Hop IPA"
+		],
+		"extract": {
+			"value": 16,
+			"unit": "%",
+			"relation": "wag."
+		},
+		"alcohol": {
+			"value": 6.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"tale": {
+			"pl": "Jedno piwo, jeden chmiel. Amerykańska odmiana amarillo wyróżniająca się niezwykle intensywnym, cytrusowym profilem. Ścisłą czołówką wśród chmieli, po które sięgają piwowarzy z browarów rzemieślniczych na całym świecie."
+		},
+		"ingredients": {
+			"pl": "Woda. Słody: Pale Ale, pszeniczny, wiedeński, Carapils, zakwaszający; chmiel Amarillo, drożdże Safale US-05",
+		},
+		temp: 8-10
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222039397,
+	"added": 1542134435256
+}
+
+wys 26
+
+{
+	"badge": "choleryk",
+	"name": "Choleryk",
+	"producer": {
+		"badge": "browar-czarnkow",
+		"name": {
+			"pl": "Browar Czarnków",
+			"en": "Czarnków Brewery"
+		},
+		"website": "www.browarczarnkow.pl"
+	},
+	"brewery": {
+		"badge": "browar-golem",
+		"name": {
+			"pl": "Browar Golem",
+			"en": "Golem Brewery"
+		},
+		"website": "browargolem.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Chodzież",
+		"style": [
+			"Grapefruit Weizen"
+		],
+		extract: 12.5 stopni BLG
+		"alcohol": {
+			"value": 4.7,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		górnej fermentacji
+		"consists": {
+			"pl": "woda, słód jęczmienny, słód pszenny, chmiel, drożdże, wyciąg ze skórek cytrusowych"
+		}
+		goryczka: 1/5
+		słodycz: 3/5
+		aromat: 4/5
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222604885,
+	"added": 1542134693664
+}
+
+wys 25
+
+{
+	"badge": "milo",
+	"name": "Milo",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Hefeweizen"
+		],
+		"extract": {
+			"value": 12.4,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 4.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Tradycja piwowarska naszych zachodnich sąsiadów sięga pradawnych dziejów. Oddajemy w wasze ręce ich największy skarb - lekkie i orzeźwiające piwo pszeniczne w stylu hefeweizen w naszej interpretacji."
+		},
+		"ingredients": {
+			"pl": "Woda. słody: pszeniczny, jęczmienny, chmiel, drożdże",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279959286,
+	"added": 1542135118855
+	goryczka : 1/6
+	temp: 6-8
+}
+
+wys 26
+
+{
+	"badge": "no-to-hop",
+	"name": "No to hop",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Wet Hop IPA"
+		],
+		"extract": {
+			"value": 15.1,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 5.8,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Tylko raz w roku możecie spróbować piwa, które warzymy na chmielu z naszego chmielnika. W tym roku obrodził nam on pięknie więc zapraszamy, no to hop! Moc naszego chmielu niech będzie z wami :)"
+		},
+		"ingredients": {
+			"pl": "Woda. słody: Pilzneński, płatki pszenne, płatki owsiane, chmiele (z własnej uprawy), drożdże",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279959811,
+	"added": 1542135212591
+	goryczka : 3/6
+	temp: 10-12
+}
+
+wys 26
