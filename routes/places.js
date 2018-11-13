@@ -38,14 +38,21 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 
+			const {
+				city,
+				country,
+				latitude,
+				longitude,
+			} = req.body;
+
 			const newPlace = {
-				city: "Poznań",
-				country: "PL",
+				city,
+				country,
 				location: {
 					type: "Point",
 					coordinates: [
-						Decimal128.fromString("17.0592772"),
-						Decimal128.fromString("51.1317834")
+						Decimal128.fromString(longitude),
+						Decimal128.fromString(latitude)
 					]
 				}
 			};
