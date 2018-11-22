@@ -32,6 +32,62 @@ router.get('/', (req, res) => {
 		});
 });
 
+router.get('/basics', (req, res) => {
+	const beverages = [];
+
+	db.getDb()
+		.db()
+		.collection('beverages')
+		.aggregate([
+			{
+				$project: {
+					_id: 0,
+					badge: 1,
+					brand: '$label.brand',
+					id: '$_id',
+					name: '$label.name'
+				}
+			},
+			{
+				$lookup: {
+					from: 'institutions',
+					localField: 'brand',
+					foreignField: '_id',
+					as: 'brand_info'
+				}
+			},
+			{
+				$unwind: "$brand_info"
+			},
+			{
+				$project: {
+					badge: 1,
+					id: 1,
+					name: 1,
+					brand: 0,
+					brand: {
+						badge: '$brand_info.badge',
+						name: '$brand_info.name'
+					}
+				}
+			},
+
+		])
+		.forEach((beverage) => {
+			beverages.push(beverage);
+		})
+		.then((result) => {
+			res
+				.status(200)
+				.json(beverages);
+		})
+		.catch((err) => {
+			res
+				.status(500)
+				.json({ message: 'An error occured' });
+		});
+});
+
 router.post('/', verifyToken, (req, res) => {
 	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
 		if (err) {
