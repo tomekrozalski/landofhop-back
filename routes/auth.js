@@ -10,7 +10,7 @@ const createToken = () => {
 	return jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
 
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
 
