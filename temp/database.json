@@ -13979,3 +13979,440 @@ wys 26
 }
 
 wys 26
+
+{
+	"badge": "kveik-session-ipa",
+	"name": "Kveik Session IPA",
+	"producer": {
+		"badge": "browar-czarnkow",
+		"name": {
+			"pl": "Browar Czarnków",
+			"en": "Czarnków Brewery"
+		},
+		"website": "www.browarczarnkow.pl"
+	},
+	"brewery": {
+		"badge": "browar-golem",
+		"name": {
+			"pl": "Browar Golem",
+			"en": "Golem Brewery"
+		},
+		"website": "browargolem.pl"
+	},
+	kooperacja: whitestorkco.com / White Stork Beer Co.
+	"country": "PL",
+	"label": {
+		"city": "Chodzież",
+		"style": [
+			"Kveik Session IPA"
+		],
+		extract: 12.5 stopni Plato
+		"alcohol": {
+			"value": 5,
+			"unit": "%",
+			"relation": "Abv"
+		},
+		"pasteurized": false,
+		"skład": {
+			"en": "water, barley malt, hops, kveik yeast"
+		}
+		goryczka: 1/5
+		słodycz: 2/5
+		aromat: 4/5,
+		tale: {
+			en: "Better live one day as a lion, than 1000 years as a sheep"
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222604960,
+	"added": 1543521231380,
+	cena: 9.30
+}
+
+wys 25
+
+{
+	"badge": "kiss-the-beast",
+	"name": "Kiss the Beast",
+	"brewery": {
+		"badge": "alebrowar",
+		"name": {
+			"pl": "AleBrowar",
+			"en": "AleBrowar"
+		},
+		"website": "www.alebrowar.pl"
+	},
+	seria: Hop Heads & Friends,
+	uwarzono w: Browar Zarzecze,
+	kooperacja: Browar Birbant,
+	"country": "PL",
+	"label": {
+		"city": "Piertrzykowice",
+		"style": [
+			"Ultra IPA"
+		],
+		"extract": {
+			"value": 19.1,
+			"unit": "st",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 8.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"ingredients": {
+			"pl": "Woda. Słody: Pale Ale, monachijski, melanoidynowy, pszeniczny, karmelowy; chmiele: Mosaic, Palisade, Simcoe, Amarillo, Chinook, Columbus; drożdże",
+		},
+		temp: 8-10
+		IBU: 6/6
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5903240620159,
+	"added": 1543521742208,
+	cena: 10.30
+}
+
+wys 25
+
+{
+	"badge": "weizen",
+	"name": "Weizen",
+	seria: "Birbant Klasyczny",
+	"producer": {
+		"badge": "browar-zarzecze",
+		"name": {
+			"pl": "Browar Zarzecze",
+			"en": "Zarzecze Brewery"
+		},
+		"website": "www.browarzarzecze.pl"
+	},
+	"brewery": {
+		"badge": "browar-birbant",
+		"name": {
+			"pl": "Browar Birbant",
+			"en": "Birbant Brewery"
+		},
+		"website": "www.browarbirbant.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Pietrzykowice",
+		"style": [
+			"Weizen"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 5.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Klasyczny Weizen, który wywodzi się z bawarskiej tradycji piwowarskiej. Szeroko znane piwo pszeniczny, które charakteryzuje się aromatem bananów i goździków. Świetnie gasi pragnienie w upalne dni."
+		},
+		"ingredients": {
+			"pl": "Woda. Słód jęczmienny. Słód pszeniczny. Chmiele. Drożdże",
+		},
+		temp: 6-8
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5903240620517,
+	"added": 1543522055229,
+	cena: 6.60
+}
+
+wys 25
+
+{
+	"badge": "weizen-mango",
+	"name": "Weizen Mango",
+	seria: "Birbant Klasyczny",
+	"producer": {
+		"badge": "browar-zarzecze",
+		"name": {
+			"pl": "Browar Zarzecze",
+			"en": "Zarzecze Brewery"
+		},
+		"website": "www.browarzarzecze.pl"
+	},
+	"brewery": {
+		"badge": "browar-birbant",
+		"name": {
+			"pl": "Browar Birbant",
+			"en": "Birbant Brewery"
+		},
+		"website": "www.browarbirbant.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Pietrzykowice",
+		"style": [
+			"Weizen Mango"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 5.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Klasyczny Weizen, który wywodzi się z bawarskiej tradycji piwowarskiej. Szeroko znane piwo pszeniczny, które charakteryzuje się aromatem bananów i goździków. Wzbogacone o dodatek owocu mango."
+		},
+		"ingredients": {
+			"pl": "Woda. Słód jęczmienny. Słód pszeniczny. Owoce mango. Chmiele. Drożdże",
+		},
+		temp: 6-8
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5903240620524,
+	"added": 1543522263352,
+	cena: 8.50
+}
+
+wys 25
+
+{
+	"badge": "szabrownik",
+	"name": "Szabrownik",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	cooperacja: Owocowa Manufaktura,
+	"country": "PL",
+	"label": {
+		"fermentation": "top",
+		"city": "Wrocław",
+		"style": [
+			"Graff"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 5.7,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		fermentacja: spontaniczna / ?
+		"tale": {
+			"pl": "Szabrownik… to połączenie brzeczki słodowej oraz soku jabłkowego tworzące hybrydę piwa i cydru. W aromacie dominują nuty owocowe pochodzące z tłoczonego na zimno soku jabłkowego, polskiego chmielu Oktawia oraz fermentacja dzikimi drożdżami z rodziny Brettanomyces. Podobnie jak w aromacie, w smaku wyczuwalny jest dodatek soku z jabłek i pochodząca od niego kwaśność oraz delikatna taniczna cierpkość. Całość kontrowana jest podbudową słodową oraz pełnią pochodzącą od słodów i płatków owsianych. Na finiszu wyczuwalna jest goryczka pochodząca od chmieli i tanin. Uwarzone wspólnie z Owocową Manufakturą z Krosnowic. Używamy wyłącznie płynnych drożdży własnej propagacji!"
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (Pilzneński, Melanoidynowy, Dextrynowy), słód pszeniczny (Pszeniczny jasny), dodatki (płatki owsiane, sok z jabłek (Idared, Pepina Ribstona, Golden Delicious, Szara Reneta)), chmiele (Puławski, Oktawia), drożdże (San Diego Super, Brettanomyces Bruxellensis Trois)",
+		}
+		goryczka: 1.5/5
+		temperatura serwowania: 12-16C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658652,
+	"added": 1543523008998,
+	cena: 7.90
+}
+
+wys 25
+
+{
+	"badge": "student",
+	"name": "Student",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	kooperacja: Polefka?
+	"country": "PL",
+	"label": {
+		"fermentation": "top",
+		"city": "Wrocław",
+		"style": [
+			"American Light Ale"
+		],
+		"extract": {
+			"value": 7.5,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 3.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Student… to bardzo lekkie piwo górnej fermentacji w amerykańskim stylu. W aromacie wyczuwalne są nuty owocowo-kwiatowe pochodzące od nowofalowych amerykańskich chmieli. W smaku wyczuwalna jest owocowa estrowość i nienachalna chmielowa goryczka. Idealne piwo na długie spotkania z przyjaciółmi."
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (Pale Ale, Honig), chmiele (Simcoe, Ahtanum, Centennial), drożdże (Hot Head Ale). dodatki: cukier (Płatki owsiane)",
+		}
+		goryczka: 1/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658492,
+	"added": 1543563500841,
+	cena: 6.10
+}
+
+wys 25
+
+{
+	"badge": "Mojo",
+	"name": "Mojo",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Rye APA"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 4.7,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Eeeeej człowieku! Wskakuj, próbuj, dotykaj i smakuj! Żadnych trudnych tematów: tylko luz, gładkość, przyjemność. Mojo - żytnie, lekkie APA to idealny kompan na chillowe popołudnie!"
+		},
+		"ingredients": {
+			"pl": "Woda. słody: jęczmienny, żytni, chmiel, drożdże",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279959545,
+	"added": 1543563877482,
+	goryczka : 1.5/6
+	temp: 10-12
+}
+
+wys 26
+
+{
+	"badge": "dzial-testowy-2",
+	"name": "Dział testowy #2",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Quadrupel z malinami"
+		],
+		"extract": {
+			"value": 24,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 9.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, maliny, chmiel, drożdże",
+		}
+		temp: 13-16
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5906395388530,
+	"added": 1543564034263
+}
+
+wys 23
