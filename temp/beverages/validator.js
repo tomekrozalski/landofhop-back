@@ -1,3 +1,7 @@
+db.runCommand({ collMod: "beverages", validator: {
+
+}});
+
 db.createCollection("beverages", {
 	validator: {
 		$jsonSchema: {
@@ -20,17 +24,50 @@ db.createCollection("beverages", {
 					required: ["name", "brand"],
 					properties: {
 						name: {
-							bsonType: "string",
-							description: "must be a string and is required"
+							bsonType: "object",
+							additionalProperties: false,
+							description: "must be an object and is required",
+							properties: {
+								"en": {
+									bsonType: "string",
+									description: "must be a string"
+								},
+								"pl": {
+									bsonType: "string",
+									description: "must be a string"
+								}
+							}
+						},
+						series: {
+							bsonType: "array",
+							description: "must be an array",
+							items: {
+								bsonType: "object",
+								description: "must be an object",
+								properties: {
+									"en": {
+										bsonType: "string",
+										description: "must be a string"
+									},
+									"pl": {
+										bsonType: "string",
+										description: "must be a string"
+									}
+								}
+							}
 						},
 						brand: {
 							bsonType: "objectId",
 							description: "must be an objectId and is required"
 						},
 						cooperation: {
-							bsonType: ["objectId"],
+							bsonType: "array",
 							minimum: 1,
-							description: "must be an array of objectIds",
+							description: "must be an array",
+							items: {
+								bsonType: "objectId",
+								description: "must be an objectId",
+							}
 						},
 						contract: {
 							bsonType: "objectId",
@@ -41,13 +78,22 @@ db.createCollection("beverages", {
 							description: "must be an objectId"
 						},
 						fermentation: {
-							enum: ["top", "bottom", "spontaneous"],
-							description: "can only be one of the enum values"
+							bsonType: "array",
+							minimum: 1,
+							description: "must be an array",
+							items: {
+								enum: ["top", "bottom", "spontaneous"],
+								description: "can only be one of the enum values",
+							}
 						},
 						style: {
-							bsonType: ["string"],
+							bsonType: "array",
 							minimum: 1,
 							description: "must be an array of strings",
+							items: {
+								bsonType: "string",
+								description: "must be a string",
+							}
 						},
 						filtered: {
 							bsonType: "bool",
@@ -330,7 +376,9 @@ db.createCollection("beverages", {
 const simple = {
 	badge: "test-badge",
 	label: {
-		name: "test name",
+		name: {
+			pl: "Test badge"
+		},
 		brand: ObjectId("5bbd04bc5433eca56a6c00cf")
 	},
 	container: {
@@ -344,14 +392,20 @@ const simple = {
 }
 
 const sample = {
-	"badge": "string",
+	"badge": "piwo-misiowe",
 	"label": {
-		"name": "string",
+		"name": {
+			pl: "Piwo misiowe",
+			en: "Teddy Beer"
+		},
+		"series": [
+			{ pl: "misiowi przyjaciele" }
+		],
 		"brand": "objectId",
 		"cooperation": ["objectId"],
 		"contract": "objectId",
 		"placeOfProduction": "objectId",
-		"fermentation": enum("top", "bottom", "spontaneous"),
+		"fermentation": [enum("top", "bottom", "spontaneous")],
 		"style": ["string"],
 		"filtered": "bool",
 		"pasteurized": "bool",

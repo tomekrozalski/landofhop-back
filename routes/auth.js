@@ -3,12 +3,25 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const db = require('../db');
+const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
 const createToken = () => {
 	return jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
+
+router.post('/auth', verifyToken, (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
+		if (err) {
+			res.sendStatus(403);
+		} else {
+			res
+				.status(200)
+				.json({ message: 'Authentication succeeded' });
+		}
+	});
+});
 
 router.post('/login', (req, res) => {
 	const email = req.body.email;

@@ -28,6 +28,39 @@ router.get('/', (req, res, next) => {
 		});
 });
 
+router.get('/basics', (req, res) => {
+	const institutions = [];
+
+	db.getDb()
+		.db()
+		.collection('institutions')
+		.aggregate([
+			{
+				$project: {
+					_id: 0,
+					value: '$_id',
+					label: '$name.phrase'
+				}
+			},
+			{
+				$sort: { label : 1 }
+			}
+		])
+		.forEach((institution) => {
+			institutions.push(institution);
+		})
+		.then((result) => {
+			res
+				.status(200)
+				.json(institutions);
+		})
+		.catch((err) => {
+			res
+				.status(500)
+				.json({ message: 'An error occured' });
+		});
+});
+
 router.get('/:id', (req, res, next) => {
 	db.getDb()
 		.db()
