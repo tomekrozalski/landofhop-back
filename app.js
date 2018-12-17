@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const authRoutes = require('./routes/auth');
 const beverageRoutes = require('./routes/beverages');
+const countryRoutes = require('./routes/countries');
 const institutionRoutes = require('./routes/institutions');
 const placeRoutes = require('./routes/places');
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 
 app.use('/', authRoutes);
 app.use('/beverages', beverageRoutes);
+app.use('/countries', countryRoutes);
 app.use('/institutions', institutionRoutes);
 app.use('/places', placeRoutes);
 
