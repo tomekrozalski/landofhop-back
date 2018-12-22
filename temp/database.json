@@ -13668,7 +13668,8 @@ wys 25
 		"unit": "liter"
 	},
 	"barcode": 5905279213838,
-	"added": 1542133229066
+	"added": 1542133229066,
+	cena (18.12.2018): 9.00
 }
 
 wys 23
@@ -14820,6 +14821,482 @@ wys 23
 	"barcode": brak,
 	"added": 1544994119506,
 	cena: 19.50
+}
+
+wys 23
+
+{
+	"badge": "latarnik",
+	"name": "Latarnik",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	"country": "PL",
+	"label": {*
+		"city": "Wrocław",
+		"style": [
+			"Dry Stout"
+		],
+		"extract": {
+			"value": 10.5,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 4.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Latarnik to… lekkie piwo o palonym charakterze. W aromacie wyczuwalne są nuty słodowe z domieszką kawy i gorzkiej czekolady. Podobnie jak w aromacie, również w smaku wyczuwalne są nuty kawowo-czekoladowe. Chmielowa goryczka oraz aromat są na niskim poziomie. Delikatny charakter i niski poziom alkoholu sprawia, iż może być z łatwością pite w większych ilościach. Orzeźwiające, pełne smaku i zapachu. Używamy wyłącznie płynnych drożdży własnej propagacji!"
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (Pilzneński, Special X, Biscuit, Extra Black, Czekoladowy ciemny), słód pszenicny (Pszeniczny prażony), chmiele (Styrian Eureka), drożdże (Scottish Ale)",
+		}
+		goryczka: 1.5/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658553,
+	"added": 1545486115445,
+	cena: 6.60
+}
+
+wys 25
+
+{
+	"badge": "brew-note",
+	"name": "Brew Note",
+	"producer": {
+		"badge": "browar-zapanbrat",
+		"name": {
+			"pl": "Browar Zapanbrat",
+			"en": "Zapanbrat Brewery"
+		},
+		"website": "www.zapanbrat.com"
+	},
+	"brewery": {
+		"badge": "trzech-kumpli",
+		"name": {
+			"pl": "Trzech Kumpli",
+			"en": "Trzech Kumpli"
+		},
+		"website": "www.trzechkumpli.pl"
+	},
+	"country": "PL",
+	"label": {
+		fermentation: top,
+		"city": "Żywiec",
+		"style": [
+			"Contemporary Black Ale"
+		],
+		"extract": {
+			"value": 14,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 4.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		górna fermentacja
+		"tale": {
+			"pl": "Contemporary Black Ale?" Współczesne Czarne Ale? O co chodzi?\n Umiarkowanie goryczkowe, ale nie słodkie? Tak!\n Jedwabiste, z aksamitnym odczuciem pełni na języku, ale nie "zapychające"? A jakże!\n Palonych nut prawie wcale, za to przyjemna gorzka czekolada? Owszem!\n Alkoholu w sam raz - ani cienkusz, ani mózgotrzep? Ależ proszę uprzejmie!\n I oczywiście najważniejsze: masa cudownego, amerykańskiego, aromatycznego chmielu? Bez obaw, nie zapomnieliśmy dorzucić!\n I takie jest według nas Współczesne Czarne Ale.\n Jeśli chcesz je poznać w pełni, koniecznie nalej je do szklanki z osadem z dna butelki."
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, płatki pszenne, płatki owsiane, chmiel, drożdże",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905669479363,
+	"added": 1545490271433,
+	cena: 8.55
+}
+
+wys 25
+
+{
+	"badge": "sangriale",
+	"name": "SangriAle",
+	"producer": browar na jurze
+	"brewery": {
+		"badge": "browar-pinta",
+		"name": {
+			"pl": "Browar Pinta",
+			"en": "Pinta Brewery"
+		},
+		"website": "www.browarpinta.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Zawiercie",
+		"style": [
+			"Fruit Ale"
+		],
+		"extract": {
+			"value": 13.1,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 4.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": true,
+		"pasteurized": true,
+		"tale": {
+			"pl": "PINTA Siangriale 13,1° - do cytrusowo nachmielonego pale ale dodaliśmy naturalnie tłoczony sok z wiśni i czerwonej pomarańczy oraz puree z nektarynki. W ten sposób kłopotliwy wybór, co zamówić - owocową sangrię czy orzeźwiające pale ale - właśnie się skończył. \n PINTA Sangriale - nie tylko Hiszpanki są zaskoczone!",
+			en: "PINTA Siangriale - fruity Sangria or refreshing Pale Ale? Now the choice is simple: PINTA Sangriale!"
+		},
+		"ingredients": {
+			"pl": "woda, słód jęczmienny pale ale, chmiele (USA): Simcoe, Citra, Mosaic; sok z wiśni, sok z czerwonej pomarańczy, puree z nektarynki, laktoza, drożdże Fermentis SafAle US-05",
+		}
+		temp: 7-9
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905331026406,
+	"added": 1545490725457,
+	cena: 10.00 zł
+}
+
+wys 25
+
+{
+	"badge": "serce-debu",
+	"name": "Serce dębu",
+	"brewery": {
+		"badge": "browar-perun",
+		"name": {
+			"pl": "Browar Perun",
+			"en": "Perun Brewery"
+		},
+		"website": "browarperun.p"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Budziszyn",
+		"fermentation": "top",
+		"style": [
+			"American Brown Ale"
+		],
+		"extract": {
+			"value": 13.0,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Piwo ciemne w stylu Amerykański Brązowy Ale. Zachwyca złożonym słodowym aromatem ciastek, herbatników, kawy. W smaku rześkie i zrównoważone, słodowe z delikatną nutą cytrusowych i żywicznych chmieli. Przyjemna i wyrazista goryczka."
+		},
+		"ingredients": {
+			"pl": "Woda, słody jęczmienne, chmiele, drożdże",
+		}
+		gorycz: 2/5
+		słodycz: 2/5
+		moc 2.5/5
+		receptura i wykonanie: Adam Czogalla
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5903292264011,
+	"added": 1545491097297,
+	cena: 7.20
+}
+
+wys 25
+
+{
+	"badge": "stoik",
+	"name": "Stoik",
+	"producer": {
+		"badge": "browar-czarnkow",
+		"name": {
+			"pl": "Browar Czarnków",
+			"en": "Czarnków Brewery"
+		},
+		"website": "www.browarczarnkow.pl"
+	},
+	"brewery": {
+		"badge": "browar-golem",
+		"name": {
+			"pl": "Browar Golem",
+			"en": "Golem Brewery"
+		},
+		"website": "browargolem.pl"
+	},
+	kooperacja: Szynkarnia
+	"country": "PL",
+	"label": {
+		"city": "Chodzież",
+		"style": [
+			"Coconut Orange Extra Stout"
+		],
+		extract: 15 stopni Blg
+		"alcohol": {
+			"value": 5,
+			"unit": "%",
+			"relation": "obj"
+		},
+		filtracja: false,
+		"pasteurized": true,
+		fermentacja: top,
+		zawiera słód jęczmienny
+		goryczka: 2/5
+		słodycz: 3/5
+		araomat: 4/5
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222604915,
+	"added": 1545491360898,
+	cena: 8.30
+}
+
+wys 25
+
+{
+	"badge": "rye-wine",
+	"name": "Rye Wine",
+	"brewery": {
+		"badge": "browar-zamkowy-cieszyn",
+		"name": {
+			"pl": "Browar Zamkowy Cieszyn",
+			"en": "Cieszyn Castle Brewery"
+		},
+		"website": "www.browarcieszyn.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Cieszyn",
+		"fermentation": "top",
+		"extract": {
+			"value": 25.0,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 9.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"pasteurized": true,
+		"tale": {
+			"pl": "Rye Wine - najbardziej zaskakujące i intrygujące piwo, jakie do tej pory dojrzewało w naszych piwnicach. Sprawcą zamieszania jest słód żytni - wymagający, a przez to z rzadka stosowany w piwowarstwie surowiec. W połączeniu z belgijskimi drożdżami i szlachetnym chmielem tworzy wyrafinowane, treściwe i niezwykłe piwo - a w zasadzie żytnie wino. Skosztuj… jeśli czujesz, że masz ochotę na coś wyjątkowego.\n Serwować w temperaturze 10-12(stopni)C"
+		},
+		"ingredients": {
+			"pl": "Woda, słody jęczmienne (Pale Ale, Pilzneński), słody żytnie (Żytni jasny, Cararye), chmiele (Marynka, Mosaic, Simcoe, Junga), drożdże (Belgian Ardenes)",
+		}
+		temp: 10-12
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279156968,
+	"added": 1545491820395,
+	cena: 10.5
+}
+
+wys 24
+
+{
+	"badge": "dozynki",
+	"name": "Dożynki",
+	"producer": browar na jurze
+	"brewery": {
+		"badge": "browar-pinta",
+		"name": {
+			"pl": "Browar Pinta",
+			"en": "Pinta Brewery"
+		},
+		"website": "www.browarpinta.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Zawiercie",
+		"style": [
+			"Multigrain Wine"
+		],
+		"extract": {
+			"value": 24.7,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 11.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "PINTA Dożynki 24,7° - Multigrain Wine - czyli wielozbożowe. Dożynki - mocne, kompleksowe piwo uwarzone z dodatkiem słodów z czterech odmian zbóż: jęczmienia, owsa, pszenicy i żyta. Delikatnie chmielone, posiada chlebowy posmak od polskiego słodu jęczmiennego, kremowość od angielskiego słodu owsianego oraz gęstość od niemieckiego słodu pszenicznego i żytniego.",
+			en: "PINTA Dożynki - Multigrain - strong and complex ale brewed with four different malts: barley, wheat, oat and rye."
+		},
+		"ingredients": {
+			"pl": "woda, słód jęczmienny pale ale, Crystal; słody pszeniczne: jasny, Carawheat; słody: owsiany, żytni; chmiele: Zeus (US), Liberty (US), East Kent Golding (UK); drożdże SafAle US-05",
+		}
+		temp: 10-12
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905331026567,
+	"added": 1545492342255,
+	cena: 10.7 zł
+}
+
+wys 23
+
+{
+	"badge": "kwas-my",
+	"name": "Kwas My",
+	"producer": browar na jurze
+	"brewery": {
+		"badge": "browar-pinta",
+		"name": {
+			"pl": "Browar Pinta",
+			"en": "Pinta Brewery"
+		},
+		"website": "www.browarpinta.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Zawiercie",
+		"style": [
+			"Limoncello Sour"
+		],
+		"extract": {
+			"value": 16.5,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 6.3,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "PINTA Kwas My 16,5° - słodki, kwaśny i cytrusowy - oto piwna alternatywa dla limoncello - włoskiego likieru cytrynowego. Do jasnego, zakwaszonego piwa dodaliśmy świeżo wyciśnięty sok z 800 kg pachnących cytrynek i dosłodziliśmy niefermentowalnym ksylitolem (cukier z brzozy) dla nadania efektu likieru i skontrowania kwaśności. W efekcie uzyskaliśmy słodkie, kwaśne i ekstremalnie cytrusowe piwo łączące mnóstwo smaku limoncello i przyjemną pijalność kwaśnego piwa.\n Kwas My - Włosi muszą nam wybaczyć tę bezczelność.",
+			en: "PINTA Kwas My - Sweet, sour and citrusy - a craft brewed alternative for Italiano Limoncello."
+		},
+		"ingredients": {
+			"pl": "woda, słód jęczmienny pilzneński, Carapils, słód pszeniczny jasny; chmiele: Liberty (US), Lubelski (PL); sok z cytryn; zest z cytryn; ksylitol; drożdże Fermentis SafAle US-05; bakterie kwasu mlekowego lactobacillus delbrueckii",
+		}
+		temp: 8-10
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905331026574,
+	"added": 1545492923286,
+	cena: 7.2 zł
+}
+
+wys 23
+
+{
+	"badge": "dzial-testowy-3",
+	"name": "Dział testowy #3",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Mleczny Stout z Jagodą Kamczacką"
+		],
+		"extract": {
+			"value": 21,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 6.8,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słody: jęczmienny, pszeniczny, jagoda kamczacka, laktoza, chmiel, drożdże",
+		}
+		temp: 12-14
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5906395388547,
+	"added": 1545493115117,
+	cena: 15.00
 }
 
 wys 23
