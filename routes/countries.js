@@ -15,34 +15,13 @@ router.get('/', (req, res, next) => {
 	db.getDb()
 		.db()
 		.collection('countries')
-		.find()
-		.forEach((country) => {
-			countries.push(country);
-		})
-		.then((result) => {
-			res
-				.status(200)
-				.json(countries);
-		})
-		.catch((err) => {
-			res
-				.status(500)
-				.json({ message: 'An error occured' });
-		});
-});
-
-router.get('/basics', (req, res, next) => {
-	const countries = [];
-
-	db.getDb()
-		.db()
-		.collection('countries')
 		.aggregate([
 			{
 				$project: {
+					code: 1,
 					_id: 0,
-					label: '$name.pl',
-					value: '$_id'
+					id: '$_id',
+					name: 1
 				}
 			},
 			{
@@ -62,6 +41,29 @@ router.get('/basics', (req, res, next) => {
 				.status(500)
 				.json({ message: 'An error occured' });
 		});
+});
+
+router.post('/', verifyToken, (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
+		if (err) {
+			res.sendStatus(403);
+		} else {
+			db.getDb()
+				.db()
+				.collection('countries')
+				.insertOne(req.body)
+				.then((result) => {
+					res
+						.status(200)
+						.json(result);
+				})
+				.catch((err) => {
+					res
+						.status(500)
+						.json({ message: 'An error occured' });
+				});
+		}
+	});
 });
 
 module.exports = router;
