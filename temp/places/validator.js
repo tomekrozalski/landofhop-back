@@ -9,13 +9,25 @@ db.createCollection("places", {
 					bsonType: "objectId",
 					description: "must be an objectId and is required"
 				},
-				city: {
-					bsonType: "string",
-					description: "must be a string"
+				locality: {
+					bsonType: "object",
+					additionalProperties: false,
+					description: "must be an object and is required",
+					required: ["language", "phrase"],
+					properties: {
+						language: {
+							enum: ["PL", "EN"],
+							description: "can only be one of the enum values and is required"
+						},
+						phrase: {
+							bsonType: "string",
+							description: "must be a string and is required"
+						},
+					}
 				},
 				country: {
-					bsonType: "string",
-					description: "must be a string and is required"
+					bsonType: "objectId",
+					description: "must be an objectId and is required"
 				},
 				institution: {
 					bsonType: "objectId",
@@ -47,26 +59,17 @@ db.createCollection("places", {
 });
 
 const sample = {
-	city: "Wrocław",
-	country: "PL",
+	country: ObjectId("5c17ab24edec5f6d01a75eb3"),
+	institution: ObjectId("5bbd038f5433eca56a6c00cb"),
+	locality: {
+		phrase: "Poznań",
+		language: "PL"
+	},
 	location: {
 		type: "Point",
 		coordinates: [
 			NumberDecimal("17.0592778"),
 			NumberDecimal("51.1317836")
-		]
-	}
-}
-
-const complete = {
-	city: "Wrocław",
-	country: "PL",
-	institution: ObjectId(),
-	location: {
-		type: "Point",
-		coordinates: [
-			17.0592778,
-			51.1317836
 		]
 	}
 }

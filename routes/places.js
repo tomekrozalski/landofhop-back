@@ -15,9 +15,41 @@ router.get('/', (req, res, next) => {
 	db.getDb()
 		.db()
 		.collection('places')
-		.find()
+		.aggregate([
+			{
+				$project: {
+					locality: '$locality.phrase',
+					_id: 0,
+					id: '$_id',
+					institution_id: '$institution'
+				}
+			},
+			{
+				$lookup: {
+					from: 'institutions',
+					localField: 'institution_id',
+					foreignField: '_id',
+					as: 'institution'
+				}
+			},
+			{
+				$unwind: {
+					path: '$institution',
+					preserveNullAndEmptyArrays: true,
+				}
+			},
+			{
+				$project: {
+					locality: 1,
+					id: 1,
+					institution: '$institution.name.phrase'
+				}
+			},
+			{
+				$sort: { city : 1 }
+			}
+		])
 		.forEach((place) => {
-			place.location.coordinates = place.location.coordinates.map(item => item.toString());
 			places.push(place);
 		})
 		.then((result) => {
@@ -39,15 +71,19 @@ router.post('/', verifyToken, (req, res) => {
 		} else {
 
 			const {
-				city,
 				country,
+				institution,
 				latitude,
+				locality,
 				longitude,
 			} = req.body;
 
 			const newPlace = {
-				city,
-				country,
+				country: ObjectId(country),
+				locality: {
+					phrase: locality.phrase,
+					language: locality.language,
+				},
 				location: {
 					type: "Point",
 					coordinates: [
@@ -56,6 +92,10 @@ router.post('/', verifyToken, (req, res) => {
 					]
 				}
 			};
+
+			if (institution) {
+				newPlace.institution = ObjectId(institution);
+			}
 
 			db.getDb()
 				.db()

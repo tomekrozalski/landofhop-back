@@ -57,7 +57,7 @@ router.get('/basics', (req, res) => {
 				}
 			},
 			{
-				$unwind: "$brand_info"
+				$unwind: '$brand_info'
 			},
 			{
 				$project: {
