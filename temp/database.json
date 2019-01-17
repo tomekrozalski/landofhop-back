@@ -13721,7 +13721,8 @@ wys 23
 		"unit": "liter"
 	},
 	"barcode": 5905279213845,
-	"added": 1542133902913
+	"added": 1542133902913,
+	cena: 9.50
 }
 
 wys 23
@@ -15850,6 +15851,271 @@ wys 25
 	goryczka : 3/6
 	temp: 8-10
 	cena: 9.20
+}
+
+wys 25
+
+{
+	"badge": "wyplata",
+	"name": "Wypłata",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Żytnie New England IPA"
+		],
+		"extract": {
+			"value": 14,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.3,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słody: jęczmienny, żytni, płatki żytnie, chmiel, drożdże",
+		}
+		temp: 9-12
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388615,
+	"added": 1547746892849,
+	cena: 9.80
+}
+
+wys 25
+
+{
+	"badge": "zaprawa",
+	"name": "Zaprawa",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	cooperation: Browar Widawa, Chrząstawa Mała
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Helles"?
+		],
+		"extract": {
+			"value": 12,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.3,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słody: jęczmienny, chmiel, drożdże",
+		}
+		temp: 4-7
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388578,
+	"added": 1547747053792,
+	cena: 7.80
+}
+
+wys 25
+
+{
+	"badge": "pan-portier",
+	"name": "Pan portier",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Porter bałtycki"
+		],
+		"extract": {
+			"value": 24,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 9.7,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słody: jęczmienny, pszeniczny, chmiel, drożdże",
+		}
+		temp: 7-10
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5906395388554,
+	"added": 1547747200359,
+	cena: 19.80
+}
+
+wys 25
+
+{
+	"badge": "taura",
+	"name": "Taura",
+	"producer": {
+		"badge": "browar-zapanbrat",
+		"name": {
+			"pl": "Browar Zapanbrat",
+			"en": "Zapanbrat Brewery"
+		},
+		"website": "www.zapanbrat.com"
+	},
+	"brewery": {
+		"badge": "trzech-kumpli",
+		"name": {
+			"pl": "Trzech Kumpli",
+			"en": "Trzech Kumpli"
+		},
+		"website": "www.trzechkumpli.pl"
+	},
+	"country": "PL",
+	"label": {
+		fermentation: top,
+		"city": "Żywiec",
+		"style": [
+			"NZ Double IPA"
+		],
+		"extract": {
+			"value": 18.5,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 6.6,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		górna fermentacja
+		"tale": {
+			"pl": "W maoryskiej szkole ezoterycznej na początku jesteś nowicjuszem pia, by w miarę uczenia się osiągnąć wyższy poziom i stać się ta(a z daszkiem)ura. Taura to nasze kolejne piwo, które prezentuje zapierający dech klimat chmielowych upraw z Kraju Długiej Białej Chmury. Ma zaskakujący aromat kokosa, limonki oraz kiwi, zaś w smaku ocieka soczystością tropikalnych owoców. Stonowana gorycz, imponujące ciało, alkoholu w sam raz, no i znowu: ogromne odczucie owocowości. Oczywiście nie użyliśmy żadnych owoców, dodatków ani aromatów. To chmiel wykonał całą robotę. Spróbujcie też pierwszego piwa z nowozelandzkiej serii - powójnego IPA - Taura."
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, płatki pszenne, płatki owsiane, słód pszeniczny, chmiel, drożdże",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905669479493,
+	"added": 1547747981702,
+	cena: 11.50
+}
+
+wys 25
+
+{
+	"badge": "ragnar",
+	"name": "Ragnar",
+	"producer": {
+		"badge": "browar-zapanbrat",
+		"name": {
+			"pl": "Browar Zapanbrat",
+			"en": "Zapanbrat Brewery"
+		},
+		"website": "www.zapanbrat.com"
+	},
+	"brewery": {
+		"badge": "trzech-kumpli",
+		"name": {
+			"pl": "Trzech Kumpli",
+			"en": "Trzech Kumpli"
+		},
+		"website": "www.trzechkumpli.pl"
+	},
+	"country": "PL",
+	"label": {
+		fermentation: bottom,
+		"city": "Żywiec",
+		"style": [
+			"Imperial Baltic Porter"
+		],
+		"extract": {
+			"value": 26,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 10.4,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		górna fermentacja
+		"tale": {
+			"pl": "Geneza porteru bałtyckiego sięga wojen napoleońskich i embarga, jakie Bonaparte nałożył na piwa angielskie importowane do kontynentalnej Europy. Dwór carycy Katarzyny II mocno odczuł brak rozgrzewającego, ciemnego piwa, co skrzętnie wykorzystali piwowarzy z krajów basenu Morza Bałtyckiego. Naśladując Anglików, zaczęli warzyć potężne, ciemne piwo, które zapełniło rynkową dziurę. Tak narodził się porter bałtycki, który dzisiaj nazywany jest piwowarskim skarbem Polski.\n Żeby było ciekawiej, uwarzyliśmy wzmocnioną, a więc \"imperialną\" wersję tego piwa. Spodziewajcie się zatem bardzo złożonego aromatu gorzkiej czekolady, melasy, orzechów, kawy, suszonych śliwek i wiśni. Smak to nie tylko przedłużenie aromatu, ale przede wszystkim gładka, oleista pełnia, zakończona wyraźną, ale nieprzytłaczającą goryczą.\n No dobrze, ale kim był Ragnar? Na pewno znajdziecie coś o nim w sieci… ;)"
+		},
+		"ingredients": {
+			"pl": "Woda, słody jęczmienne, słód pszeniczny, płatki owsiane, chmiel, drożdże",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905669479356,
+	"added": 1547750339260,
+	cena: 11.90
 }
 
 wys 25
