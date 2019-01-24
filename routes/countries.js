@@ -6,8 +6,6 @@ const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
-const Decimal128 = mongodb.Decimal128;
-const ObjectId = mongodb.ObjectId;
 
 router.get('/', (req, res, next) => {
 	const countries = [];

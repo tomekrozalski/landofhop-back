@@ -3,7 +3,7 @@ db.createCollection("languages", {
 		$jsonSchema: {
 			bsonType: "object",
 			additionalProperties: false,
-			required: ["_id", "code", "name"],
+			required: ["_id", "code", "name", "nanoId"],
 			properties: {
 				_id: {
 					bsonType: "objectId",
@@ -28,6 +28,10 @@ db.createCollection("languages", {
 							description: "must be a string and is required"
 						},
 					}
+				},
+				nanoId: {
+					bsonType: "string",
+					description: "must be a string and is required"
 				}
 			}
 		}
@@ -39,5 +43,6 @@ const sample = {
 	name: {
 		en: "Polish",
 		pl: "Polski"
-	}
+	},
+	nanoId: NanoId
 };
