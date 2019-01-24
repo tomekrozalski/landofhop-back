@@ -3656,6 +3656,7 @@
 		"cap": true
 	},
 	"added": 1509036487198
+	cena: 10.50 (24.01.2019)
 }
 {
 	"badge": "pear-time",
@@ -6885,6 +6886,7 @@
 		"cap": false
 	},
 	"added": 1514722235466
+	cena: 8.10 (24.01.2019)
 }
 {
 	"badge": "golden-monk",
@@ -8295,6 +8297,7 @@ wys 23
 	},
 	"barcode": 5904730658331,
 	"added": 1518375887661
+	cena: 8.00 (24.01.2019)
 }
 
 wys 25
@@ -11226,6 +11229,7 @@ wys 25
 	},
 	"barcode": 5905279959521,
 	"added": 1528483584037
+	cena: 8.20 (24.01.2019)
 }
 
 wys 25
@@ -14206,7 +14210,7 @@ wys 25
 	},
 	"barcode": 5903240620524,
 	"added": 1543522263352,
-	cena: 8.50
+	cena: 8.50 + 8.50 (24.01.2019)
 }
 
 wys 25
@@ -16116,6 +16120,168 @@ wys 25
 	"barcode": 5905669479356,
 	"added": 1547750339260,
 	cena: 11.90
+}
+
+wys 25
+
+{
+	"badge": "mleczarz",
+	"name": "Mleczarz",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Mleczny Stout"
+		],
+		"extract": {
+			"value": 16,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, laktoza, chmiel, drożdże",
+		}
+		temp: 10-13
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388134,
+	"added": 1548350179059,
+	cena: 9.00
+}
+
+wys 25
+
+{
+	"badge": "turbo-geezer",
+	"name": "Turbo Geezer",
+	"producer": {
+		browar zarzecze
+	},
+	"brewery": {
+		"badge": "browar-kingpin",
+		"name": {
+			"pl": "Browar Kingpin",
+			"en": "Kingpin Brewery"
+		},
+		"website": "browarkingpin.pl"
+	},
+	cooperation: Brisman Crew,
+	"country": "PL",
+	"label": {
+		fermentation: top
+		"city": "Zarzecze / Pietrzykowice",
+		"style": [
+			"Double Irish Espresso Stout"
+			"Foreign Extra Stout z espresso, wanilią i laktozą"
+		],
+		"extract": {
+			"value": 19.1,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 8.3,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Geezer z turbodoładowaniem to wyższy ekstrakt i jeszcze więcej kawy, wanilii burbońskiej i laktozy! W składzie espresso zaparzone przez mistrzowską ekipę Brisman Crew z jednorodnej kawy brazylijskiej odmiany Yellow Bourbon, aromatyczna wanilia burbońska oraz dająca łagodność i aksamitność laktoza. Do tego sprawdzona kompozycja słodów i leżakowanie z płatkami dębowymi whisky."
+		},
+		"ingredients": {
+			"pl": "Woda, słody jęczmienne: pale ale, whisky light, czekoladowy, Arome, Abbey, Cara Blond, barwiący; słód pszeniczny jasny; słód żytni; palony jęczmień; chmiele: Cascade, Amarillo, Simcoe, kawa; laktoza; wanilia burbońska; cukier kandyzowany ciemny; drożdże S-04",
+		}
+		leżakowane z płatkami dębowymi whisky
+		temp: 10-13 C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730290050,
+	"added": 1548351191058,
+	cena: 10.30
+}
+
+wys 25
+
+{
+	"badge": "faster",
+	"name": "Faster",
+	"producer": {
+		browar zarzecze
+	},
+	"brewery": {
+		"badge": "browar-kingpin",
+		"name": {
+			"pl": "Browar Kingpin",
+			"en": "Kingpin Brewery"
+		},
+		"website": "browarkingpin.pl"
+	},
+	"country": "PL",
+	"label": {
+		fermentation: top
+		"city": "Zarzecze / Pietrzykowice",
+		"style": [
+			"Cascade Single Hop IPA z calamansi",
+			"Single Hop India Pale Ale z Calamansi"
+		],
+		"extract": {
+			"value": 14.0,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 6.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Połączenie konkretnej odmiany chmielu z wyselekcjonowanym owocem zdobyło nasze serca. Cascade i jego wyraźnie cytrusowy świeży aromat z delikatnymi nutami kwiatowymi, połączyliśmy z calamansi, które podkreśla naturalnie cytrusowe cechy chmielu i wprowadza jeszcze więcej orzeźwiającego odczucia w ustach."
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny pilzneński, chmiel: Cascade, puree z calamansi, drożdże: fermentis Safale US-05",
+		}
+		temp: 8-12 C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730290500,
+	"added": 1548352155225,
+	cena: 8.55
 }
 
 wys 25
