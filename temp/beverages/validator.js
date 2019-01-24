@@ -394,19 +394,33 @@ const simple = {
 const sample = {
 	"badge": "piwo-misiowe",
 	"label": {
-		"name": {
-			pl: "Piwo misiowe",
-			en: "Teddy Beer"
-		},
+		"name": [
+			{
+				phrase: "Piwo misiowe",
+				language: ObjectId(),
+			},
+			{
+				phrase: "Teddy Beer",
+				language: ObjectId(),
+			}
+		],
 		"series": [
-			{ pl: "misiowi przyjaciele" }
+			{
+				phrase: "misiowi przyjaciele",
+				language: ObjectId(),
+			}
 		],
 		"brand": "objectId",
 		"cooperation": ["objectId"],
 		"contract": "objectId",
 		"placeOfProduction": "objectId",
 		"fermentation": [enum("top", "bottom", "spontaneous")],
-		"style": ["string"],
+		"style": [
+			{
+				phrase: "Porzeczkowe ale",
+				language: ObjectId(),
+			}
+		],
 		"filtered": "bool",
 		"pasteurized": "bool",
 		"containsSmokedMalt": "bool",
@@ -415,7 +429,7 @@ const sample = {
 		"extract": {
 			"relate": enum("weight", "blg", "plato"),
 			"unit": enum("percent", "degree"),
-	  		"value": NumberDecimal("5.30")
+			"value": NumberDecimal("5.30")
 		},
 		"alcohol": {
 			"relate": enum("capacity", "abv"),
@@ -423,14 +437,20 @@ const sample = {
 			"value": NumberDecimal("5.30"),
 			"scope": enum("-0.5", "+/-0.5", "+/-1.0")
 		},
-		"tale": {
-			"en": "string",
-			"pl": "string"
-		},
+		"tale": [
+			{
+				phrase: "Jakaś opowieść",
+				language: ObjectId(),
+			}
+		],
 		"ingredients": {
 			"complete": "bool",
-			"en": "string",
-			"pl": "string",
+			"value": [
+				{
+					phrase: "Składników lista",
+					language: ObjectId(),
+				}
+			],
 		},
 		"impressions": {
 			"bitterness": NumberInt("50"),
@@ -443,7 +463,7 @@ const sample = {
 			"fullness": NumberInt("50"),
 			"color": "string",
 			"power": NumberInt("50"),
-	  		"hoppyness": NumberInt("50")
+			"hoppyness": NumberInt("50")
 		},
 		"expiration": {
 			"value": NumberInt("50"),
