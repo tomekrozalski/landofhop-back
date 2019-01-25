@@ -1,6 +1,7 @@
 const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
+const nanoid = require('nanoid');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
@@ -9,7 +10,7 @@ const router = Router();
 const Decimal128 = mongodb.Decimal128;
 const ObjectId = mongodb.ObjectId;
 
-router.get('/', (req, res, next) => {
+router.get('/list/:lang', (req, res, next) => {
 	const places = [];
 
 	db.getDb()
@@ -18,7 +19,9 @@ router.get('/', (req, res, next) => {
 		.aggregate([
 			{
 				$project: {
-					locality: '$locality.phrase',
+					city: {
+						$slice: ['$city', 1],
+					},
 					_id: 0,
 					id: '$_id',
 					institution_id: '$institution'
@@ -39,14 +42,20 @@ router.get('/', (req, res, next) => {
 				}
 			},
 			{
-				$project: {
-					locality: 1,
-					id: 1,
-					institution: '$institution.name.phrase'
+				$unwind: {
+					path: '$city',
 				}
 			},
 			{
-				$sort: { city : 1 }
+				$project: {
+					label: {
+						$concat: ['$city.value', ' (', '$institution.name.phrase', ')']
+					},
+					value: '$id'
+				}
+			},
+			{
+				$sort: { label : 1 }
 			}
 		])
 		.forEach((place) => {
@@ -71,30 +80,30 @@ router.post('/', verifyToken, (req, res) => {
 		} else {
 
 			const {
+				city,
 				country,
 				institution,
 				latitude,
-				locality,
 				longitude,
 			} = req.body;
 
+			console.log('req.body', req.body);
+
 			const newPlace = {
 				country: ObjectId(country),
-				locality: {
-					phrase: locality.phrase,
-					language: locality.language,
-				},
-				location: {
+				city,
+				institution: ObjectId(institution),
+				short_id: nanoid(6),
+			};
+
+			if (latitude && longitude) {
+				newPlace.location = {
 					type: "Point",
 					coordinates: [
 						Decimal128.fromString(longitude),
 						Decimal128.fromString(latitude)
 					]
 				}
-			};
-
-			if (institution) {
-				newPlace.institution = ObjectId(institution);
 			}
 
 			db.getDb()
@@ -116,21 +125,21 @@ router.post('/', verifyToken, (req, res) => {
 	});
 });
 
-router.get('/:id', (req, res, next) => {
-	db.getDb()
-		.db()
-		.collection('places')
-		.findOne({ _id: new ObjectId(req.params.id) })
-		.then((result) => {
-			res
-				.status(200)
-				.json(result);
-		})
-		.catch((err) => {
-			res
-				.status(500)
-				.json({ message: 'An error occured' });
-		});
-});
+// router.get('/:id', (req, res, next) => {
+// 	db.getDb()
+// 		.db()
+// 		.collection('places')
+// 		.findOne({ _id: new ObjectId(req.params.id) })
+// 		.then((result) => {
+// 			res
+// 				.status(200)
+// 				.json(result);
+// 		})
+// 		.catch((err) => {
+// 			res
+// 				.status(500)
+// 				.json({ message: 'An error occured' });
+// 		});
+// });
 
 module.exports = router;

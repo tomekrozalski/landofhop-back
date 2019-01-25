@@ -28,7 +28,7 @@ db.createCollection("countries", {
 							},
 							"value": {
 								bsonType: "string",
-								description: "must be a string"
+								description: "must be a string and is required"
 							}
 						}
 					}

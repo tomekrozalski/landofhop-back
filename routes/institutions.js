@@ -1,37 +1,13 @@
 const Router = require('express').Router;
-const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
-
-const ObjectId = mongodb.ObjectId;
+const nanoid = require('nanoid');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
-router.get('/', (req, res, next) => {
-	const institutions = [];
-
-	db.getDb()
-		.db()
-		.collection('institutions')
-		.find()
-		.forEach((institution) => {
-			institutions.push(institution);
-		})
-		.then((result) => {
-			res
-				.status(200)
-				.json(institutions);
-		})
-		.catch((err) => {
-			res
-				.status(500)
-				.json({ message: 'An error occured' });
-		});
-});
-
-router.get('/basics', (req, res) => {
+router.get('/list', (req, res) => {
 	const institutions = [];
 
 	db.getDb()
@@ -64,23 +40,6 @@ router.get('/basics', (req, res) => {
 		});
 });
 
-router.get('/:id', (req, res, next) => {
-	db.getDb()
-		.db()
-		.collection('institutions')
-		.findOne({ _id: new ObjectId(req.params.id) })
-		.then((result) => {
-			res
-				.status(200)
-				.json(result);
-		})
-		.catch((err) => {
-			res
-				.status(500)
-				.json({ message: 'An error occured' });
-		});
-});
-
 router.post('/', verifyToken, (req, res) => {
 	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
 		if (err) {
@@ -89,7 +48,10 @@ router.post('/', verifyToken, (req, res) => {
 			db.getDb()
 				.db()
 				.collection('institutions')
-				.insertOne(req.body)
+				.insertOne({
+					short_id: nanoid(6),
+					...req.body,
+				})
 				.then((result) => {
 					res
 						.status(200)

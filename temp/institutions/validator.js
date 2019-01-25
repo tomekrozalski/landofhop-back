@@ -3,7 +3,7 @@ db.createCollection("institutions", {
 		$jsonSchema: {
 			bsonType: "object",
 			additionalProperties: false,
-			required: ["_id", "badge", "name"],
+			required: ["_id", "badge", "name", "short_id"],
 			properties: {
 				_id: {
 					bsonType: "objectId",
@@ -28,6 +28,10 @@ db.createCollection("institutions", {
 							description: "must be a string"
 						}
 					}
+				},
+				short_id: {
+					bsonType: "string",
+					description: "must be a string and is required"
 				},
 				website: {
 					bsonType: "string",

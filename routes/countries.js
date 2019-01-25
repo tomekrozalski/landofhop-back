@@ -6,7 +6,7 @@ const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
-router.get('/list', (req, res, next) => {
+router.get('/list/:lang', (req, res, next) => {
 	const countries = [];
 
 	db.getDb()
@@ -25,7 +25,7 @@ router.get('/list', (req, res, next) => {
 			},
 			{
 				$match: {
-					'name.language': req.query.lang
+					'name.language': req.params.lang
 				}
 			},
 			{
