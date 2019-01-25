@@ -7,7 +7,7 @@ const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
-router.get('/', (req, res, next) => {
+router.get('/list', (req, res, next) => {
 	const countries = [];
 
 	db.getDb()
@@ -16,14 +16,13 @@ router.get('/', (req, res, next) => {
 		.aggregate([
 			{
 				$project: {
-					code: 1,
 					_id: 0,
-					id: '$_id',
-					name: 1
+					value: '$_id',
+					label: '$name'
 				}
 			},
 			{
-				$sort: { name : 1 }
+				$sort: { label : 1 }
 			}
 		])
 		.forEach((country) => {
