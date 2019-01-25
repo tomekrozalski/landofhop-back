@@ -8,7 +8,6 @@ const authRoutes = require('./routes/auth');
 const beverageRoutes = require('./routes/beverages');
 const countryRoutes = require('./routes/countries');
 const institutionRoutes = require('./routes/institutions');
-const languageRoutes = require('./routes/languages');
 const placeRoutes = require('./routes/places');
 
 const db = require('./db');
@@ -35,7 +34,6 @@ app.use('/', authRoutes);
 app.use('/beverages', beverageRoutes);
 app.use('/countries', countryRoutes);
 app.use('/institutions', institutionRoutes);
-app.use('/languages', languageRoutes);
 app.use('/places', placeRoutes);
 
 db.initDb((err, db) => {

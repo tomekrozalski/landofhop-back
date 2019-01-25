@@ -1,5 +1,4 @@
 const Router = require('express').Router;
-const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 
 const db = require('../db');
@@ -18,7 +17,21 @@ router.get('/list', (req, res, next) => {
 				$project: {
 					_id: 0,
 					value: '$_id',
-					label: '$name'
+					name: 1
+				}
+			},
+			{ 
+				$unwind: '$name'
+			},
+			{
+				$match: {
+					'name.language': req.query.lang
+				}
+			},
+			{
+				$project: {
+					value: 1,
+					label: '$name.value'
 				}
 			},
 			{
@@ -26,6 +39,7 @@ router.get('/list', (req, res, next) => {
 			}
 		])
 		.forEach((country) => {
+			console.log('country', country);
 			countries.push(country);
 		})
 		.then((result) => {

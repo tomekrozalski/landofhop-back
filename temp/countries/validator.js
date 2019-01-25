@@ -14,19 +14,23 @@ db.createCollection("countries", {
 					description: "must be a string and is required"
 				},
 				name: {
-					bsonType: "object",
-					additionalProperties: false,
-					description: "must be an object and is required",
-					required: ["en", "pl"],
-					properties: {
-						en: {
-							bsonType: "string",
-							description: "must be a string and is required"
-						},
-						pl: {
-							bsonType: "string",
-							description: "must be a string and is required"
-						},
+					bsonType: "array",
+					description: "must be an array",
+					items: {
+						bsonType: "object",
+						description: "must be an object",
+						additionalProperties: false,
+						required: ["language", "value"],
+						properties: {
+							"language": {
+								enum: ["en", "pl"],
+								description: "can only be one of the enum values and is required"
+							},
+							"value": {
+								bsonType: "string",
+								description: "must be a string"
+							}
+						}
 					}
 				}
 			}
@@ -35,9 +39,15 @@ db.createCollection("countries", {
 });
 
 const sample = {
-	code: "PL",
-	name: {
-		en: "Poland",
-		pl: "Polska"
-	}
+	code: "pl",
+	name: [
+		{
+			language: "en",
+			value: "Poland" 
+		},
+		{
+			language: "pl",
+			value: "Polska" 
+		}
+	]
 };
