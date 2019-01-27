@@ -16285,3 +16285,104 @@ wys 25
 }
 
 wys 25
+
+{
+	"badge": "porter-baltycki-2018",
+	"name": "Porter bałtycki 2018",
+	seria: Komes
+	"brewery": {
+		"badge": "browar-fortuna",
+		"name": {
+			"pl": "Browar Fortuna",
+			"en": "Fortuna Brewery"
+		},
+		"website": "www.browarfortuna.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Miłosław",
+		"style": [
+			"Porter bałtycki"
+		],
+		"extract": {
+			"value": 21,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"pasteurized": true,
+		"tale": {
+			"pl": "Komes Porter bałtycki z Browaru Fortuna to jeden z najlepszych porterów bałtyckich na świecie i jednocześnie jedno z najbardziej docenianych polskich piw.\n\n Nagrodzony złotym medalem w konkursie European Beer Star 2013 w Bawarii - najbardziej prestiżowym i największym profesjonalnym konkursie piw w Europie i trzecim najważniejszym na świecie. Zdobywca brązowego medalu na największym konkursie piwnym na świecie - World Cup 2014, nazywanym \"Olimpadą piw\". \n\n Warzyliśmy nasze piwo niespiesznie, poświęcając mu wiele czasu i troski - ciesz się nim w ten sam sposób, powoli odkrywając bogactwo jego smaku."
+		},
+		"ingredients": {
+			"pl": "Woda, słody jęczmienne (pilzneński, palony, karmelowy, ekstrakt słodowy, chmiel odmian goryczkowych, drożdże dolnej fermentacji W34/70",
+		}
+		temp: 10-12
+		dolna fermentacja
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5902709615194,
+	"added": 1548594273690
+}
+
+wys 24.5
+
+{
+	"badge": "grodziska-apa",
+	"name": "Grodziska APA",
+	"brewery": {
+		"badge": "browar-grodzisk",
+		"name": {
+			"pl": "Browar w Grodzisku Wielkopolskim",
+			"en": "Grodzisk Brewery"
+		}
+		browargodzisk.com
+	},
+	"country": "PL",
+	"label": {
+		"city": "Grodzisk Wielkopolski",
+		"style": [
+			"APA"
+		],
+		"extract": {
+			"value": 12.5,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"pasteurized": true,
+		"tale": {
+			"pl": "Za każdym naszym piwem stoi 700 lat tradycji grodziskiego piwowarstwa. Ciągle szukamy jednak piwnych wyzwań, tworząc nowe receptury i sięgając po oryginalne dodatki. Niebanalność to nasza tradycja.\n\n Grodziska APA to nasza wizja American Pale Ale. Piwo warzymy na oryginalnych drożdżach grodziskich z autorską kompozycją polskich odmian chmielu. Odkryjesz w nim aromaty ziołowe, cytrusowe i owocowe oraz dobrze zbalansowaną goryczkę. W smaku chmielowo-słodowe z delikatnym akcentem karmelowym, pijalne i bardzo orzeźwiające."
+		},
+		"ingredients": {
+			"pl": "Woda z Godziska Wielkopolskiego, słody jęczmienne: pilzneński, karmelowy jasny, słód pszeniczny suszony dymem dębowym, chmiel: Cascade PL, Lubelski, Marynka, Magnum PL, drożdże \"grodziskie\"",
+		}
+		temp: 8-12
+		ibu: 32
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279533233,
+	"added": 1548594747712
+}
+
+wys 24.5
