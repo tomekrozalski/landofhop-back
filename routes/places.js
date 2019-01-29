@@ -10,7 +10,7 @@ const router = Router();
 const Decimal128 = mongodb.Decimal128;
 const ObjectId = mongodb.ObjectId;
 
-router.get('/list/:lang', (req, res, next) => {
+router.get('/list', (req, res, next) => {
 	const places = [];
 
 	db.getDb()

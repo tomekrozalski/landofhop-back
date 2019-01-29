@@ -396,12 +396,12 @@ const sample = {
 	"label": {
 		"name": [
 			{
+				language: 'pl',
 				phrase: "Piwo misiowe",
-				language: ObjectId(),
 			},
 			{
+				language: 'en',
 				phrase: "Teddy Beer",
-				language: ObjectId(),
 			}
 		],
 		"series": [

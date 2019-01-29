@@ -14,18 +14,22 @@ db.createCollection("institutions", {
 					description: "must be a string and is required"
 				},
 				name: {
-					bsonType: "object",
-					additionalProperties: false,
-					description: "must be an object and is required",
-					required: ["phrase"],
-					properties: {
-						phrase: {
-							bsonType: "string",
-							description: "must be a string and is required"
-						},
-						language: {
-							bsonType: "string",
-							description: "must be a string"
+					bsonType: "array",
+					description: "must be an array and is required",
+					items: {
+						bsonType: "object",
+						description: "must be an object",
+						additionalProperties: false,
+						required: ["value"],
+						properties: {
+							"language": {
+								enum: ["en", "pl", "de"],
+								description: "can only be one of the enum values"
+							},
+							"value": {
+								bsonType: "string",
+								description: "must be a string and is required"
+							}
 						}
 					}
 				},
@@ -45,3 +49,18 @@ db.createCollection("institutions", {
 		}
 	}
 });
+
+const sample = {
+	"badge": "misiowe",
+	"name": [
+		{
+			"language": "pl",
+			"value": "Browar Misiowy"
+		},
+		{
+			"language": "en",
+			"value": "Teddy Brewery"
+		}
+	],
+	"short_id": "DdEeWw"
+}

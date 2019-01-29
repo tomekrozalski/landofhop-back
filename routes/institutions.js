@@ -17,12 +17,25 @@ router.get('/list', (req, res) => {
 			{
 				$project: {
 					_id: 0,
+					name: {
+						$slice: ['$name', 1],
+					},
 					value: '$_id',
-					label: '$name.phrase'
 				}
 			},
 			{
-				$sort: { label : 1 }
+				$unwind: {
+					path: '$name',
+				}
+			},
+			{
+				$project: {
+					label: '$name.value',
+					value: 1,
+				}
+			},
+			{
+				$sort: { name : 1 }
 			}
 		])
 		.forEach((institution) => {

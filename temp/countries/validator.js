@@ -15,7 +15,7 @@ db.createCollection("countries", {
 				},
 				name: {
 					bsonType: "array",
-					description: "must be an array",
+					description: "must be an array and is required",
 					items: {
 						bsonType: "object",
 						description: "must be an object",
