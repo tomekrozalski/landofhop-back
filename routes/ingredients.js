@@ -20,7 +20,6 @@ router.get('/list', (req, res) => {
 					name: {
 						$slice: ['$name', 1],
 					},
-					type: 1,
 				}
 			},
 			{ 
@@ -57,11 +56,8 @@ router.post('/', verifyToken, (req, res) => {
 		} else {
 			db.getDb()
 				.db()
-				.collection('institutions')
-				.insertOne({
-					short_id: nanoid(6),
-					...req.body,
-				})
+				.collection('ingredients')
+				.insertOne(req.body)
 				.then((result) => {
 					res
 						.status(200)
