@@ -6,45 +6,42 @@ const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
-router.get('/list/:lang', (req, res, next) => {
-	const countries = [];
+router.get('/list', (req, res) => {
+	const ingredients = [];
 
 	db.getDb()
 		.db()
-		.collection('countries')
+		.collection('ingredients')
 		.aggregate([
 			{
 				$project: {
 					_id: 0,
-					value: '$_id',
-					name: 1
+					badge: 1,
+					name: {
+						$slice: ['$name', 1],
+					},
+					type: 1,
 				}
 			},
 			{ 
 				$unwind: '$name'
 			},
 			{
-				$match: {
-					'name.language': req.params.lang
-				}
-			},
-			{
 				$project: {
-					value: 1,
-					label: '$name.value'
+					value: '$badge',
+					label: '$name.value',
+					type: 1,
 				}
 			},
-			{
-				$sort: { label : 1 }
-			}
 		])
-		.forEach((country) => {
-			countries.push(country);
+		.forEach((ingredient) => {
+			ingredients.push(ingredient);
+			console.log('ingredients', ingredients);
 		})
 		.then((result) => {
 			res
 				.status(200)
-				.json(countries);
+				.json(ingredients);
 		})
 		.catch((err) => {
 			res
@@ -60,8 +57,11 @@ router.post('/', verifyToken, (req, res) => {
 		} else {
 			db.getDb()
 				.db()
-				.collection('countries')
-				.insertOne(req.body)
+				.collection('institutions')
+				.insertOne({
+					short_id: nanoid(6),
+					...req.body,
+				})
 				.then((result) => {
 					res
 						.status(200)

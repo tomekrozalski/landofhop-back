@@ -48,8 +48,22 @@ router.get('/list', (req, res, next) => {
 			},
 			{
 				$project: {
+					city: 1,
+					id: 1,
+					institution: {
+						$slice: ['$institution.name', 1],
+					}
+				}
+			},
+			{
+				$unwind: {
+					path: '$institution',
+				}
+			},
+			{
+				$project: {
 					label: {
-						$concat: ['$city.value', ' (', '$institution.name.phrase', ')']
+						$concat: ['$city.value', ' (', '$institution.value', ')']
 					},
 					value: '$id'
 				}
@@ -83,25 +97,24 @@ router.post('/', verifyToken, (req, res) => {
 				city,
 				country,
 				institution,
-				latitude,
-				longitude,
+				location,
 			} = req.body;
 
 			console.log('req.body', req.body);
 
 			const newPlace = {
-				country: ObjectId(country),
 				city,
+				country: ObjectId(country),
 				institution: ObjectId(institution),
 				short_id: nanoid(6),
 			};
 
-			if (latitude && longitude) {
+			if (location) {
 				newPlace.location = {
 					type: "Point",
 					coordinates: [
-						Decimal128.fromString(longitude),
-						Decimal128.fromString(latitude)
+						Decimal128.fromString(location.latitude),
+						Decimal128.fromString(location.longitude),
 					]
 				}
 			}
