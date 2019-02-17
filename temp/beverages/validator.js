@@ -7,11 +7,15 @@ db.createCollection("beverages", {
 		$jsonSchema: {
 			bsonType: "object",
 			additionalProperties: false,
-			required: ["_id", "badge", "label", "container", "added"],
+			required: ["_id", "badge", "label", "container", "added", "short_id"],
 			properties: {
 				_id: {
 					bsonType: "objectId",
 					description: "must be an objectId and is required"
+				},
+				short_id: {
+					bsonType: "string",
+					description: "must be a string and is required"
 				},
 				badge: {
 					bsonType: "string",
@@ -24,34 +28,43 @@ db.createCollection("beverages", {
 					required: ["name", "brand"],
 					properties: {
 						name: {
-							bsonType: "object",
-							additionalProperties: false,
-							description: "must be an object and is required",
-							properties: {
-								"en": {
-									bsonType: "string",
-									description: "must be a string"
-								},
-								"pl": {
-									bsonType: "string",
-									description: "must be a string"
-								}
-							}
-						},
-						series: {
 							bsonType: "array",
-							description: "must be an array",
+							minimum: 1,
+							description: "must be an array and is required",
 							items: {
 								bsonType: "object",
+								additionalProperties: false,
 								description: "must be an object",
+								required: ["value"],
 								properties: {
-									"en": {
+									"language": {
 										bsonType: "string",
 										description: "must be a string"
 									},
-									"pl": {
+									"value": {
+										bsonType: "string",
+										description: "must be a string and is required"
+									}
+								}
+							}	
+						},
+						series: {
+							bsonType: "array",
+							minimum: 1,
+							description: "must be an array",
+							items: {
+								bsonType: "object",
+								additionalProperties: false,
+								description: "must be an object",
+								required: ["value"],
+								properties: {
+									"language": {
 										bsonType: "string",
 										description: "must be a string"
+									},
+									"value": {
+										bsonType: "string",
+										description: "must be a string and is required"
 									}
 								}
 							}
@@ -89,31 +102,23 @@ db.createCollection("beverages", {
 						style: {
 							bsonType: "array",
 							minimum: 1,
-							description: "must be an array of strings",
+							description: "must be an array",
 							items: {
-								bsonType: "string",
-								description: "must be a string",
+								bsonType: "object",
+								additionalProperties: false,
+								description: "must be an object",
+								required: ["value"],
+								properties: {
+									"language": {
+										bsonType: "string",
+										description: "must be a string"
+									},
+									"value": {
+										bsonType: "string",
+										description: "must be a string and is required"
+									}
+								}
 							}
-						},
-						filtered: {
-							bsonType: "bool",
-							description: "must be a boolean"
-						},
-						pasteurized: {
-							bsonType: "bool",
-							description: "must be a boolean"
-						},
-						containsSmokedMalt: {
-							bsonType: "bool",
-							description: "must be a boolean"
-						},
-						refermentedInContainer: {
-							bsonType: "bool",
-							description: "must be a boolean"
-						},
-						dryHopped: {
-							bsonType: "bool",
-							description: "must be a boolean"
 						},
 						extract: {
 							bsonType: "object",
@@ -154,44 +159,89 @@ db.createCollection("beverages", {
 									description: "must be a decimal and is required"
 								},
 								scope: {
-									enum: ["-0.5", "+/-0.5", "+/-1.0"],
+									enum: ["<0.5%", "±0.5%", "±1.0%"],
 									description: "can only be one of the enum values"
 								}
 							}
 						},
+						filtered: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
+						pasteurized: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
+						refermentedInContainer: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
+						cellared: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
 						tale: {
-							bsonType: "object",
-							additionalProperties: false,
-							description: "must be an object",
-							properties: {
-								pl: {
-									bsonType: "string",
-									description: "must be a string"
-								},
-								en: {
-									bsonType: "string",
-									description: "must be a string"
+							bsonType: "array",
+							minimum: 1,
+							description: "must be an array",
+							items: {
+								bsonType: "object",
+								additionalProperties: false,
+								description: "must be an object",
+								required: ["value"],
+								properties: {
+									"language": {
+										bsonType: "string",
+										description: "must be a string"
+									},
+									"value": {
+										bsonType: "string",
+										description: "must be a string and is required"
+									}
 								}
 							}
 						},
 						ingredients: {
-							bsonType: "object",
-							additionalProperties: false,
-							description: "must be an object",
-							properties: {
-								complete: {
-									bsonType: "bool",
-									description: "must be a boolean"
-								},
-								pl: {
-									bsonType: "string",
-									description: "must be a string"
-								},
-								en: {
-									bsonType: "string",
-									description: "must be a string"
+							bsonType: "array",
+							minimum: 1,
+							description: "must be an array",
+							items: {
+								bsonType: "object",
+								additionalProperties: false,
+								description: "must be an object",
+								required: ["value"],
+								properties: {
+									"language": {
+										bsonType: "string",
+										description: "must be a string"
+									},
+									"value": {
+										bsonType: "string",
+										description: "must be a string and is required"
+									}
 								}
 							}
+						},
+						ingredientsList: {
+							bsonType: "array",
+							minimum: 1,
+							description: "must be an array",
+							items: {
+								bsonType: "objectId",
+								description: "must be an objectId"
+							}
+						},
+						ingredientsComplete: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
+						containsSmokedMalt: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
+						dryHopped: {
+							bsonType: "bool",
+							description: "must be a boolean"
 						},
 						impressions: {
 							bsonType: "object",
@@ -227,10 +277,6 @@ db.createCollection("beverages", {
 									minimum: 0,
 									maximum: 100,
 									description: "must be an integer in [ 0, 100 ]"
-								},
-								color: {
-									bsonType: "string",
-									description: "must be a string"
 								},
 								temperature: {
 									bsonType: "object",
@@ -274,45 +320,9 @@ db.createCollection("beverages", {
 								}
 							}
 						},
-						cellared: {
-							bsonType: "object",
-							additionalProperties: false,
-							description: "must be an object",
-							required: ["value", "unit"],
-							properties: {
-								value: {
-									bsonType: "int",
-									description: "must be an integer and is required"
-								},
-								unit: {
-									enum: ["day", "month", "year"],
-									description: "can only be one of the enum values and is required"
-								}
-							}
-						},
 						barcode: {
-							bsonType: "long",
-							description: "must be a long"
-						}
-					}
-				},
-				price: {
-					bsonType: "array",
-					description: "must be an array",
-					items: {
-						bsonType: "object",
-						additionalProperties: false,
-						description: "must be an object",
-						required: ["value", "currency"],
-						properties: {
-							value: {
-								bsonType: "decimal",
-								description: "must be a decimal and is required"
-							},
-							currency: {
-								enum: ["PLN", "EUR"],
-								description: "can only be one of the enum values and is required"
-							}
+							bsonType: "string",
+							description: "must be a string"
 						}
 					}
 				},
@@ -341,6 +351,35 @@ db.createCollection("beverages", {
 						value: {
 							bsonType: "decimal",
 							description: "must be a decimal and is required"
+						},
+						hasCapWireFlip: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						}
+					}
+				},
+				price: {
+					bsonType: "array",
+					minimum: 1,
+					description: "must be an array",
+					items: {
+						bsonType: "object",
+						additionalProperties: false,
+						description: "must be an object",
+						required: ["value", "currency", "date"],
+						properties: {
+							date: {
+								bsonType: "date",
+								description: "must be a date and is required"
+							},
+							value: {
+								bsonType: "decimal",
+								description: "must be a decimal and is required"
+							},
+							currency: {
+								enum: ["PLN", "EUR"],
+								description: "can only be one of the enum values and is required"
+							}
 						}
 					}
 				},
@@ -352,7 +391,7 @@ db.createCollection("beverages", {
 						color: {
 							bsonType: "string",
 							pattern: "#([a-f\d]){6}",
-							description: "must be a string"
+							description: "must be a hex string"
 						},
 						clarity: {
 							enum: ["crystalline", "clear", "opalescent", "misty", "hazy", "muddy"],
@@ -373,59 +412,47 @@ db.createCollection("beverages", {
 	}
 })
 
-const simple = {
-	badge: "test-badge",
-	label: {
-		name: {
-			pl: "Test badge"
-		},
-		brand: ObjectId("5bbd04bc5433eca56a6c00cf")
-	},
-	container: {
-		color: "brown",
-		material: "glass",
-		unit: "ml",
-		type: "bottle",
-		value: NumberDecimal("500")
-	},
-	added: new Date()
-}
 
 const sample = {
+	1)
+
 	"badge": "piwo-misiowe",
 	"label": {
 		"name": [
 			{
-				language: 'pl',
-				phrase: "Piwo misiowe",
+				language: "pl",
+				value: "Piwo misiowe",
 			},
 			{
-				language: 'en',
-				phrase: "Teddy Beer",
+				value: "Teddy Beer",
 			}
 		],
 		"series": [
 			{
-				phrase: "misiowi przyjaciele",
-				language: ObjectId(),
+				language: "pl",
+				value: "Niebieska",
+			},
+			{
+				value: "Blue",
 			}
 		],
 		"brand": "objectId",
 		"cooperation": ["objectId"],
 		"contract": "objectId",
+
+		2)
+		
 		"placeOfProduction": "objectId",
 		"fermentation": [enum("top", "bottom", "spontaneous")],
 		"style": [
 			{
-				phrase: "Porzeczkowe ale",
-				language: ObjectId(),
+				language: "pl",
+				value: "Porzeczkowe Ale",
+			},
+			{
+				value: "asdf",
 			}
 		],
-		"filtered": "bool",
-		"pasteurized": "bool",
-		"containsSmokedMalt": "bool",
-		"refermentedInContainer": "bool",
-		"dryHopped": "bool",
 		"extract": {
 			"relate": enum("weight", "blg", "plato"),
 			"unit": enum("percent", "degree"),
@@ -437,59 +464,74 @@ const sample = {
 			"value": NumberDecimal("5.30"),
 			"scope": enum("-0.5", "+/-0.5", "+/-1.0")
 		},
+		"filtered": "bool",
+		"pasteurized": "bool",
+		"refermentedInContainer": "bool",
+		"cellared": "bool",
+
+		3)
+
 		"tale": [
 			{
-				phrase: "Jakaś opowieść",
-				language: ObjectId(),
+				language: "pl",
+				value: "Lorem ipsum",
 			}
 		],
-		"ingredients": {
-			"complete": "bool",
-			"value": [
-				{
-					phrase: "Składników lista",
-					language: ObjectId(),
-				}
-			],
-		},
+		"ingredients": [
+			{
+				language: "pl",
+				value: "Lorem ipsum",
+			}
+		],
+		ingredientsList: [
+			"objectId", "objectId"
+		],
+		"ingredientsComplete": "bool",
+		"containsSmokedMalt": "bool",
+		"dryHopped": "bool",
+
+		4)
+		
 		"impressions": {
 			"bitterness": NumberInt("50"),
 			"sweetness": NumberInt("50"),
+			"fullness": NumberInt("50"),
+			"power": NumberInt("50"),
+			"hoppyness": NumberInt("50"),
 			"temperature": {
 				"high": NumberInt("50"),
 				"low": NumberInt("50"),
 				"unit": enum("celsius")
-			},
-			"fullness": NumberInt("50"),
-			"color": "string",
-			"power": NumberInt("50"),
-			"hoppyness": NumberInt("50")
+			}
 		},
 		"expiration": {
 			"value": NumberInt("50"),
 			"unit": enum("day", "month", "year")
 		},
-		"cellared": {
-			"value": NumberInt("50"),
-			"unit": enum("day", "month", "year")
-		},
-		"barcode": NumberLong("1234567890123")
+		"barcode": "1234567890123"
 	},
-	"price": [{
-		value: NumberDecimal("5.30"),
-		currency: enum("PLN", "EUR")
-	}],
 	"container": {
+		"type": enum("bottle", "can"),
 		"color": enum("brown", "green", "black", "silver"),
 		"material": enum("glass", "aluminum"),
+		"value": NumberDecimal("50"),
 		"unit": enum("ml"),
-		"type": enum("bottle", "can"),
-		"value": NumberDecimal("50")
+		"hasCapWireFlip": "bool",
 	},
+
+	5)
+
 	"impressions": {
 		"color": "#asdasd",
 		"clarity": enum("crystalline", "clear", "opalescent", "misty", "hazy", "muddy"),
 	},
+	"price": [{
+		value: NumberDecimal("5.30"),
+		currency: enum("PLN", "EUR"),
+		date: date
+	}],
 	"added": "ISODate",
-	"updated": "ISODate"
+	"updated": "ISODate",
+
+	"short_id": id
 };
