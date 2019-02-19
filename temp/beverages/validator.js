@@ -164,21 +164,29 @@ db.createCollection("beverages", {
 								}
 							}
 						},
-						filtered: {
+						filtration: {
 							bsonType: "bool",
 							description: "must be a boolean"
 						},
-						pasteurized: {
+						pasteurization: {
 							bsonType: "bool",
 							description: "must be a boolean"
 						},
-						refermentedInContainer: {
+						refermentation: {
 							bsonType: "bool",
 							description: "must be a boolean"
 						},
-						cellared: {
-							bsonType: "bool",
-							description: "must be a boolean"
+						aged: {
+							bsonType: "object",
+							additionalProperties: false,
+							description: "must be an object",
+							required: ["type"],
+							properties: {
+								type: {
+									enum: ["barrel", "wood"],
+									description: "can only be one of the enum values"
+								},
+							}
 						},
 						tale: {
 							bsonType: "array",
@@ -231,11 +239,11 @@ db.createCollection("beverages", {
 								description: "must be an objectId"
 							}
 						},
-						ingredientsComplete: {
+						areIngredientsComplete: {
 							bsonType: "bool",
 							description: "must be a boolean"
 						},
-						containsSmokedMalt: {
+						smokedMalt: {
 							bsonType: "bool",
 							description: "must be a boolean"
 						},
@@ -304,7 +312,7 @@ db.createCollection("beverages", {
 								}
 							}
 						},
-						expiration: {
+						expirationDate: {
 							bsonType: "object",
 							additionalProperties: false,
 							description: "must be an object",
@@ -464,10 +472,10 @@ const sample = {
 			"value": NumberDecimal("5.30"),
 			"scope": enum("-0.5", "+/-0.5", "+/-1.0")
 		},
-		"filtered": "bool",
-		"pasteurized": "bool",
-		"refermentedInContainer": "bool",
-		"cellared": "bool",
+		"filtration": "bool",
+		"pasteurization": "bool",
+		"refermentation": "bool",
+		"aged": ["barrel"],
 
 		3)
 
@@ -483,7 +491,7 @@ const sample = {
 				value: "Lorem ipsum",
 			}
 		],
-		ingredientsList: [
+		"ingredientsList": [
 			"objectId", "objectId"
 		],
 		"ingredientsComplete": "bool",
