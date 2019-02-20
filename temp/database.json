@@ -16386,3 +16386,268 @@ wys 24.5
 }
 
 wys 24.5
+
+{
+	"badge": "szofer",
+	"name": "Szofer",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"Witbier"
+		],
+		"extract": {
+			"value": 7,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 0.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Szofer… to piwo bezalkoholowe o przyjemnym, słodkim aromacie pomarańczy i cytryny podbitym amerykańskimi chmielami. Subtelny smak ziołowo-przyprawowy podkreśla orzeźwiający i słodki charakter. Dzięki niskiej zawartości alkoholu Szofer idealnie ugasi pragnienie w niemal każdej sytuacji."
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (Pilzneński), płatki pszeniczne, chmiele (Chinook, Citra), dodatki (skórka pomarańczy, skórka grejpfruta, skórka cytryny, kolendra), drożdże (WLS17 Sacharomyces Ludwigi)",
+		}
+		goryczka: 1/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658713,
+	"added": 1550684818388,
+	cena: 5.70
+}
+
+wys 25
+
+{
+	"badge": "pilot",
+	"name": "Pilot",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"American Pale Ale"
+		],
+		"extract": {
+			"value": 7,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Pilot… to niskoalkoholowe piwo o intensywnym aromacie nowofalowych chmieli z nutami owocowymi, czarnej herbaty i bergamotki. W smaku wyczuwalne są owoce, herbata dopełnione słodowością. Niski poziom alkoholu sprawia, że Pilot idealnie ugasi pragnienie w niemal każdej sytuacji."
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (Pilzneński), płatki owsiane, chmiele (Chinook, Citra), dodatki (czarna herbata "Earl Grey"), drożdże (WLS17 Sacharomyces Ludwigi)",
+		}
+		goryczka: 1.5/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658720,
+	"added": 1550685124738,
+	cena: 5.70
+}
+
+wys 25
+
+{
+	"badge": "jazzman",
+	"name": "Jazzman",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	cooperation: Vertigo
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"Red IPA"
+		],
+		"extract": {
+			"value": 15,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 6.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+	
+		"tale": {
+			"pl": "
+				Etykieta jest jednocześnie biletem wstępu do Vertigo Jazz Club & Restaurant - Oławska 13, Wrocław - informacja na odwrocie etykiety. \n			
+				Jazzman to… Amerykańskie India Pale Ale o ciemnomiedzianym kolorze. W aromacie, mocne ziołowo-kwiatowo-cytrusowe nuty, pochodzące od amerykańskich chmieli, mieszają się z aromatami słodowymi. Wyczuwalne są również lekkie nuty prażone oraz toffi pochodzące od słodów. Solidna goryczka skontrowana jest wyraźną słodowością, lecz balans przesunięty jest w stronę tej pierwszej. \n Używamy wyłącznie płynnych drożdży własnej propagacji!"
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (Red X, pilzneński, Black), chmiele (Columbus, Centennial, Citra, Simcoe), drożdże (San Diego Super)",
+		}
+		goryczka: 3/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658607,
+	"added": 1550685638233,
+	cena: 8.50
+}
+
+wys 25
+
+{
+	"badge": "sigma-i-pij",
+	"name": "Sigma i pij",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Fruit Ale"
+		],
+		"extract": {
+			"value": 14,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 4.3,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Halo młodzi adepci z planety ziemia! Chcemy poinformować, że zaobserwowaliśmy niedawno, w należącym do was, zbiorze metafizycznym Nepomucen nowe zjawisko sensoryczne. To nie trójkąty i kwadraty tylko zgrany duet wiśni z laktozą, które połączyły się w zgrany system dwójkowy z matplanety :)"
+		},
+		"ingredients": {
+			"pl": "Woda. słody: słód jęczmienny, pszeniczny, chmiel: odmiany amerykańskie, drożdże: górnej fermentacji, dodatki: wiśnie, laktoza",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905279959842,
+	"added": 1550685985371,
+	goryczka : 0.5/6
+	temp: 8-10
+	cena: 8.20
+}
+
+wys 23.50
+
+{
+	"badge": "ten-pils",
+	"name": "Ten Pils",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Pils"
+		],
+		"extract": {
+			"value": 10.5,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 3.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Ten pils ma to wszystko co powinna mieć porządna desitka. Pijalność, lekkość i niesamowity talent do gaszenia pragnienia.\n Zalecane jest codzienne stosowanie tego specyfiku, który jest darem od naszych, sympatycznych sąsiadów z południa."
+		},
+		"ingredients": {
+			"pl": "Woda. słody: słód jęczmienny, chmiel: odmiany europejskie, drożdże dolnej fermentacji",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279959859,
+	"added": 1550686235951,
+	goryczka : 1.5/6
+	temp: 8-10
+	cena: 7.40
+}
+
+wys 25
