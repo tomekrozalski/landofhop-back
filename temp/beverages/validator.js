@@ -2,7 +2,8 @@ db.runCommand({ collMod: "beverages", validator: {
 
 }});
 
-db.createCollection("beverages", {
+// db.createCollection("beverages", {
+db.runCommand({ collMod: "beverages",
 	validator: {
 		$jsonSchema: {
 			bsonType: "object",
@@ -183,8 +184,13 @@ db.createCollection("beverages", {
 							required: ["type"],
 							properties: {
 								type: {
-									enum: ["barrel", "wood"],
-									description: "can only be one of the enum values"
+									bsonType: "array",
+									minimum: 1,
+									description: "must be an array",
+									items: {
+										enum: ["barrel", "wood"],
+										description: "can only be one of the enum values"
+									}
 								},
 							}
 						},

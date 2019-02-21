@@ -1,6 +1,8 @@
 const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
+const nanoid = require('nanoid');
+const isNil = require('lodash/isNil');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
@@ -94,11 +96,68 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 
+			const {
+				// Brand Info
+				badge,
+				brand,
+				contract,
+				cooperation,
+				name,
+				series,
+				// Brewing Parameters
+				aged,
+				alcohol,
+				extract,
+				fermentation,
+				filtration,
+				pasteurization,
+				placeOfProduction,
+				refermentation,
+				style,
+				// Ingredients
+				areIngredientsComplete,
+				dryHopped,
+				ingredients,
+				ingredientsList,
+				smokedMalt,
+				tale,
+			} = req.body;
+		
+			console.log('req.body', req.body);
+
 			const newBeverage = {
-				badge: "test-badge",
+				badge,
 				label: {
-					name: "test name",
-					brand: ObjectId("5bbd04bc5433eca56a6c00cf")
+					name,
+					...(series && { series }),
+					brand: ObjectId(brand),
+					...(cooperation && { cooperation: cooperation.map(item => ObjectId(item)) }),
+					...(contract && { contract: ObjectId(contract) }),
+					...(placeOfProduction && { placeOfProduction: ObjectId(placeOfProduction) }),
+					...(fermentation && { fermentation }),
+					...(style && { style }),
+					...(extract && {
+						extract: {
+							...extract,
+							value: Decimal128.fromString(extract.value.toString()),
+						}
+					}),
+					...(alcohol && {
+						alcohol: {
+							...alcohol,
+							value: Decimal128.fromString(alcohol.value.toString()),
+						}
+					}),
+					...(!isNil(filtration) && { filtration }),
+					...(!isNil(pasteurization) && { pasteurization }),
+					...(!isNil(refermentation) && { refermentation }),
+					...(aged && { aged }),
+					...(tale && { tale }),
+					...(ingredients && { ingredients }),
+					...(ingredientsList && { ingredientsList: ingredientsList.map(item => ObjectId(item)) }),
+					...(!isNil(areIngredientsComplete) && { areIngredientsComplete }),
+					...(!isNil(smokedMalt) && { smokedMalt }),
+					...(!isNil(dryHopped) && { dryHopped }),
 				},
 				container: {
 					color: "brown",
@@ -107,7 +166,8 @@ router.post('/', verifyToken, (req, res) => {
 					type: "bottle",
 					value: Decimal128.fromString("500")
 				},
-				added: new Date()
+				added: new Date(),
+				short_id: nanoid(6),
 			};
 
 			db.getDb()
