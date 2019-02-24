@@ -2,7 +2,8 @@ const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 const nanoid = require('nanoid');
-const isNil = require('lodash/isNil');
+const isBoolean = require('lodash/isBoolean');
+const isNumber = require('lodash/isNumber');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
@@ -11,15 +12,54 @@ const router = Router();
 const Decimal128 = mongodb.Decimal128;
 const ObjectId = mongodb.ObjectId;
 
-router.get('/', (req, res) => {
+router.get('/list', (req, res) => {
 	const beverages = [];
 
 	db.getDb()
 		.db()
 		.collection('beverages')
-		.find()
+		.aggregate([
+			{
+				$project: {
+					_id: 0,
+					badge: 1,
+					label: {
+						brand: 1,
+						name: 1,
+					},
+					id: '$_id',
+					'short_id': 1,
+				}
+			},
+			{
+				$lookup: {
+					from: 'institutions',
+					localField: 'label.brand',
+					foreignField: '_id',
+					as: 'label.brand_info'
+				}
+			},
+			{
+				$unwind: '$label.brand_info'
+			},
+			{
+				$project: {
+					badge: 1,
+					label: {
+
+						brand: 0,
+						brand: {
+							badge: '$label.brand_info.badge',
+							name: '$label.brand_info.name'
+						},
+						name: 1,
+					},
+					id: 1,
+					'short_id': 1,
+				}
+			},
+		])
 		.forEach((beverage) => {
-			beverage.container.value = beverage.container.value.toString();
 			beverages.push(beverage);
 		})
 		.then((result) => {
@@ -34,7 +74,7 @@ router.get('/', (req, res) => {
 		});
 });
 
-router.get('/basics', (req, res) => {
+router.get('/details/:short_id/:brand/:badge', (req, res) => {
 	const beverages = [];
 
 	db.getDb()
@@ -44,16 +84,21 @@ router.get('/basics', (req, res) => {
 			{
 				$project: {
 					_id: 0,
+					added: 1,
 					badge: 1,
-					brand: '$label.brand',
+					container: 1,
 					id: '$_id',
-					name: '$label.name'
+					impressions: 1,
+					label: 1,
+					price: 1,
+					'short_id': 1,
+					updated: 1,
 				}
 			},
 			{
 				$lookup: {
 					from: 'institutions',
-					localField: 'brand',
+					localField: 'label.brand',
 					foreignField: '_id',
 					as: 'brand_info'
 				}
@@ -62,18 +107,50 @@ router.get('/basics', (req, res) => {
 				$unwind: '$brand_info'
 			},
 			{
-				$project: {
-					badge: 1,
-					id: 1,
-					name: 1,
-					brand: 0,
-					brand: {
-						badge: '$brand_info.badge',
-						name: '$brand_info.name'
-					}
+				$match: {
+					badge: req.params.badge,
+					'brand_info.badge': req.params.brand,
+					short_id: req.params.short_id,
 				}
 			},
-
+			{
+				$project: {
+					added: 1,
+					badge: 1,
+					container: 1,
+					id: 1,
+					impressions: 1,
+					label: {
+						name: 1,
+						series: 1,
+						brand: '$brand_info',
+						cooperation: 1,
+						contract: 1,
+						placeOfProduction: 1,
+						fermentation: 1,
+						style: 1,
+						extract: 1,
+						alcohol: 1,
+						filtration: 1,
+						pasteurization: 1,
+						refermentation: 1,
+						aged: 1,
+						tale: 1,
+						ingredients: 1,
+						ingredientsList: 1,
+						areIngredientsComplete: 1,
+						smokedMalt: 1,
+						dryHopped: 1,
+						impressions: 1,
+						expirationDate: 1,
+						barcode: 1,
+					},
+					price: 1,
+					'short_id': 1,
+					updated: 1,
+				}
+			},
+			
 		])
 		.forEach((beverage) => {
 			beverages.push(beverage);
@@ -97,34 +174,43 @@ router.post('/', verifyToken, (req, res) => {
 		} else {
 
 			const {
-				// Brand Info
-				badge,
-				brand,
-				contract,
-				cooperation,
-				name,
-				series,
-				// Brewing Parameters
+				added,
 				aged,
 				alcohol,
+				areIngredientsComplete,
+				badge,
+				barcode,
+				bitterness,
+				brand,
+				clarity,
+				color,
+				container,
+				contract,
+				cooperation,
+				dryHopped,
+				expirationDate,
 				extract,
 				fermentation,
 				filtration,
-				pasteurization,
-				placeOfProduction,
-				refermentation,
-				style,
-				// Ingredients
-				areIngredientsComplete,
-				dryHopped,
+				fullness,
+				hoppyness,
 				ingredients,
 				ingredientsList,
+				name,
+				pasteurization,
+				placeOfProduction,
+				power,
+				price,
+				refermentation,
+				series,
 				smokedMalt,
+				style,
+				sweetness,
 				tale,
+				temperature,
+				updated,
 			} = req.body;
 		
-			console.log('req.body', req.body);
-
 			const newBeverage = {
 				badge,
 				label: {
@@ -148,25 +234,60 @@ router.post('/', verifyToken, (req, res) => {
 							value: Decimal128.fromString(alcohol.value.toString()),
 						}
 					}),
-					...(!isNil(filtration) && { filtration }),
-					...(!isNil(pasteurization) && { pasteurization }),
-					...(!isNil(refermentation) && { refermentation }),
+					...(isBoolean(filtration) && { filtration }),
+					...(isBoolean(pasteurization) && { pasteurization }),
+					...(isBoolean(refermentation) && { refermentation }),
 					...(aged && { aged }),
 					...(tale && { tale }),
 					...(ingredients && { ingredients }),
 					...(ingredientsList && { ingredientsList: ingredientsList.map(item => ObjectId(item)) }),
-					...(!isNil(areIngredientsComplete) && { areIngredientsComplete }),
-					...(!isNil(smokedMalt) && { smokedMalt }),
-					...(!isNil(dryHopped) && { dryHopped }),
+					...(isBoolean(areIngredientsComplete) && { areIngredientsComplete }),
+					...(isBoolean(smokedMalt) && { smokedMalt }),
+					...(isBoolean(dryHopped) && { dryHopped }),
+					...((isNumber(bitterness) ||
+						isNumber(sweetness) || 
+						isNumber(fullness) || 
+						isNumber(power) || 
+						isNumber(hoppyness) ||
+						temperature) && {
+							impressions: {
+								...(isNumber(bitterness) && { bitterness }),
+								...(isNumber(sweetness) && { sweetness }),
+								...(isNumber(fullness) && { fullness }),
+								...(isNumber(power) && { power }),
+								...(isNumber(hoppyness) && { hoppyness }),
+								...(temperature && {
+									temperature: {
+										low: Decimal128.fromString(temperature.low.toString()),
+										high: Decimal128.fromString(temperature.high.toString()),
+										unit: temperature.unit,
+									}
+								})
+							}
+						}
+					),
+					...(expirationDate && { expirationDate }),
+					...(barcode && { barcode }),
 				},
 				container: {
-					color: "brown",
-					material: "glass",
-					unit: "ml",
-					type: "bottle",
-					value: Decimal128.fromString("500")
+					...container,
+					value: Decimal128.fromString(container.value.toString())
 				},
-				added: new Date(),
+				...(price && {
+					price: price.map(({ currency, date, value }) => ({
+						currency,
+						date: new Date(date),
+						value: Decimal128.fromString(value.toString())
+					}))
+				}),
+				...((color || clarity) && {
+					impressions: {
+						...(color && { color }),
+						...(clarity && { clarity }),
+					}
+				}),
+				added: added ? new Date(added) : new Date(),
+				...(updated && { updated: new Date(updated) }),
 				short_id: nanoid(6),
 			};
 
