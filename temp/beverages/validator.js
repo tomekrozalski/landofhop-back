@@ -404,8 +404,8 @@ db.runCommand({ collMod: "beverages",
 					properties: {
 						color: {
 							bsonType: "string",
-							pattern: "#([a-f\d]){6}",
-							description: "must be a hex string"
+							pattern: "^#([a-f0-9]){6}$",
+							description: "must be a hex string and match the regular expression pattern"
 						},
 						clarity: {
 							enum: ["crystalline", "clear", "opalescent", "misty", "hazy", "muddy"],

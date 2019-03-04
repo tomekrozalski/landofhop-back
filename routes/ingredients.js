@@ -35,7 +35,6 @@ router.get('/list', (req, res) => {
 		])
 		.forEach((ingredient) => {
 			ingredients.push(ingredient);
-			console.log('ingredients', ingredients);
 		})
 		.then((result) => {
 			res
