@@ -114,6 +114,25 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 				}
 			},
 			{
+				$lookup: {
+					from: 'institutions',
+					localField: 'label.contract',
+					foreignField: '_id',
+					as: 'brand_contract'
+				}
+			},
+			{
+				$unwind: '$brand_contract'
+			},
+			{
+				$lookup: {
+					from: 'institutions',
+					localField: 'label.cooperation',
+					foreignField: '_id',
+					as: 'brand_cooperation'
+				}
+			},
+			{
 				$project: {
 					added: 1,
 					badge: 1,
@@ -123,9 +142,33 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 					label: {
 						name: 1,
 						series: 1,
-						brand: '$brand_info',
-						cooperation: 1,
-						contract: 1,
+						brand: {
+							short_id: '$brand_info.short_id',
+							badge: '$brand_info.badge',
+							name: '$brand_info.name',
+							consortium: '$brand_info.consortium',
+							website: '$brand_info.website',
+						},
+						cooperation: {
+							$map: { 
+								input: '$brand_cooperation', 
+								as: 'coop', 
+								in: {
+									short_id: '$$coop.short_id',
+									badge: '$$coop.badge',
+									name: '$$coop.name',
+									consortium: '$$coop.consortium',
+									website: '$$coop.website',
+								}
+							}
+						},
+						contract: {
+							short_id: '$brand_contract.short_id',
+							badge: '$brand_contract.badge',
+							name: '$brand_contract.name',
+							consortium: '$brand_contract.consortium',
+							website: '$brand_contract.website',
+						},
 						placeOfProduction: 1,
 						fermentation: 1,
 						style: 1,
@@ -150,7 +193,8 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 					updated: 1,
 				}
 			},
-			
+
+
 		])
 		.forEach((beverage) => {
 			beverages.push(beverage);
