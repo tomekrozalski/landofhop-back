@@ -2,8 +2,12 @@ const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 const nanoid = require('nanoid');
+const get = require('lodash/get');
 const isBoolean = require('lodash/isBoolean');
+const isEqual = require('lodash/isEqual');
 const isNumber = require('lodash/isNumber');
+const isEmpty = require('lodash/isEmpty');
+const set = require('lodash/set');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
@@ -122,7 +126,10 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 				}
 			},
 			{
-				$unwind: '$brand_contract'
+				$unwind: {
+					path: '$brand_contract',
+					preserveNullAndEmptyArrays: true,
+				}
 			},
 			{
 				$lookup: {
@@ -130,6 +137,48 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 					localField: 'label.cooperation',
 					foreignField: '_id',
 					as: 'brand_cooperation'
+				}
+			},
+			{
+				$lookup: {
+					from: 'places',
+					localField: 'label.placeOfProduction',
+					foreignField: '_id',
+					as: 'place'
+				}
+			},
+			{
+				$unwind: {
+					path: '$place',
+					preserveNullAndEmptyArrays: true,
+				}
+			},
+			{
+				$lookup: {
+					from: 'countries',
+					localField: 'place.country',
+					foreignField: '_id',
+					as: 'place.country'
+				}
+			},
+			{
+				$unwind: {
+					path: '$place.country',
+					preserveNullAndEmptyArrays: true,
+				}
+			},
+			{
+				$lookup: {
+					from: 'institutions',
+					localField: 'place.institution',
+					foreignField: '_id',
+					as: 'place.institution'
+				}
+			},
+			{
+				$unwind: {
+					path: '$place.institution',
+					preserveNullAndEmptyArrays: true,
 				}
 			},
 			{
@@ -143,6 +192,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 						name: 1,
 						series: 1,
 						brand: {
+							id: '$brand_info._id',
 							short_id: '$brand_info.short_id',
 							badge: '$brand_info.badge',
 							name: '$brand_info.name',
@@ -154,6 +204,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 								input: '$brand_cooperation', 
 								as: 'coop', 
 								in: {
+									id: '$$coop._id',
 									short_id: '$$coop.short_id',
 									badge: '$$coop.badge',
 									name: '$$coop.name',
@@ -163,13 +214,32 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 							}
 						},
 						contract: {
+							id: '$brand_contract._id',
 							short_id: '$brand_contract.short_id',
 							badge: '$brand_contract.badge',
 							name: '$brand_contract.name',
 							consortium: '$brand_contract.consortium',
 							website: '$brand_contract.website',
 						},
-						placeOfProduction: 1,
+						place: {
+							id: '$place._id',
+							city: '$place.city',
+							country: {
+								id: '$place.country._id',
+								code: '$place.country.code',
+								name: '$place.country.name',
+							},
+							institution: {
+								id: '$place.institution._id',
+								short_id: '$place.institution.short_id',
+								badge: '$place.institution.badge',
+								name: '$place.institution.name',
+								consortium: '$place.institution.consortium',
+								website: '$place.institution.website',
+							},
+							short_id: '$place.short_id',
+							coordinates: '$place.location.coordinates',
+						},
 						fermentation: 1,
 						style: 1,
 						extract: 1,
@@ -193,10 +263,35 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 					updated: 1,
 				}
 			},
-
+	
 
 		])
 		.forEach((beverage) => {
+			if (isEmpty(beverage.label.cooperation)) {
+				delete beverage.label.cooperation;
+			}
+
+			if (isEmpty(beverage.label.contract)) {
+				delete beverage.label.contract;
+			}
+
+			const coordinates = get(beverage, 'label.place.coordinates');
+
+			if (coordinates) {
+				const formattedCoordinates = coordinates.map(item => Number(item.toString()));
+				set(beverage, 'label.place.coordinates', formattedCoordinates);
+			}
+
+			const place = get(beverage, 'label.place');
+			const emptyPlace = {
+				country: {},
+				institution: {},
+			};
+
+			if (place && isEqual(place, emptyPlace)) {
+				delete beverage.label.place;
+			}
+		
 			beverages.push(beverage);
 		})
 		.then((result) => {
