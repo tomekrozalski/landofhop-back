@@ -291,6 +291,20 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 			if (place && isEqual(place, emptyPlace)) {
 				delete beverage.label.place;
 			}
+
+			const extractValue = get(beverage, 'label.extract.value');
+
+			if (extractValue) {
+				const formattedExtractValue = Number(extractValue.toString());
+				set(beverage, 'label.extract.value', formattedExtractValue);
+			}
+
+			const alcoholValue = get(beverage, 'label.alcohol.value');
+
+			if (alcoholValue) {
+				const formattedAlcoholValue = Number(alcoholValue.toString());
+				set(beverage, 'label.alcohol.value', formattedAlcoholValue);
+			}
 		
 			beverages.push(beverage);
 		})
