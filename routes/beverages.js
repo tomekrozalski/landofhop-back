@@ -182,6 +182,14 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 				}
 			},
 			{
+				$lookup: {
+					from: 'ingredients',
+					localField: 'label.ingredientsList',
+					foreignField: '_id',
+					as: 'rawIngredientsList'
+				}
+			},
+			{
 				$project: {
 					added: 1,
 					badge: 1,
@@ -250,7 +258,18 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 						aged: 1,
 						tale: 1,
 						ingredients: 1,
-						ingredientsList: 1,
+						ingredientsList: {
+							$map: { 
+								input: '$rawIngredientsList', 
+								as: 'ingredient', 
+								in: {
+									id: '$$ingredient._id',
+									badge: '$$ingredient.badge',
+									name: '$$ingredient.name',
+									type: '$$ingredient.type',
+								}
+							}
+						},
 						areIngredientsComplete: 1,
 						smokedMalt: 1,
 						dryHopped: 1,
@@ -304,6 +323,10 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 			if (alcoholValue) {
 				const formattedAlcoholValue = Number(alcoholValue.toString());
 				set(beverage, 'label.alcohol.value', formattedAlcoholValue);
+			}
+
+			if (isEmpty(beverage.label.ingredientsList)) {
+				delete beverage.label.ingredientsList;
 			}
 		
 			beverages.push(beverage);
