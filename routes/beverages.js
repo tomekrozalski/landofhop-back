@@ -328,6 +328,57 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 			if (isEmpty(beverage.label.ingredientsList)) {
 				delete beverage.label.ingredientsList;
 			}
+
+			const bitterness = get(beverage, 'label.impressions.bitterness');
+			const sweetness = get(beverage, 'label.impressions.sweetness');
+			const fullness = get(beverage, 'label.impressions.fullness');
+			const power = get(beverage, 'label.impressions.power');
+			const hoppyness = get(beverage, 'label.impressions.hoppyness');
+
+			if (bitterness) {
+				const formatted = Number(bitterness.toString());
+				set(beverage, 'label.impressions.bitterness', formatted);
+			}
+
+			if (sweetness) {
+				const formatted = Number(sweetness.toString());
+				set(beverage, 'label.impressions.sweetness', formatted);
+			}
+
+			if (fullness) {
+				const formatted = Number(fullness.toString());
+				set(beverage, 'label.impressions.fullness', formatted);
+			}
+
+			if (power) {
+				const formatted = Number(power.toString());
+				set(beverage, 'label.impressions.power', formatted);
+			}
+
+			if (hoppyness) {
+				const formatted = Number(hoppyness.toString());
+				set(beverage, 'label.impressions.hoppyness', formatted);
+			}
+
+			const temperature = get(beverage, 'label.impressions.temperature');
+
+			if (temperature) {
+				const from = Number(temperature.from.toString());
+				set(beverage, 'label.impressions.temperature.from', from);
+
+				const to = Number(temperature.to.toString());
+				set(beverage, 'label.impressions.temperature.to', to);
+			}
+
+			const expirationDateValue = get(beverage, 'label.expirationDate.value');
+		
+			if (expirationDateValue) {
+				const formatted = Number(expirationDateValue.toString());
+				set(beverage, 'label.expirationDate.value', formatted);
+			}
+
+			const formattedContainerValue = Number(beverage.container.value.toString());
+			set(beverage, 'container.value', formattedContainerValue);
 		
 			beverages.push(beverage);
 		})
@@ -427,22 +478,25 @@ router.post('/', verifyToken, (req, res) => {
 						isNumber(hoppyness) ||
 						temperature) && {
 							impressions: {
-								...(isNumber(bitterness) && { bitterness }),
-								...(isNumber(sweetness) && { sweetness }),
-								...(isNumber(fullness) && { fullness }),
-								...(isNumber(power) && { power }),
-								...(isNumber(hoppyness) && { hoppyness }),
+								...(isNumber(bitterness) && { bitterness: Decimal128.fromString(bitterness.toString()) }),
+								...(isNumber(sweetness) && { sweetness: Decimal128.fromString(sweetness.toString()) }),
+								...(isNumber(fullness) && { fullness: Decimal128.fromString(fullness.toString()) }),
+								...(isNumber(power) && { power: Decimal128.fromString(power.toString()) }),
+								...(isNumber(hoppyness) && { hoppyness: Decimal128.fromString(hoppyness.toString()) }),
 								...(temperature && {
 									temperature: {
-										low: Decimal128.fromString(temperature.low.toString()),
-										high: Decimal128.fromString(temperature.high.toString()),
+										from: Decimal128.fromString(temperature.from.toString()),
+										to: Decimal128.fromString(temperature.to.toString()),
 										unit: temperature.unit,
 									}
 								})
 							}
 						}
 					),
-					...(expirationDate && { expirationDate }),
+					...(expirationDate && { expirationDate: {
+						value: Decimal128.fromString(expirationDate.value.toString()),
+						unit: expirationDate.unit,
+					}}),
 					...(barcode && { barcode }),
 				},
 				container: {

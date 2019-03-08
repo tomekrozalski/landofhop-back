@@ -263,55 +263,55 @@ db.runCommand({ collMod: "beverages",
 							description: "must be an object",
 							properties: {
 								bitterness: {
-									bsonType: "int",
+									bsonType: "decimal",
 									minimum: 0,
 									maximum: 100,
-									description: "must be an integer in [ 0, 100 ]"
+									description: "must be an decimal in [ 0, 100 ]"
 								},
 								sweetness: {
-									bsonType: "int",
+									bsonType: "decimal",
 									minimum: 0,
 									maximum: 100,
-									description: "must be an integer in [ 0, 100 ]"
+									description: "must be an decimal in [ 0, 100 ]"
 								},
 								fullness: {
-									bsonType: "int",
+									bsonType: "decimal",
 									minimum: 0,
 									maximum: 100,
-									description: "must be an integer in [ 0, 100 ]"
+									description: "must be an decimal in [ 0, 100 ]"
 								},
 								power: {
-									bsonType: "int",
+									bsonType: "decimal",
 									minimum: 0,
 									maximum: 100,
-									description: "must be an integer in [ 0, 100 ]"
+									description: "must be an decimal in [ 0, 100 ]"
 								},
 								hoppyness: {
-									bsonType: "int",
+									bsonType: "decimal",
 									minimum: 0,
 									maximum: 100,
-									description: "must be an integer in [ 0, 100 ]"
+									description: "must be an decimal in [ 0, 100 ]"
 								},
 								temperature: {
 									bsonType: "object",
 									additionalProperties: false,
 									description: "must be an object",
-									required: ["high", "low", "unit"],
+									required: ["from", "to", "unit"],
 									properties: {
-										high: {
-											bsonType: "int",
+										from: {
+											bsonType: "decimal",
 											minimum: 0,
 											maximum: 100,
-											description: "must be an integer in [ 0, 100 ] and is required"
+											description: "must be an decimal in [ 0, 100 ] and is required"
 										},
-										low: {
-											bsonType: "int",
+										to: {
+											bsonType: "decimal",
 											minimum: 0,
 											maximum: 100,
-											description: "must be an integer in [ 0, 100 ] and is required"
+											description: "must be an decimal in [ 0, 100 ] and is required"
 										},
 										unit: {
-											enum: ["celsius"],
+											enum: ["celcius"],
 											description: "can only be one of the enum values and is required"
 										}
 									}
@@ -325,8 +325,8 @@ db.runCommand({ collMod: "beverages",
 							required: ["value", "unit"],
 							properties: {
 								value: {
-									bsonType: "int",
-									description: "must be an integer and is required"
+									bsonType: "decimal",
+									description: "must be an decimal and is required"
 								},
 								unit: {
 									enum: ["day", "month", "year"],
