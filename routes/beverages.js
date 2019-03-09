@@ -380,6 +380,17 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 			const formattedContainerValue = Number(beverage.container.value.toString());
 			set(beverage, 'container.value', formattedContainerValue);
 		
+			const price = get(beverage, 'price');
+
+			if (price) {
+				const formattedPrice = price.map((item) => ({
+					...item,
+					value: Number(item.value.toString())
+				}));
+
+				set(beverage, 'price', formattedPrice);
+			}
+
 			beverages.push(beverage);
 		})
 		.then((result) => {
