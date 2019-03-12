@@ -8,7 +8,7 @@ const verifyToken = require('../utils/verifyToken');
 const router = Router();
 
 const createToken = () => {
-	return jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '1h' });
+	return jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '12h' });
 };
 
 router.post('/auth', verifyToken, (req, res) => {

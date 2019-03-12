@@ -549,3 +549,112 @@ const sample = {
 
 	"short_id": id
 };
+
+
+==================
+NEW SCHEMA PROJECT
+==================
+
+_id
+short_id
+badge
+label {
+	brand {
+		name
+		series
+		brand
+		cooperation
+		contract
+		place
+		tale
+		barcode
+	}
+	brewing {
+		fermentation
+		extract
+		alcohol
+		filtration
+		pasteurization
+		refermentation
+		aged
+		style
+		dryHopped
+		expiration
+	}
+    ingredients {
+		description
+		list
+		complete
+		smokedMalt
+	}
+    impressions {
+        bitterness
+        sweetness
+        fullness
+        power
+        hoppyness
+        temperature
+    }
+	container
+	price
+}
+producer {
+	brand {
+		series
+		cooperation
+		contract
+		place
+		tale
+	}
+	brewering {
+		fermentation
+		extract
+		alcohol
+		filtration
+		pasteurization
+		refermentation
+		aged
+		style
+		dryHopped
+		expiration
+	}
+    ingredients {
+		description
+		list
+		complete
+		smokedMalt
+	}
+    impressions {
+        bitterness
+        sweetness
+        fullness
+        power
+        hoppyness
+        temperature
+    }
+	price
+}
+editorial {
+	brand {
+		cooperation
+		contract
+		place
+	}
+	brewering {
+		fermentation
+		alcoholScope
+		filtration
+		pasteurization
+		refermentation
+		aged
+		style
+		dryHopped
+	}
+    impressions {
+        color
+		clarity
+    }
+	price
+}
+added
+updated
