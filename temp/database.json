@@ -14644,7 +14644,7 @@ wys 25
 
 {
 	"badge": "new-england-ddh-dipa",
-	"name": "New England DDH DIPA", <- seria?
+	"name": "New England DDH DIPA", <- seria? tak
 	"name": "Simcoe + Mosaic"
 	"brewery": {
 		"badge": "alebrowar",
@@ -14690,7 +14690,7 @@ wys 25
 	},
 	"barcode": 5907222039540,
 	"added": 1544992730122,
-	cena: 11.50
+	cena: 11.50 / 11.50 19.03.2019
 }
 
 wys 26
@@ -16651,3 +16651,513 @@ wys 23.50
 }
 
 wys 25
+
+{
+	"badge": "zadymiarz",
+	"name": "Zadymiarz",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Wędzony podwójny koźlak"
+		],
+		"extract": {
+			"value": 18,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 6.6,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, laktoza, chmiel, drożdże",
+		}
+		temp: 12-15
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388929,
+	"added": 1552669531054,
+	cena: 11.00
+}
+
+wys 25
+
+{
+	"badge": "podwojny-wujek-z-ameryki",
+	"name": "Podwójny wujek z Ameryki",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Podwójne New England IPA"
+		],
+		"extract": {
+			"value": 18,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 7.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słody: jęczmienny, pszeniczny, płatki owsiane, płatki pszenne, płatki żytnie, chmiel, drożdże",
+		}
+		temp: 9 - 12
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388585,
+	"added": 1552669733559,
+	cena: 12.00
+}
+
+wys 25
+
+{
+	"badge": "dom-wczasowy",
+	"name": "Dom wczasowy",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"style": [
+			"Pszeniczne IPA z Cytryńcem chińskim"
+		],
+		"extract": {
+			"value": 16,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 6.6,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, słody: jęczmienny, pszeniczny, cytryniec chiński, suszona skórka słodkiej pomarańczy, chmiel, drożdże",
+		}
+		temp: 5-8
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388080,
+	"added": 1552669885414,
+	cena: 9.00
+}
+
+wys 25
+
+{
+	"badge": "lovelas",
+	"name": "LoveLAS",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Triple Forest IPA"
+		],
+		"extract": {
+			"value": 20,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 7.8,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Każdy z nas potrzebuje czasem uciec od zgiełku miasta. Poza jego granicami, wśród gałęzi i pni sosny oraz świerku spaceruje on - lovelas. Potrójnie podkręcony esencją lasu. Intensywny i aromatyczny. Niepowtarzalny. Dołącz do niego i odetchnij."
+		},
+		"ingredients": {
+			"pl": "Woda. słód jęczmienny, płatki owsiane, płatki pszenne, pędy sosny, pędy świerku, chmiel, drożdże",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905279959880,
+	"added": 1552670209487,
+	goryczka : 4/6
+	temp: 10-12
+	cena: 10.30
+}
+
+wys 23.5
+
+{
+	"badge": "english-sheep",
+	"name": "English Sheep",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	cooperation: browar Podgórz
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Raspberry Porter"
+		],
+		"extract": {
+			"value": 18,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 6.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Wpadliśmy jak malina w porter :) Bo w towarzystwie Łukasza z browaru Podgórz nie mogło być inaczej. Ten brunatny, ciasteczkowy i deserowy trunek wzbogaciliśmy o słodycz malin. Dzięki temu jest idealną propozycją na leniwe, weekendowe popołudnia z dobrą lekturą w drugiej ręce."
+		},
+		"ingredients": {
+			"pl": "Woda. słody: słód jęczmienny, chmiel: odmiany europejskie, drożdże górnej fermentacji, dodatki: płatki owsiane, maliny",
+			
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905279959873,
+	"added": 1552670542301,
+	goryczka : 1/6
+	temp: 10-12
+	cena: 9.20
+}
+
+wys 25
+
+{
+	"badge": "pogromca-smokow",
+	"name": "Pogromca smoków",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"Single Hop Ekuanot Kaffir American Pale Ale"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 5.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		pasteryzacja: tak
+		"tale": {
+			"pl": "Pogromca smoków to… lekkie piwo górnej fermentacji uwarzone z dodatkiem aromatycznych liści limonki kaffir. Idealnie zbalansowane specjalnie na długie letnie wieczory. Głębokie odfermentowanie skontrowane jest gładkością pochodzącą od płatków owsianych. Cytrusowo-ziołowy aromat liści limonki kaffir uzupełniony jest tropikalno-kwiatowymi nutami pochodzącymi od nowofalowego chmielu Ekuanot. Korespondujący ze sobą smak i aromat powoduje iż piwo jest bardzo pijalne i kompletne. \n\n Używamy wyłącznie płynnych drożdży własnej propagacji!"
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny (pilzneński), słód pszeniczny (pszeniczny jasny). chmiele (Ekuanot), dodatki: płatki owsiane, płatki pszeniczne, liście limonki kaffir, drożdże (HotHead Ale)",
+		}
+		goryczka: 1/5
+		temperatura serwowania: 10-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658393,
+	"added": 1552671056154,
+	cena: 7.90
+}
+
+wys 25
+
+{
+	"badge": "piwowar",
+	"name": "Piwowar",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"Hefeweizen"
+		],
+		"extract": {
+			"value": 11.9,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 4.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		pasteryzacja: tak
+		"tale": {
+			"pl": "Piwowar… to klasyczne piwo pszeniczne o delikatnym charakterze. Poprzez aromat świeżych bananów przebija się wyraźna nuta fenoli goździków. Delikatny, lekko chlebowy smak połączony jest z bananową owocowością oraz smakiem goździków. Lekkie nuty chmielowe, niska słodowość oraz średnie wysycenie powodują, iż piwo jest lekkie w odbiorze i orzeźwiające \n\n Używamy wyłącznie płynnych drożdży własnej propagacji!"
+		},
+		"ingredients": {
+			"pl": "Woda, słód pszeniczny, słód jęczmienny (pilzneński, Carmel Pils). chmiele (Sybilla, Hallertau Tradition), drożdże (Weihenstephan Weizen)",
+		}
+		goryczka: 0.5/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658225,
+	"added": 1552671486845,
+	cena: 7.10
+}
+
+wys 25
+
+{
+	"badge": "new-england-ddh-dipa",
+	"name": "New England DDH DIPA", <- seria? tak
+	"name": "_Vic Secret + Experimental AU 035"
+	"brewery": {
+		"badge": "alebrowar",
+		"name": {
+			"pl": "AleBrowar",
+			"en": "AleBrowar"
+		},
+		"website": "www.alebrowar.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Lębork",
+		"style": [
+			"New England DDH DIPA"
+		],
+		"extract": {
+			"value": 20,
+			"unit": "%",
+			"relation": "wag."
+		},
+		"alcohol": {
+			"value": 7.0,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"tale": {
+			"pl": "Aksamitna struktura, stosunkowo niska goryczka i potężny aromat uzyskany dzięki podwójnemu chmieleniu na zimno.",
+			"en": "Smooth structure, relatively low bitterness and powerful aroma obtained thanks to double dry hopping."
+		}
+		"ingredients": {
+			"pl": "Woda, słód Pale Ale, słód owsiany, słód dekstrynowy, płatki owsiane, płatki pszeniczne, chmiele: Vic Secret, Experimental AU 035; First Dry Hopping: Vic Secret; Second Dry Hopping: Experimental AU 035, drożdże",
+			"en": "water, Pale Ale malt, oatmeal malt, dextrin malt, oatmeal flakes, wheat flakes, hops: Vic Secret, Experimental AU 035; First Dry Hopping: Vic Secret; Second Dry Hopping: Experimental AU 035, yeast"
+		},
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222039656,
+	"added": 1552671888077,
+	cena: 11.50
+}
+
+wys 26
+
+{
+	"badge": "kwas-my",
+	"name": "Kwas My",
+	"producer": browar na jurze
+	"brewery": {
+		"badge": "browar-pinta",
+		"name": {
+			"pl": "Browar Pinta",
+			"en": "Pinta Brewery"
+		},
+		"website": "www.browarpinta.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Zawiercie",
+		"style": [
+			"Catharina Sour"
+		],
+		"extract": {
+			"value": 11.5,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 4.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "PINTA Kwas Xy - nowofalowy styl kwaśny rodem z Brazylii będący nieco mocniejszą wersją Berliner Weisse z dodatkiem soku z tropikalnego owocu. Do naszej interpretacji użyliśmy 15% dodatku przecieru z marakui, a całość wcześniej zakwasiliśmy bakterią kwasu mleokowego do poziomu 3,4 pH. Kwas Xy - poszuj się jak na plaży Capacabana.",
+			en: "PINTA Kwas Xy - Catharina Sour style beer brewed with additional of passion fruit puree and soured with lactobacillus bacteria."
+		},
+		"ingredients": {
+			"pl": "woda, słód jęczmienny pilzneński, słód pszeniczny; chmiele: Palisade (USA); drożdże Fermentis SafAle US-05, bakteria kwasu mlekowego lactobacillus delbrueckii, przecier z marakui",
+		}
+		temp: 5-7
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905331026611,
+	"added": 1552672333319,
+	cena: 8.80 zł
+}
+
+wys 25
+
+{
+	"badge": "art24",
+	"name": "Art 24",
+	"cooperation"/kolaboracja: {
+		whiplash
+	},
+	"brewery": {
+		"badge": "browar-stu-mostow",
+		"name": {
+			"pl": "Browar Stu Mostów",
+			"en": "Stu Mostów Brewery"
+		},
+		"website": "100mostow.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"DDH DIPA Oat and Spelt"
+		],
+		"alcohol": {
+			"value": 8.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+	
+		"contains": {
+			"pl": "słód jęczmienny, owsiany, orkiszowy",
+		}
+		pełnia/słodowość: 30%,
+		goryczka: 70%,
+		barwa: 15%,
+	},
+	"container": {
+		"type": "can",
+		"material": "aluminum",
+		"color": "silver",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905279213074,
+	"added": 1552672663895,
+	cena: 9.70
+}
+
+wys 11.5
