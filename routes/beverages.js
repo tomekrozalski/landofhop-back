@@ -26,10 +26,8 @@ router.get('/list', (req, res) => {
 					_id: 0,
 					added: 1,
 					badge: 1,
-					label: {
-						brand: 1,
-						name: 1,
-					},
+					brand: '$label.general.brand',
+					name: '$label.general.name',
 					id: '$_id',
 					'short_id': 1,
 				}
@@ -37,27 +35,23 @@ router.get('/list', (req, res) => {
 			{
 				$lookup: {
 					from: 'institutions',
-					localField: 'label.brand',
+					localField: 'brand',
 					foreignField: '_id',
-					as: 'label.brand_info'
+					as: 'brand_info'
 				}
 			},
 			{
-				$unwind: '$label.brand_info'
+				$unwind: '$brand_info'
 			},
 			{
 				$project: {
 					added: 1,
 					badge: 1,
-					label: {
-
-						brand: 0,
-						brand: {
-							badge: '$label.brand_info.badge',
-							name: '$label.brand_info.name'
-						},
-						name: 1,
+					brand: {
+						badge: '$brand_info.badge',
+						name: '$brand_info.name'
 					},
+					name: 1,
 					id: 1,
 					'short_id': 1,
 				}
@@ -410,8 +404,12 @@ router.post('/', verifyToken, (req, res) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
+			console.log('TUTAJ');
+			console.log('1. req.body:', req.body);
 			const newBeverage = normalizeBeverage(req.body);
 			newBeverage.short_id = nanoid(6);
+
+			console.log('2. newBeverage:', newBeverage);
 
 			db.getDb()
 				.db()
