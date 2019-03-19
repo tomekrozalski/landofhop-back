@@ -974,7 +974,7 @@ producer {
 		place
 		tale
 	}
-	brewering {
+	brewing {
 		fermentation
 		extract
 		alcohol
@@ -1008,7 +1008,7 @@ editorial {
 		contract
 		place
 	}
-	brewering {
+	brewing {
 		fermentation
 		alcoholScope
 		filtration
