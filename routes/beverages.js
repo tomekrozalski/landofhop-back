@@ -575,19 +575,16 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 				}
 			}
 		])
-		.forEach((beverage) => {
-			const formattedBeverage = normalizeBeverageFromResponse(beverage);
-			beverages.push(formattedBeverage);
-		})
-		.then((result) => {
+		.next((err, beverage) => {
+			if (err) {
+				res
+					.status(500)
+					.json({ message: 'An error occured' });
+			}
+
 			res
 				.status(200)
-				.json(beverages);
-		})
-		.catch((err) => {
-			res
-				.status(500)
-				.json({ message: 'An error occured' });
+				.json(normalizeBeverageFromResponse(beverage));
 		});
 });
 
