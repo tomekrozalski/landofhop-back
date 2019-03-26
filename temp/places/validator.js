@@ -1,9 +1,10 @@
-db.createCollection("places", {
+// db.createCollection("places", {
+db.runCommand({ collMod: "places",
 	validator: {
 		$jsonSchema: {
 			bsonType: "object",
 			additionalProperties: false,
-			required: ["_id", "city", "country", "institution", "short_id"],
+			required: ["_id", "city", "country", "institution", "shortId"],
 			properties: {
 				_id: {
 					bsonType: "objectId",
@@ -57,7 +58,7 @@ db.createCollection("places", {
 						}
 					}
 				},
-				short_id: {
+				shortId: {
 					bsonType: "string",
 					description: "must be a string and is required"
 				}
@@ -82,5 +83,5 @@ const sample = {
 			NumberDecimal("51.1317836")
 		]
 	},
-	short_id: NanoId,
+	shortId: NanoId,
 }

@@ -30,7 +30,7 @@ router.get('/list', (req, res) => {
 					brand: '$label.general.brand',
 					name: '$label.general.name',
 					id: '$_id',
-					'short_id': 1,
+					shortId: 1,
 				}
 			},
 			{
@@ -54,7 +54,7 @@ router.get('/list', (req, res) => {
 					},
 					name: 1,
 					id: 1,
-					'short_id': 1,
+					shortId: 1,
 				}
 			},
 		])
@@ -73,7 +73,7 @@ router.get('/list', (req, res) => {
 		});
 });
 
-router.get('/details/:short_id/:brand/:badge', (req, res) => {
+router.get('/details/:shortId/:brand/:badge', (req, res) => {
 	const beverages = [];
 
 	db.getDb()
@@ -97,7 +97,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 				$match: {
 					badge: req.params.badge,
 					'label.general.brand_info.badge': req.params.brand,
-					short_id: req.params.short_id,
+					shortId: req.params.shortId,
 				}
 			},
 			{
@@ -327,7 +327,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 				$project: {
 					_id: 0,
 					id: '$_id',
-					'short_id': 1,
+					shortId: 1,
 					badge: 1,
 					label: {
 						general: {
@@ -335,7 +335,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 							series: 1,
 							brand: {
 								id: '$label.general.brand_info._id',
-								short_id: '$label.general.brand_info.short_id',
+								shortId: '$label.general.brand_info.shortId',
 								badge: '$label.general.brand_info.badge',
 								name: '$label.general.brand_info.name',
 								consortium: '$label.general.brand_info.consortium',
@@ -347,7 +347,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 									as: 'coop', 
 									in: {
 										id: '$$coop._id',
-										short_id: '$$coop.short_id',
+										shortId: '$$coop.shortId',
 										badge: '$$coop.badge',
 										name: '$$coop.name',
 										consortium: '$$coop.consortium',
@@ -357,7 +357,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 							},
 							contract: {
 								id: '$label.general.contract_info._id',
-								short_id: '$label.general.contract_info.short_id',
+								shortId: '$label.general.contract_info.shortId',
 								badge: '$label.general.contract_info.badge',
 								name: '$label.general.contract_info.name',
 								consortium: '$label.general.contract_info.consortium',
@@ -373,13 +373,13 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 								},
 								institution: {
 									id: '$label.general.place_info.institution._id',
-									short_id: '$label.general.place_info.institution.short_id',
+									shortId: '$label.general.place_info.institution.shortId',
 									badge: '$label.general.place_info.institution.badge',
 									name: '$label.general.place_info.institution.name',
 									consortium: '$label.general.place_info.institution.consortium',
 									website: '$label.general.place_info.institution.website',
 								},
-								short_id: '$label.general.place_info.short_id',
+								shortId: '$label.general.place_info.shortId',
 								coordinates: '$label.general.place_info.location.coordinates',
 							},
 							tale: 1,
@@ -434,7 +434,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 									as: 'coop', 
 									in: {
 										id: '$$coop._id',
-										short_id: '$$coop.short_id',
+										shortId: '$$coop.shortId',
 										badge: '$$coop.badge',
 										name: '$$coop.name',
 										consortium: '$$coop.consortium',
@@ -444,7 +444,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 							},
 							contract: {
 								id: '$producer.general.contract_info._id',
-								short_id: '$producer.general.contract_info.short_id',
+								shortId: '$producer.general.contract_info.shortId',
 								badge: '$producer.general.contract_info.badge',
 								name: '$producer.general.contract_info.name',
 								consortium: '$producer.general.contract_info.consortium',
@@ -460,13 +460,13 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 								},
 								institution: {
 									id: '$producer.general.place_info.institution._id',
-									short_id: '$producer.general.place_info.institution.short_id',
+									shortId: '$producer.general.place_info.institution.shortId',
 									badge: '$producer.general.place_info.institution.badge',
 									name: '$producer.general.place_info.institution.name',
 									consortium: '$producer.general.place_info.institution.consortium',
 									website: '$producer.general.place_info.institution.website',
 								},
-								short_id: '$producer.general.place_info.short_id',
+								shortId: '$producer.general.place_info.shortId',
 								coordinates: '$producer.general.place_info.location.coordinates',
 							},
 							tale: 1
@@ -518,7 +518,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 									as: 'coop', 
 									in: {
 										id: '$$coop._id',
-										short_id: '$$coop.short_id',
+										shortId: '$$coop.shortId',
 										badge: '$$coop.badge',
 										name: '$$coop.name',
 										consortium: '$$coop.consortium',
@@ -528,7 +528,7 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 							},
 							contract: {
 								id: '$editorial.general.contract_info._id',
-								short_id: '$editorial.general.contract_info.short_id',
+								shortId: '$editorial.general.contract_info.shortId',
 								badge: '$editorial.general.contract_info.badge',
 								name: '$editorial.general.contract_info.name',
 								consortium: '$editorial.general.contract_info.consortium',
@@ -544,13 +544,13 @@ router.get('/details/:short_id/:brand/:badge', (req, res) => {
 								},
 								institution: {
 									id: '$editorial.general.place_info.institution._id',
-									short_id: '$editorial.general.place_info.institution.short_id',
+									shortId: '$editorial.general.place_info.institution.shortId',
 									badge: '$editorial.general.place_info.institution.badge',
 									name: '$editorial.general.place_info.institution.name',
 									consortium: '$editorial.general.place_info.institution.consortium',
 									website: '$editorial.general.place_info.institution.website',
 								},
-								short_id: '$editorial.general.place_info.short_id',
+								shortId: '$editorial.general.place_info.shortId',
 								coordinates: '$editorial.general.place_info.location.coordinates',
 							}
 						},
@@ -594,7 +594,7 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 			const newBeverage = normalizeBeverageToRequest(req.body);
-			newBeverage.short_id = nanoid(6);
+			newBeverage.shortId = nanoid(6);
 
 			db.getDb()
 				.db()

@@ -8,13 +8,13 @@ db.runCommand({ collMod: "beverages",
 		$jsonSchema: {
 			bsonType: "object",
 			additionalProperties: false,
-			required: ["_id", "short_id", "badge", "label", "added"],
+			required: ["_id", "shortId", "badge", "label", "added"],
 			properties: {
 				_id: {
 					bsonType: "objectId",
 					description: "must be an objectId and is required"
 				},
-				short_id: {
+				shortId: {
 					bsonType: "string",
 					description: "must be a string and is required"
 				},
@@ -924,7 +924,7 @@ NEW SCHEMA PROJECT
 ==================
 
 _id *
-short_id *
+shortId *
 badge *
 label { *
 	general { *

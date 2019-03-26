@@ -1,9 +1,10 @@
-db.createCollection("institutions", {
+// db.createCollection("institutions", {
+db.runCommand({ collMod: "institutions",
 	validator: {
 		$jsonSchema: {
 			bsonType: "object",
 			additionalProperties: false,
-			required: ["_id", "badge", "name", "short_id"],
+			required: ["_id", "badge", "name", "shortId"],
 			properties: {
 				_id: {
 					bsonType: "objectId",
@@ -33,7 +34,7 @@ db.createCollection("institutions", {
 						}
 					}
 				},
-				short_id: {
+				shortId: {
 					bsonType: "string",
 					description: "must be a string and is required"
 				},
@@ -62,5 +63,5 @@ const sample = {
 			"value": "Teddy Brewery"
 		}
 	],
-	"short_id": "DdEeWw"
+	"shortId": "DdEeWw"
 }
