@@ -104,9 +104,9 @@ router.post('/', verifyToken, (req, res) => {
 
 			const newPlace = {
 				city,
-				country: ObjectId(country),
-				institution: ObjectId(institution),
-				short_id: nanoid(6),
+				country: new ObjectId(country),
+				institution: new ObjectId(institution),
+				shortId: nanoid(6),
 			};
 
 			if (location) {

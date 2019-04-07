@@ -1,4 +1,5 @@
-db.createCollection("countries", {
+// db.createCollection("countries", {
+db.runCommand({ collMod: "countries",
 	validator: {
 		$jsonSchema: {
 			bsonType: "object",
@@ -20,11 +21,11 @@ db.createCollection("countries", {
 						bsonType: "object",
 						description: "must be an object",
 						additionalProperties: false,
-						required: ["language", "value"],
+						required: ["value"],
 						properties: {
 							"language": {
-								enum: ["en", "pl"],
-								description: "can only be one of the enum values and is required"
+								bsonType: "string",
+								description: "must be a string"
 							},
 							"value": {
 								bsonType: "string",
@@ -46,7 +47,6 @@ const sample = {
 			value: "Poland" 
 		},
 		{
-			language: "pl",
 			value: "Polska" 
 		}
 	]

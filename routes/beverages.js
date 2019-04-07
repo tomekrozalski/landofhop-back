@@ -2,10 +2,6 @@ const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 const nanoid = require('nanoid');
-const get = require('lodash/get');
-const isEqual = require('lodash/isEqual');
-const isEmpty = require('lodash/isEmpty');
-const set = require('lodash/set');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');

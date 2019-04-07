@@ -1,10 +1,12 @@
 const Router = require('express').Router;
+const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 const nanoid = require('nanoid');
 
 const db = require('../db');
 const verifyToken = require('../utils/verifyToken');
 
+const ObjectId = mongodb.ObjectId;
 const router = Router();
 
 router.get('/list', (req, res) => {
@@ -58,13 +60,19 @@ router.post('/', verifyToken, (req, res) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
+			const newInstitution = {
+				...req.body,
+				shortId: nanoid(6),
+			};
+
+			if (newInstitution.consortium) {
+				newInstitution.consortium = new ObjectId(newInstitution.consortium);
+			};
+
 			db.getDb()
 				.db()
 				.collection('institutions')
-				.insertOne({
-					short_id: nanoid(6),
-					...req.body,
-				})
+				.insertOne(newInstitution)
 				.then((result) => {
 					res
 						.status(200)
