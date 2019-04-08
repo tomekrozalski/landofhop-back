@@ -7084,7 +7084,7 @@
 	"label": {
 		"city": "Poniatowa",
 		"style": [
-			"American IPA"
+			"Amerykańskie IPA"
 		],
 		"extract": {
 			"value": 15,
@@ -7111,8 +7111,9 @@
 		"unit": "liter"
 	},
 	"barcode": 5906395388028,
-
-	"added": 1516451028794
+	"added": 1516451028794,
+	temp: 9-12
+	cena: 9.00 (1554748470005)
 }
 
 wys 25
@@ -17161,3 +17162,468 @@ wys 25
 }
 
 wys 11.5
+
+{
+	"badge": "hop-sasa",
+	"name": "Hop Sasa",
+	"brewery": {
+		"badge": "alebrowar",
+		"name": {
+			"pl": "AleBrowar",
+			"en": "AleBrowar"
+		},
+		"website": "www.alebrowar.pl"
+	},
+	producer: Browar Gościszewo,
+	"country": "PL",
+	"label": {
+		"city": "Sztum",
+		"style": [
+			"Polish IPA"
+		],
+		"extract": {
+			"value": 14,
+			"unit": "%",
+			"relation": "wag."
+		},
+		"alcohol": {
+			"value": 5.0,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"tale": {
+			"pl": "Cudzym chmielicie, swego nie znacie - spokojna jestem z natury, ale miarka się przebrała. Już ja zrobię porządek z tymi Hop Headami! Jak im zaśpiewam, tak zatańczą i w podskokach uwarzą piwo z lubelskim chmielem!",
+		}
+		"ingredients": {
+			"pl": "Woda, słody: pilzneński, pszeniczny, wiedeński, carapils, zakwaszający, chmiel Iunga, drożdże Safale US-05",
+			
+		},
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	goryczka: 3/5
+	słodycz: 3/5
+	moc: 2.5/5
+	IBU; 60,
+	"barcode": 5903364108366,
+	"added": 1554744888817,
+	cena: 7.60
+}
+
+wys 26
+
+{
+	"badge": "hop-capone",
+	"name": "Hop Capone",
+	"brewery": {
+		"badge": "Pivovsky",
+		świdnica: "www.pivovsky.eu"
+	},
+	"producer": {
+		"badge": "browar-solipiwko",
+		"name": {
+			"pl": "Browar Solipiwko",
+			"en": "Solipiwko Brewery"
+		},
+		"website": "www.browarsolipiwko.pl"
+	},
+	"country": "PL",
+	"label": {
+		"style": [
+			"Double IPA"
+		],
+		"extract": {
+			"value": 20,
+			"unit": "stopni",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 7.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Prohibicja nie przyniosła niczego poza problemami. Al Capone",
+		}
+		"ingredients": {
+			"pl": "Woda, słody jęczmienny, słód pszeniczny, chmiele: citra, cascade, chinook, mosaic, amarillo, drożdże piwowarskie",
+			
+		},
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	temp: 8-14
+	"barcode": 5900718375054,
+	"added": 1554745381801,
+	cena: 10,20
+}
+
+wys 26
+
+{
+	"badge": "hopllinger",
+	"name": "hopllinger",
+	"brewery": {
+		"badge": "Pivovsky",
+		świdnica: "www.pivovsky.eu"
+	},
+	"producer": {
+		"badge": "browar-solipiwko",
+		"name": {
+			"pl": "Browar Solipiwko",
+			"en": "Solipiwko Brewery"
+		},
+		"website": "www.browarsolipiwko.pl"
+	},
+	"country": "PL",
+	"label": {
+		"style": [
+			"Double Pear IPA"
+		],
+		"extract": {
+			"value": 20,
+			"unit": "stopni",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 7.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Umrzyj tak, jak żyłeś. Szybko. Niczego nie przeciągaj. Takie życie nic nie znaczy. John Dillinger",
+		}
+		"ingredients": {
+			"pl": "Woda, słody jęczmienny, słód pszeniczny, chmiele: citra, cascade, chinook, mosaic, amarillo, owoce gruszki, drożdże piwowarskie",
+			
+		},
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	temp: 8-14
+	"barcode": 5900718375061,
+	"added": 1554745657323,
+	cena: 10.20
+}
+
+wys 26
+
+{
+	"badge": "jurajskie-mojito",
+	"name": "Jurajskie mojito",
+	"producer": browar na jurze
+	"brewery": "browar na jurze"
+	"country": "PL",
+	"label": {
+		"city": "Zawiercie",
+		"alcohol": {
+			"value": 3.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Jurajskie mojito to orzeźwiający słodko-kwaśno-miętowy smak. Szlachetną goryczkę lekkiego jasnego piwa dolnej fermentacji połączyliśmy z aromatyczną miętą, limonką i cukrem trzcinowym. To nasza piwna wariacja na temat jednego z najsłynniejszych drinków świata.",
+		},
+		"ingredients": {
+			"pl": "woda źródlana, słód jęczmienny, sok z limonki, mięta, cukier trzcinowy, chmiele: Marynka i Lubelski, drożdże SafLager W43/70",
+		}
+		temp: 4-7
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905331026642,
+	"added": 1554746004554,
+	cena: 8.50
+}
+
+wys 25
+
+{
+	"badge": "gwardzista",
+	"name": "Gwardzista",
+	"brewery": {
+		"badge": "browar-profesja",
+		"name": {
+			"pl": "Browar Profesja",
+			"en": "Profesja Brewery"
+		},
+		"website": "www.browarprofesja.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Wrocław",
+		"style": [
+			"Single Hop Challenger Gunpowder English Ale"
+		],
+		"extract": {
+			"value": 12,
+			"unit": "°",
+			"relation": "Plato"
+		},
+		"alcohol": {
+			"value": 4.9,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		pasteryzacja: tak
+		"tale": {
+			"pl": "Smak: owocowo-cytrusowy, kwiatowy, słodowy \n Aromat: cytrusowy, herbaciany, kwiatowy \n Barwa: jasnoherbaciana"
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, słód pszeniczny, chmiel, zielona herbata z bergamotką, drożdże (HotHead Ale)",
+		}
+		goryczka: 2/5
+		temperatura serwowania: 8-12C
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5904730658737,
+	"added": 1554746316884,
+	cena: 
+}
+
+wys 25
+
+{
+	"badge": "amok",
+	"name": "Amok",
+	"producer": {
+		"badge": "browar-zapanbrat",
+		"name": {
+			"pl": "Browar Zapanbrat",
+			"en": "Zapanbrat Brewery"
+		},
+		"website": "www.zapanbrat.com"
+	},
+	"brewery": {
+		"badge": "trzech-kumpli",
+		"name": {
+			"pl": "Trzech Kumpli",
+			"en": "Trzech Kumpli"
+		},
+		"website": "www.trzechkumpli.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Żywiec",
+		"style": [
+			"Honestly Hopped IPA"
+		],
+		"extract": {
+			"value": 16,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 6.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		górna fermentacja
+		"tale": {
+			"pl": "Wpadliśmy w Amok, opanował nas szał chmielenia. Sięgnęliśmy po najaromatyczniejsze odmiany chmielu z USA, Nowej Zelandii i Australii, a potem sypnęliśmy ich do tanków w obłąkanych ilościach. Zniewalający aromat i soczystość to jednak nie wszystko. Pamiętacie jeszcze, że chmiel ma działanie uspakajające, a niemal usypiające? Tak się składa, że Amok to cudowny palindrom Amok-Koma. Interpretujcie to tak: masa chmielowych olejków zawartych w tym piwie pokojowo ostudzi każdy rodzaj wściekłości i wyciągnie z amoku jak Morfeusz Neo z Matrixa. Co prawda delikwent wpada wówczas w chmielową śpiączkę, ale to chyba korzystniejsze niż pozostawać w szale, prawda?"
+		},
+		"ingredients": {
+			"pl": "Woda, słód jęczmienny, płatki pszenne, płatki owsiane, chmiel, drożdże",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905669479523,
+	"added": 1554746811966,
+	cena: 11.0
+}
+
+wys 25
+
+{
+	"badge": "afterparty",
+	"name": "Afterparty",
+	seria: B-day
+	"producer": alebrowar
+	"brewery": {
+		"badge": "browar-pinta",
+		"name": {
+			"pl": "Browar Pinta",
+			"en": "Pinta Brewery"
+		},
+		"website": "www.browarpinta.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Lębork",
+		"style": [
+			"Recovery IPA"
+		],
+		"extract": {
+			"value": 9,
+			"unit": "%",
+			"relation": "wag"
+		},
+		"alcohol": {
+			"value": 2.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"tale": {
+			"pl": "Odpalamy 6. edycję B-day'a, piwa, które warzymy raz w roku, aby z przytupem wspomnieć pierwsze wspólne urodziny Pinty i AleBrowaru. \n\n Tym razem, zaispirowani trudami karnawału, postawiliśmy na lekkie i przyjemnie chmielowe India Pale Ale z ekstra zawartością witaminy C, soli i magnezu. Dobre do tańca i przyjazne uczestnikom każdego balu.",
+		},
+		"ingredients": {
+			"pl": "woda, słody: Pale Ale, pszeniczny, płatki owsiane, płatki pszeniczne, chmiele Columbus, Citra, Centennial, drożdże Safale S-33, dodatki: askorbinian sodu, MgCl2",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222039618,
+	"added": 1554747348585,
+	cena: 7.10
+}
+
+wys 26
+
+{
+	"badge": "hogeita-bost",
+	"name": "Hogeita Bost",
+	"brewery": {
+		"badge": "browar-nepomucen",
+		"name": {
+			"pl": "Browar Nepomucen",
+			"en": "Nepomucen Brewery"
+		},
+		"website": "www.browar-nepomucen.pl"
+	},
+	cooperation: browar Lougar
+	"country": "PL",
+	"label": {
+		"city": "Jutrosin",
+		"style": [
+			"Double Vermont IPA Peaches & Oranges"
+		],
+		"extract": {
+			"value": 18,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 7.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Wraz z hiszpańskim browarem Laugar przedłużyliśmy dobę! Dzięki temu otrzymaliśmy podwójne uderzenie owoców tropikalnych połączone z potężną dawką chmielu."
+			"es": "Nos tiramos todo el...",
+		},
+		"ingredients": {
+			"pl": "Woda. słody: słód jęczmienny (cebada), płatki pszenne (copos de trigo), płatki owsiane (copos de avena), chmiel (lupulo), drożdże górnej fermentacji, dodatki: pomarańcz, brzoskwinia",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.33,
+		"unit": "liter"
+	},
+	"barcode": 5905279959804,
+	"added": 1554749085166,
+	goryczka : 1.5/6
+	temp: 10-12
+	cena: 
+}
+
+wys 23
+
+{
+	"badge": "hazy-disco",
+	"name": "Hazy Disco",
+	"brewery": Browar Pinta,
+	producer: Browar Zarzecze
+	"country": "PL",
+	"label": {
+		"city": "Pietrzykowice",
+		"style": [
+			"DDH New England IPA"
+		],
+		"extract": {
+			"value": 15.5,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 6.7,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "PINTA Hazy Disco - DDH New England IPA nachmielona na aromat i na zimno podwójną ilością chmielu. Intensywne aromaty grejpfruta, mango, mandarynki i marakui. Kremowa faktura zapewniona przez użycie słodu pszenicznego i owsianego. Czysta lupulina Cryo Hops nadaje piwu świeżości i soczystości."
+			"en": "PINTA Hazy Disco - Double Dry Hopped New England IPA brewed with fresh American Cryo Hops"
+		},
+		"ingredients": {
+			"pl": "Woda. słody: słód jęczmienny, słód pszeniczny, słód owsiany, płatki owsiane błyskawiczne, chmiele USA: Citra, Columbus, Mosaic; Cryo Hops: Citra, Simcoe, Mosaic; drożdże SafAle US-05",
+		}
+	},
+	"container": {
+		"type": "puszka",
+		"material": "aluminium",
+		"color": "srebran",
+		"capacity": 500 ml,
+	},
+	"barcode": 5904730438421,
+	"added": 1554751594668,
+	temp: 8-9
+	cena: 11.00
+}
+
+wys 17
