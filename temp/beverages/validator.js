@@ -903,8 +903,16 @@ db.runCommand({ collMod: "beverages",
 									}
 								}
 							}
-						}
-					}
+						},
+						images: {
+							bsonType: "decimal",
+							description: "must be a decimal"
+						},
+						cap: {
+							bsonType: "bool",
+							description: "must be a boolean"
+						},
+					},
 				},
 				added: {
 					bsonType: "date",

@@ -624,7 +624,7 @@ router.put('/', verifyToken, (req, res) => {
 			db.getDb()
 				.db()
 				.collection('beverages')
-				.updateOne({ _id: ObjectId(req.body.id) }, { $set: updatedBeverage })
+				.updateOne({ _id: new ObjectId(req.body.id) }, { $set: updatedBeverage })
 				.then((result) => {
 					res
 						.status(200)
@@ -648,7 +648,7 @@ router.delete('/', verifyToken, (req, res) => {
 			db.getDb()
 				.db()
 				.collection('beverages')
-				.deleteOne({ _id: ObjectId(req.body.id) })
+				.deleteOne({ _id: new ObjectId(req.body.id) })
 				.then((result) => {
 					res
 						.status(200)

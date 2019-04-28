@@ -19,12 +19,12 @@ const beverage = ({
 		badge,
 		label: {
 			general: {
-				name: get(label, 'general.name'),
+				name: label.general.name,
 				...(get(label, 'general.series') && { series: get(label, 'general.series') }),
-				brand: ObjectId(get(label, 'general.brand')),
-				...(get(label, 'general.cooperation') && { cooperation: get(label, 'general.cooperation', []).map(item => ObjectId(item)) }),
-				...(get(label, 'general.contract') && { contract: ObjectId(get(label, 'general.contract')) }),
-				...(get(label, 'general.place') && { place: ObjectId(get(label, 'general.place')) }),
+				brand: new ObjectId(label.general.brand),
+				...(get(label, 'general.cooperation') && { cooperation: get(label, 'general.cooperation', []).map(item => new ObjectId(item)) }),
+				...(get(label, 'general.contract') && { contract: new ObjectId(get(label, 'general.contract')) }),
+				...(get(label, 'general.place') && { place: new ObjectId(get(label, 'general.place')) }),
 				...(get(label, 'general.tale') && { tale: get(label, 'general.tale') }),
 				...(get(label, 'general.barcode') && { barcode: get(label, 'general.barcode') }),
 			},
@@ -55,7 +55,7 @@ const beverage = ({
 			},
 			ingredients: {
 				...(get(label, 'ingredients.description') && { description: get(label, 'ingredients.description') }),
-				...(get(label, 'ingredients.list') && { list: get(label, 'ingredients.list', []).map(item => ObjectId(item)) }),
+				...(get(label, 'ingredients.list') && { list: get(label, 'ingredients.list', []).map(item => new ObjectId(item)) }),
 				...(isBoolean(get(label, 'ingredients.complete')) && { complete: get(label, 'ingredients.complete') }),
 				...(isBoolean(get(label, 'ingredients.smokedMalt')) && { smokedMalt: get(label, 'ingredients.smokedMalt') })
 			},
@@ -88,9 +88,9 @@ const beverage = ({
 		producer: {
 			general: {
 				...(get(producer, 'general.series') && { series: get(producer, 'general.series') }),
-				...(get(producer, 'general.cooperation') && { cooperation: get(producer, 'general.cooperation', []).map(item => ObjectId(item)) }),
-				...(get(producer, 'general.contract') && { contract: ObjectId(get(producer, 'general.contract')) }),
-				...(get(producer, 'general.place') && { place: ObjectId(get(producer, 'general.place')) }),
+				...(get(producer, 'general.cooperation') && { cooperation: get(producer, 'general.cooperation', []).map(item => new ObjectId(item)) }),
+				...(get(producer, 'general.contract') && { contract: new ObjectId(get(producer, 'general.contract')) }),
+				...(get(producer, 'general.place') && { place: new ObjectId(get(producer, 'general.place')) }),
 				...(get(producer, 'general.tale') && { tale: get(producer, 'general.tale') }),
 			},
 			brewing: {
@@ -148,9 +148,9 @@ const beverage = ({
 		},
 		editorial: {
 			general: {
-				...(get(editorial, 'general.cooperation') && { cooperation: get(editorial, 'general.cooperation', []).map(item => ObjectId(item)) }),
-				...(get(editorial, 'general.contract') && { contract: ObjectId(get(editorial, 'general.contract')) }),
-				...(get(editorial, 'general.place') && { place: ObjectId(get(editorial, 'general.place')) }),
+				...(get(editorial, 'general.cooperation') && { cooperation: get(editorial, 'general.cooperation', []).map(item => new ObjectId(item)) }),
+				...(get(editorial, 'general.contract') && { contract: new ObjectId(get(editorial, 'general.contract')) }),
+				...(get(editorial, 'general.place') && { place: new ObjectId(get(editorial, 'general.place')) }),
 			},
 			brewing: {
 				...(get(editorial, 'brewing.fermentation') && { fermentation: get(editorial, 'brewing.fermentation') }),
@@ -176,7 +176,11 @@ const beverage = ({
 					date: new Date(date),
 					value: Decimal128.fromString(value.toString())
 				}))
-			})
+			}),
+			...(get(editorial, 'images') && {
+				images: Decimal128.fromString(get(editorial, 'images').toString())
+			}),
+			...(isBoolean(get(editorial, 'cap')) && { cap: get(editorial, 'cap') }),
 		},
 		added: added ? new Date(added) : new Date(),
 		...(updated && { updated: new Date(updated) }),
