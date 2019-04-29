@@ -156,6 +156,13 @@ const beverage = (values) => {
 
 			set(updatedValues, [section, 'price'], formatted);
 		}
+
+		const images = get(updatedValues, [section, 'images']);
+
+		if (images) {
+			const formatted = Number(images.toString());
+			set(updatedValues, [section, 'images'], formatted);
+		}
 	}
 
 	fixFormats('label');

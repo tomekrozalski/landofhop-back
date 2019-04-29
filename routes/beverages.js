@@ -564,7 +564,9 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							color: 1,
 							clarity: 1
 						},
-						price: 1
+						price: 1,
+						images: 1,
+						cap: 1
 					},
 					added: 1,
 					updated: 1
