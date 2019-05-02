@@ -24,8 +24,8 @@ db.runCommand({ collMod: "institutions",
 						required: ["value"],
 						properties: {
 							"language": {
-								enum: ["en", "pl", "de"],
-								description: "can only be one of the enum values"
+								bsonType: "string",
+								description: "must be a string"
 							},
 							"value": {
 								bsonType: "string",
