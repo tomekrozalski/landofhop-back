@@ -99,6 +99,20 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 			{
 				$lookup: {
 					from: 'institutions',
+					localField: 'label.general.brand_info.consortium',
+					foreignField: '_id',
+					as: 'label.general.brand_info.consortium_info'
+				}
+			},
+			{
+				$unwind: {
+					path: '$label.general.brand_info.consortium_info',
+					preserveNullAndEmptyArrays: true,
+				}
+			},
+			{
+				$lookup: {
+					from: 'institutions',
 					localField: 'label.general.contract',
 					foreignField: '_id',
 					as: 'label.general.contract_info'
@@ -334,7 +348,7 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 								shortId: '$label.general.brand_info.shortId',
 								badge: '$label.general.brand_info.badge',
 								name: '$label.general.brand_info.name',
-								consortium: '$label.general.brand_info.consortium',
+								consortium: '$label.general.brand_info.consortium_info.name',
 								website: '$label.general.brand_info.website',
 							},
 							cooperation: {
