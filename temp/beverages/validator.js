@@ -267,8 +267,12 @@ db.runCommand({ collMod: "beverages",
 										bsonType: "object",
 										additionalProperties: false,
 										description: "must be an object",
-										required: ["value"],
+										required: ["complete", "value"],
 										properties: {
+											"complete": {
+												bsonType: "bool",
+												description: "must be a boolean and is required"
+											},
 											"language": {
 												bsonType: "string",
 												description: "must be a string"
@@ -288,10 +292,6 @@ db.runCommand({ collMod: "beverages",
 										bsonType: "objectId",
 										description: "must be an objectId"
 									}
-								},
-								complete: {
-									bsonType: "bool",
-									description: "must be a boolean"
 								},
 								smokedMalt: {
 									bsonType: "bool",
@@ -633,8 +633,12 @@ db.runCommand({ collMod: "beverages",
 										bsonType: "object",
 										additionalProperties: false,
 										description: "must be an object",
-										required: ["value"],
+										required: ["complete", "value"],
 										properties: {
+											"complete": {
+												bsonType: "bool",
+												description: "must be a boolean and is required"
+											},
 											"language": {
 												bsonType: "string",
 												description: "must be a string"
@@ -654,10 +658,6 @@ db.runCommand({ collMod: "beverages",
 										bsonType: "objectId",
 										description: "must be an objectId"
 									}
-								},
-								complete: {
-									bsonType: "bool",
-									description: "must be a boolean"
 								},
 								smokedMalt: {
 									bsonType: "bool",

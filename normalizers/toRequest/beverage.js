@@ -56,7 +56,6 @@ const beverage = ({
 			ingredients: {
 				...(get(label, 'ingredients.description') && { description: get(label, 'ingredients.description') }),
 				...(get(label, 'ingredients.list') && { list: get(label, 'ingredients.list', []).map(item => new ObjectId(item)) }),
-				...(isBoolean(get(label, 'ingredients.complete')) && { complete: get(label, 'ingredients.complete') }),
 				...(isBoolean(get(label, 'ingredients.smokedMalt')) && { smokedMalt: get(label, 'ingredients.smokedMalt') })
 			},
 			impressions: {
@@ -120,8 +119,7 @@ const beverage = ({
 			},
 			ingredients: {
 				...(get(producer, 'ingredients.description') && { description: get(producer, 'ingredients.description') }),
-				...(get(producer, 'ingredients.list') && { list: get(producer, 'ingredients.list', []).map(item => ObjectId(item)) }),
-				...(isBoolean(get(producer, 'ingredients.complete')) && { complete: get(producer, 'ingredients.complete') }),
+				...(get(producer, 'ingredients.list') && { list: get(producer, 'ingredients.list', []).map(item => new ObjectId(item)) }),
 				...(isBoolean(get(producer, 'ingredients.smokedMalt')) && { smokedMalt: get(producer, 'ingredients.smokedMalt') })
 			},
 			impressions: {
