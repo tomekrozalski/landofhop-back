@@ -44,6 +44,26 @@ const beverage = (values) => {
 		}
 
 		// ------------------------------------------------
+		// Brewering
+
+		const dryHopped = {
+			empty: get(updatedValues, [section, 'brewing', 'dryHopped', 'empty'], false),
+			hops: get(updatedValues, [section, 'brewing', 'dryHopped', 'hops'], []),
+		}
+
+		if (!dryHopped.empty && isEmpty(dryHopped.hops)) {
+			delete updatedValues[section].brewing.dryHopped;
+		}
+
+		if (dryHopped.empty && isEmpty(dryHopped.hops)) {
+			set(updatedValues, [section, 'brewing', 'dryHopped'], true);
+		}
+
+		if (!dryHopped.empty && !isEmpty(dryHopped.hops)) {
+			set(updatedValues, [section, 'brewing', 'dryHopped'], dryHopped.hops);
+		}
+
+		// ------------------------------------------------
 		// Ingredients
 
 		const ingredientsList = get(updatedValues, [section, 'ingredients', 'list']);

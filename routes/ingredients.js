@@ -20,6 +20,7 @@ router.get('/list', (req, res) => {
 					name: {
 						$slice: ['$name', 1],
 					},
+					type: 1,
 				}
 			},
 			{ 

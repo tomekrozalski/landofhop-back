@@ -47,7 +47,11 @@ const beverage = ({
 				...(isBoolean(get(label, 'brewing.refermentation')) && { refermentation: get(label, 'brewing.refermentation') }),
 				...(get(label, 'brewing.aged') && { aged: get(label, 'brewing.aged') }),
 				...(get(label, 'brewing.style') && { style: get(label, 'brewing.style') }),
-				...(isBoolean(get(label, 'brewing.dryHopped')) && { dryHopped: get(label, 'brewing.dryHopped') }),
+				...(get(label, 'brewing.dryHopped') && { dryHopped: {
+					...(get(label, 'brewing.dryHopped').length > 0 && {
+						hops: get(label, 'brewing.dryHopped').map(item => new ObjectId(item))
+					}),
+				} }),
 				...(get(label, 'brewing.expirationDate') && { expirationDate: {
 					value: Decimal128.fromString(get(label, 'brewing.expirationDate.value').toString()),
 					unit: get(label, 'brewing.expirationDate.unit'),
@@ -111,7 +115,11 @@ const beverage = ({
 				...(isBoolean(get(producer, 'brewing.refermentation')) && { refermentation: get(producer, 'brewing.refermentation') }),
 				...(get(producer, 'brewing.aged') && { aged: get(producer, 'brewing.aged') }),
 				...(get(producer, 'brewing.style') && { style: get(producer, 'brewing.style') }),
-				...(isBoolean(get(producer, 'brewing.dryHopped')) && { dryHopped: get(producer, 'brewing.dryHopped') }),
+				...(get(producer, 'brewing.dryHopped') && { dryHopped: {
+					...(get(producer, 'brewing.dryHopped').length > 0 && {
+						hops: get(producer, 'brewing.dryHopped').map(item => new ObjectId(item))
+					}),
+				} }),
 				...(get(producer, 'brewing.expirationDate') && { expirationDate: {
 					value: Decimal128.fromString(get(producer, 'brewing.expirationDate.value').toString()),
 					unit: get(producer, 'brewing.expirationDate.unit'),
@@ -162,7 +170,11 @@ const beverage = ({
 				...(isBoolean(get(editorial, 'brewing.refermentation')) && { refermentation: get(editorial, 'brewing.refermentation') }),
 				...(get(editorial, 'brewing.aged') && { aged: get(editorial, 'brewing.aged') }),
 				...(get(editorial, 'brewing.style') && { style: get(editorial, 'brewing.style') }),
-				...(isBoolean(get(editorial, 'brewing.dryHopped')) && { dryHopped: get(editorial, 'brewing.dryHopped') }),
+				...(get(editorial, 'brewing.dryHopped') && { dryHopped: {
+					...(get(editorial, 'brewing.dryHopped').length > 0 && {
+						hops: get(editorial, 'brewing.dryHopped').map(item => new ObjectId(item))
+					}),
+				} }),
 			},
 			impressions: {
 				...(get(editorial, 'impressions.color') && { color: get(editorial, 'impressions.color') }),

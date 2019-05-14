@@ -233,8 +233,20 @@ db.runCommand({ collMod: "beverages",
 									}
 								},
 								dryHopped: {
-									bsonType: "bool",
-									description: "must be a boolean"
+									bsonType: "object",
+									additionalProperties: false,
+									description: "must be an object",
+									properties: {
+										hops: {
+											bsonType: "array",
+											minimum: 1,
+											description: "must be an array",
+											items: {
+												bsonType: "objectId",
+												description: "must be an objectId"
+											}
+										},
+									}
 								},
 								expirationDate: {
 									bsonType: "object",
@@ -599,8 +611,20 @@ db.runCommand({ collMod: "beverages",
 									}
 								},
 								dryHopped: {
-									bsonType: "bool",
-									description: "must be a boolean"
+									bsonType: "object",
+									additionalProperties: false,
+									description: "must be an object",
+									properties: {
+										hops: {
+											bsonType: "array",
+											minimum: 1,
+											description: "must be an array",
+											items: {
+												bsonType: "objectId",
+												description: "must be an objectId"
+											}
+										},
+									}
 								},
 								expirationDate: {
 									bsonType: "object",
@@ -858,9 +882,21 @@ db.runCommand({ collMod: "beverages",
 									}
 								},
 								dryHopped: {
-									bsonType: "bool",
-									description: "must be a boolean"
-								}
+									bsonType: "object",
+									additionalProperties: false,
+									description: "must be an object",
+									properties: {
+										hops: {
+											bsonType: "array",
+											minimum: 1,
+											description: "must be an array",
+											items: {
+												bsonType: "objectId",
+												description: "must be an objectId"
+											}
+										},
+									}
+								},
 							}
 						},
 						impressions: {
@@ -926,111 +962,3 @@ db.runCommand({ collMod: "beverages",
 		}
 	}
 })
-
-==================
-NEW SCHEMA PROJECT
-==================
-
-_id *
-shortId *
-badge *
-label { *
-	general { *
-		name *
-		series
-		brand *
-		cooperation
-		contract
-		place
-		tale
-		barcode
-	}
-	brewing {
-		fermentation
-		extract
-		alcohol
-		filtration
-		pasteurization
-		refermentation
-		aged
-		style
-		dryHopped
-		expiration
-	}
-    ingredients {
-		description
-		list
-		complete
-		smokedMalt
-	}
-    impressions {
-        bitterness
-        sweetness
-        fullness
-        power
-        hoppyness
-        temperature
-    }
-	container *
-	price
-}
-producer {
-	general {
-		series
-		cooperation
-		contract
-		place
-		tale
-	}
-	brewing {
-		fermentation
-		extract
-		alcohol
-		filtration
-		pasteurization
-		refermentation
-		aged
-		style
-		dryHopped
-		expiration
-	}
-    ingredients {
-		description
-		list
-		complete
-		smokedMalt
-	}
-    impressions {
-        bitterness
-        sweetness
-        fullness
-        power
-        hoppyness
-        temperature
-    }
-	price
-}
-editorial {
-	general {
-		cooperation
-		contract
-		place
-	}
-	brewing {
-		fermentation
-		alcoholScope
-		filtration
-		pasteurization
-		refermentation
-		aged
-		style
-		dryHopped
-	}
-    impressions {
-        color
-		clarity
-    }
-	price
-}
-added *
-updated

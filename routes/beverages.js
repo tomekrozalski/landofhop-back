@@ -77,7 +77,7 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 		.collection('beverages')
 		.aggregate([
 			// ------------------------------------------------
-			// General - brand, contract, cooperation
+			// Label - brand, contract, cooperation
 			{
 				$lookup: {
 					from: 'institutions',
@@ -133,7 +133,7 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 				}
 			},
 			// ------------------------------------------------
-			// General - place
+			// Label - place
 			{
 				$lookup: {
 					from: 'places',
@@ -177,7 +177,17 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 				}
 			},
 			// ------------------------------------------------
-			// General - ingredients
+			// Label - dryHopped
+			{
+				$lookup: {
+					from: 'ingredients',
+					localField: 'label.brewing.dryHopped.hops',
+					foreignField: '_id',
+					as: 'label.brewing.dryHopped_info'
+				}
+			},
+			// ------------------------------------------------
+			// Label - ingredients
 			{
 				$lookup: {
 					from: 'ingredients',
@@ -252,6 +262,16 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 				$unwind: {
 					path: '$producer.general.place_info.institution',
 					preserveNullAndEmptyArrays: true,
+				}
+			},
+			// ------------------------------------------------
+			// Producer - dryHopped
+			{
+				$lookup: {
+					from: 'ingredients',
+					localField: 'producer.brewing.dryHopped.hops',
+					foreignField: '_id',
+					as: 'producer.brewing.dryHopped_info'
 				}
 			},
 			// ------------------------------------------------
@@ -333,6 +353,16 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 				}
 			},
 			// ------------------------------------------------
+			// Producer - dryHopped
+			{
+				$lookup: {
+					from: 'ingredients',
+					localField: 'editorial.brewing.dryHopped.hops',
+					foreignField: '_id',
+					as: 'editorial.brewing.dryHopped_info'
+				}
+			},
+			// ------------------------------------------------
 			{
 				$project: {
 					_id: 0,
@@ -404,7 +434,27 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							refermentation: 1,
 							aged: 1,
 							style: 1,
-							dryHopped: 1,
+							dryHopped: {
+								empty: {
+									$cond: [
+										{ $eq: ['$label.brewing.dryHopped', {}]},
+										true,
+										false
+									]
+								},
+								hops: {
+									$map: { 
+										input: '$label.brewing.dryHopped_info', 
+										as: 'hop', 
+										in: {
+											id: '$$hop._id',
+											badge: '$$hop.badge',
+											name: '$$hop.name',
+											type: '$$hop.type',
+										}
+									}
+								}
+							},
 							expirationDate: 1,
 						},
 						ingredients: {
@@ -421,7 +471,6 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 									}
 								}
 							},
-							complete: 1,
 							smokedMalt: 1,
 						},
 						impressions: {
@@ -490,7 +539,27 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							refermentation: 1,
 							aged: 1,
 							style: 1,
-							dryHopped: 1,
+							dryHopped: {
+								empty: {
+									$cond: [
+										{ $eq: ['$producer.brewing.dryHopped', {}]},
+										true,
+										false
+									]
+								},
+								hops: {
+									$map: { 
+										input: '$producer.brewing.dryHopped_info', 
+										as: 'hop', 
+										in: {
+											id: '$$hop._id',
+											badge: '$$hop.badge',
+											name: '$$hop.name',
+											type: '$$hop.type',
+										}
+									}
+								}
+							},
 							expirationDate: 1,
 						},
 						ingredients: {
@@ -507,7 +576,6 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 									}
 								}
 							},
-							complete: 1,
 							smokedMalt: 1,
 						},
 						impressions: {
@@ -572,7 +640,27 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							refermentation: 1,
 							aged: 1,
 							style: 1,
-							dryHopped: 1
+							dryHopped: {
+								empty: {
+									$cond: [
+										{ $eq: ['$editorial.brewing.dryHopped', {}]},
+										true,
+										false
+									]
+								},
+								hops: {
+									$map: { 
+										input: '$editorial.brewing.dryHopped_info', 
+										as: 'hop', 
+										in: {
+											id: '$$hop._id',
+											badge: '$$hop.badge',
+											name: '$$hop.name',
+											type: '$$hop.type',
+										}
+									}
+								}
+							},
 						},
 						impressions: {
 							color: 1,
@@ -633,9 +721,6 @@ router.put('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 			const updatedBeverage = normalizeBeverageToRequest(req.body);
-
-			console.log('updatedBeverage', updatedBeverage);
-			console.log('req.body.id', req.body.id, req.body);
 
 			db.getDb()
 				.db()
