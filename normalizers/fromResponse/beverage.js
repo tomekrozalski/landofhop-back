@@ -63,6 +63,12 @@ const beverage = (values) => {
 			set(updatedValues, [section, 'brewing', 'dryHopped'], dryHopped.hops);
 		}
 
+		const brewing = get(updatedValues, [section, 'brewing']);
+
+		if (isEmpty(brewing)) {
+			delete updatedValues[section].brewing;
+		}
+
 		// ------------------------------------------------
 		// Ingredients
 
@@ -122,7 +128,7 @@ const beverage = (values) => {
 		const fullness = get(updatedValues, [section, 'impressions', 'fullness']);
 		const power = get(updatedValues, [section, 'impressions', 'power']);
 		const hoppyness = get(updatedValues, [section, 'impressions', 'hoppyness']);
-	
+
 		if (bitterness) {
 			const formatted = Number(bitterness.toString());
 			set(updatedValues, [section, 'impressions', 'bitterness'], formatted);
