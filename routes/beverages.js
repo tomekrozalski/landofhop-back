@@ -682,9 +682,15 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 					.json({ message: 'An error occured' });
 			}
 
-			res
-				.status(200)
-				.json(normalizeBeverageFromResponse(beverage));
+			if (!beverage) {
+				res
+					.status(404)
+					.json({ message: 'Beverage not found' });
+			} else {
+				res
+					.status(200)
+					.json(normalizeBeverageFromResponse(beverage));
+			}
 		});
 });
 

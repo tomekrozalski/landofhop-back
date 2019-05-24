@@ -19,6 +19,7 @@ router.get('/list', (req, res) => {
 			{
 				$project: {
 					_id: 0,
+					badge: 1,
 					name: {
 						$slice: ['$name', 1],
 					},
@@ -32,6 +33,7 @@ router.get('/list', (req, res) => {
 			},
 			{
 				$project: {
+					badge: 1,
 					label: '$name.value',
 					value: 1,
 				}
