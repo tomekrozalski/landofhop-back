@@ -1,9 +1,9 @@
 const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
-const nanoid = require('nanoid');
 
 const db = require('../db');
+const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 
 const ObjectId = mongodb.ObjectId;
@@ -64,7 +64,7 @@ router.post('/', verifyToken, (req, res) => {
 		} else {
 			const newInstitution = {
 				...req.body,
-				shortId: nanoid(6),
+				shortId: shortIdGenerator(),
 			};
 
 			if (newInstitution.consortium) {

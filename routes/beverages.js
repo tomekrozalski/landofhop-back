@@ -1,9 +1,9 @@
 const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
-const nanoid = require('nanoid');
 
 const db = require('../db');
+const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 const normalizeBeverageFromResponse = require('../normalizers/fromResponse/beverage');
 const normalizeBeverageToRequest = require('../normalizers/toRequest/beverage');
@@ -700,7 +700,7 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 			const newBeverage = normalizeBeverageToRequest(req.body);
-			newBeverage.shortId = nanoid(6);
+			newBeverage.shortId = shortIdGenerator();
 
 			db.getDb()
 				.db()

@@ -1,9 +1,9 @@
 const Router = require('express').Router;
 const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
-const nanoid = require('nanoid');
 
 const db = require('../db');
+const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
@@ -106,7 +106,7 @@ router.post('/', verifyToken, (req, res) => {
 				city,
 				country: new ObjectId(country),
 				institution: new ObjectId(institution),
-				shortId: nanoid(6),
+				shortId: shortIdGenerator(),
 			};
 
 			if (location) {

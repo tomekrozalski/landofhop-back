@@ -66,22 +66,3 @@ db.runCommand({ collMod: "places",
 		}
 	}
 });
-
-const sample = {
-	city: [
-		{
-			language: "pl",
-			value: "Poznań"
-		}
-	],
-	country: ObjectId("5c4b7d30ba9dac5be1f17613"),
-	institution: ObjectId("5c4b85f2a9c7062b5e55cf18"),
-	location: {
-		type: "Point",
-		coordinates: [
-			NumberDecimal("17.0592778"),
-			NumberDecimal("51.1317836")
-		]
-	},
-	shortId: NanoId,
-}
