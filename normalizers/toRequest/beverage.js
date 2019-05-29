@@ -14,6 +14,7 @@ const beverage = ({
 	editorial,
 	added,
 	updated,
+	shortId,
 }) => {
 	const values = {
 		badge,
@@ -194,6 +195,7 @@ const beverage = ({
 		},
 		added: added ? new Date(added) : new Date(),
 		...(updated && { updated: new Date(updated) }),
+		...(shortId && { shortId }),
 	};
 
 	// -----------------------------------

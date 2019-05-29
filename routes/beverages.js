@@ -731,7 +731,10 @@ router.put('/', verifyToken, (req, res) => {
 			db.getDb()
 				.db()
 				.collection('beverages')
-				.updateOne({ _id: new ObjectId(req.body.id) }, { $set: updatedBeverage })
+				.replaceOne(
+					{ _id: new ObjectId(req.body.id) },
+					updatedBeverage,
+				)
 				.then((result) => {
 					res
 						.status(200)
