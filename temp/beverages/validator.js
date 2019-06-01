@@ -195,20 +195,52 @@ db.runCommand({ collMod: "beverages",
 									description: "must be a boolean"
 								},
 								aged: {
-									bsonType: "object",
-									additionalProperties: false,
-									description: "must be an object",
-									required: ["type"],
-									properties: {
-										type: {
-											bsonType: "array",
-											minimum: 1,
-											description: "must be an array",
-											items: {
+									bsonType: "array",
+									description: "must be an array",
+									items: {
+										bsonType: "object",
+										additionalProperties: false,
+										description: "must be an object",
+										properties: {
+											type: {
 												enum: ["barrel", "wood"],
 												description: "can only be one of the enum values"
+											},
+											wood: {
+												bsonType: "array",
+												minimum: 1,
+												description: "must be an array",
+												items: {
+													bsonType: "string",
+													description: "must be a string"
+												}
+											},
+											time: {
+												bsonType: "object",
+												additionalProperties: false,
+												description: "must be an object",
+												required: ["value", "unit"],
+												properties: {
+													value: {
+														bsonType: "decimal",
+														description: "must be an decimal and is required"
+													},
+													unit: {
+														enum: ["day", "month", "year"],
+														description: "can only be one of the enum values and is required"
+													}
+												}
+											},
+											previousContent: {
+												bsonType: "array",
+												minimum: 1,
+												description: "must be an array",
+												items: {
+													bsonType: "string",
+													description: "must be a string"
+												}
 											}
-										},
+										}
 									}
 								},
 								style: {
@@ -573,20 +605,52 @@ db.runCommand({ collMod: "beverages",
 									description: "must be a boolean"
 								},
 								aged: {
-									bsonType: "object",
-									additionalProperties: false,
-									description: "must be an object",
-									required: ["type"],
-									properties: {
-										type: {
-											bsonType: "array",
-											minimum: 1,
-											description: "must be an array",
-											items: {
+									bsonType: "array",
+									description: "must be an array",
+									items: {
+										bsonType: "object",
+										additionalProperties: false,
+										description: "must be an object",
+										properties: {
+											type: {
 												enum: ["barrel", "wood"],
 												description: "can only be one of the enum values"
+											},
+											wood: {
+												bsonType: "array",
+												minimum: 1,
+												description: "must be an array",
+												items: {
+													bsonType: "string",
+													description: "must be a string"
+												}
+											},
+											time: {
+												bsonType: "object",
+												additionalProperties: false,
+												description: "must be an object",
+												required: ["value", "unit"],
+												properties: {
+													value: {
+														bsonType: "decimal",
+														description: "must be an decimal and is required"
+													},
+													unit: {
+														enum: ["day", "month", "year"],
+														description: "can only be one of the enum values and is required"
+													}
+												}
+											},
+											previousContent: {
+												bsonType: "array",
+												minimum: 1,
+												description: "must be an array",
+												items: {
+													bsonType: "string",
+													description: "must be a string"
+												}
 											}
-										},
+										}
 									}
 								},
 								style: {
@@ -844,20 +908,52 @@ db.runCommand({ collMod: "beverages",
 									description: "must be a boolean"
 								},
 								aged: {
-									bsonType: "object",
-									additionalProperties: false,
-									description: "must be an object",
-									required: ["type"],
-									properties: {
-										type: {
-											bsonType: "array",
-											minimum: 1,
-											description: "must be an array",
-											items: {
+									bsonType: "array",
+									description: "must be an array",
+									items: {
+										bsonType: "object",
+										additionalProperties: false,
+										description: "must be an object",
+										properties: {
+											type: {
 												enum: ["barrel", "wood"],
 												description: "can only be one of the enum values"
+											},
+											wood: {
+												bsonType: "array",
+												minimum: 1,
+												description: "must be an array",
+												items: {
+													bsonType: "string",
+													description: "must be a string"
+												}
+											},
+											time: {
+												bsonType: "object",
+												additionalProperties: false,
+												description: "must be an object",
+												required: ["value", "unit"],
+												properties: {
+													value: {
+														bsonType: "decimal",
+														description: "must be an decimal and is required"
+													},
+													unit: {
+														enum: ["day", "month", "year"],
+														description: "can only be one of the enum values and is required"
+													}
+												}
+											},
+											previousContent: {
+												bsonType: "array",
+												minimum: 1,
+												description: "must be an array",
+												items: {
+													bsonType: "string",
+													description: "must be a string"
+												}
 											}
-										},
+										}
 									}
 								},
 								style: {
