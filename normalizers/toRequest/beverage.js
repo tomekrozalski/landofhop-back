@@ -45,7 +45,6 @@ const beverage = ({
 				}),
 				...(isBoolean(get(label, 'brewing.filtration')) && { filtration: get(label, 'brewing.filtration') }),
 				...(isBoolean(get(label, 'brewing.pasteurization')) && { pasteurization: get(label, 'brewing.pasteurization') }),
-				...(isBoolean(get(label, 'brewing.refermentation')) && { refermentation: get(label, 'brewing.refermentation') }),
 				...(get(label, 'brewing.aged') && { aged: get(label, 'brewing.aged') }),
 				...(get(label, 'brewing.style') && { style: get(label, 'brewing.style') }),
 				...(get(label, 'brewing.dryHopped') && { dryHopped: {
@@ -113,7 +112,6 @@ const beverage = ({
 				}),
 				...(isBoolean(get(producer, 'brewing.filtration')) && { filtration: get(producer, 'brewing.filtration') }),
 				...(isBoolean(get(producer, 'brewing.pasteurization')) && { pasteurization: get(producer, 'brewing.pasteurization') }),
-				...(isBoolean(get(producer, 'brewing.refermentation')) && { refermentation: get(producer, 'brewing.refermentation') }),
 				...(get(producer, 'brewing.aged') && { aged: get(producer, 'brewing.aged') }),
 				...(get(producer, 'brewing.style') && { style: get(producer, 'brewing.style') }),
 				...(get(producer, 'brewing.dryHopped') && { dryHopped: {
@@ -168,7 +166,6 @@ const beverage = ({
 				}),
 				...(isBoolean(get(editorial, 'brewing.filtration')) && { filtration: get(editorial, 'brewing.filtration') }),
 				...(isBoolean(get(editorial, 'brewing.pasteurization')) && { pasteurization: get(editorial, 'brewing.pasteurization') }),
-				...(isBoolean(get(editorial, 'brewing.refermentation')) && { refermentation: get(editorial, 'brewing.refermentation') }),
 				...(get(editorial, 'brewing.aged') && { aged: get(editorial, 'brewing.aged') }),
 				...(get(editorial, 'brewing.style') && { style: get(editorial, 'brewing.style') }),
 				...(get(editorial, 'brewing.dryHopped') && { dryHopped: {

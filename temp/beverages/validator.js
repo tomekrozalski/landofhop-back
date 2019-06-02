@@ -190,10 +190,6 @@ db.runCommand({ collMod: "beverages",
 									bsonType: "bool",
 									description: "must be a boolean"
 								},
-								refermentation: {
-									bsonType: "bool",
-									description: "must be a boolean"
-								},
 								aged: {
 									bsonType: "array",
 									description: "must be an array",
@@ -600,10 +596,6 @@ db.runCommand({ collMod: "beverages",
 									bsonType: "bool",
 									description: "must be a boolean"
 								},
-								refermentation: {
-									bsonType: "bool",
-									description: "must be a boolean"
-								},
 								aged: {
 									bsonType: "array",
 									description: "must be an array",
@@ -900,10 +892,6 @@ db.runCommand({ collMod: "beverages",
 									description: "must be a boolean"
 								},
 								pasteurization: {
-									bsonType: "bool",
-									description: "must be a boolean"
-								},
-								refermentation: {
 									bsonType: "bool",
 									description: "must be a boolean"
 								},

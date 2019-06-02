@@ -431,7 +431,6 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							alcohol: 1,
 							filtration: 1,
 							pasteurization: 1,
-							refermentation: 1,
 							aged: 1,
 							style: 1,
 							dryHopped: {
@@ -536,7 +535,6 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							alcohol: 1,
 							filtration: 1,
 							pasteurization: 1,
-							refermentation: 1,
 							aged: 1,
 							style: 1,
 							dryHopped: {
@@ -637,7 +635,6 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							alcohol: 1,
 							filtration: 1,
 							pasteurization: 1,
-							refermentation: 1,
 							aged: 1,
 							style: 1,
 							dryHopped: {
