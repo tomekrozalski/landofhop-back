@@ -1,7 +1,6 @@
 const get = require('lodash/get');
 const isEmpty = require('lodash/isEmpty');
 const isEqual = require('lodash/isEqual');
-const isNumber = require('lodash/isNumber');
 const set = require('lodash/set');
 
 const beverage = (values) => {
@@ -111,6 +110,19 @@ const beverage = (values) => {
 		if (alcoholValue) {
 			const formatted = Number(alcoholValue.toString());
 			set(updatedValues, [section, 'brewing', 'alcohol', 'value'], formatted);
+		}
+
+		const aged = get(updatedValues, [section, 'brewing', 'aged']);
+
+		if (aged && aged.length) {
+			aged.forEach((item, i) => {
+				const timeValue = get(item, 'time.value');
+
+				if (timeValue) {
+					const formatted = Number(timeValue.toString());
+					set(updatedValues, [section, 'brewing', 'aged', i, 'time', 'value'], formatted);
+				}
+			});
 		}
 
 		const expirationDateValue = get(updatedValues, [section, 'brewing', 'expirationDate', 'value']);

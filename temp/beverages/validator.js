@@ -203,13 +203,8 @@ db.runCommand({ collMod: "beverages",
 												description: "can only be one of the enum values"
 											},
 											wood: {
-												bsonType: "array",
-												minimum: 1,
-												description: "must be an array",
-												items: {
-													bsonType: "string",
-													description: "must be a string"
-												}
+												bsonType: "string",
+												description: "must be a string"
 											},
 											time: {
 												bsonType: "object",
@@ -609,13 +604,8 @@ db.runCommand({ collMod: "beverages",
 												description: "can only be one of the enum values"
 											},
 											wood: {
-												bsonType: "array",
-												minimum: 1,
-												description: "must be an array",
-												items: {
-													bsonType: "string",
-													description: "must be a string"
-												}
+												bsonType: "string",
+												description: "must be a string"
 											},
 											time: {
 												bsonType: "object",
@@ -908,13 +898,8 @@ db.runCommand({ collMod: "beverages",
 												description: "can only be one of the enum values"
 											},
 											wood: {
-												bsonType: "array",
-												minimum: 1,
-												description: "must be an array",
-												items: {
-													bsonType: "string",
-													description: "must be a string"
-												}
+												bsonType: "string",
+												description: "must be a string"
 											},
 											time: {
 												bsonType: "object",

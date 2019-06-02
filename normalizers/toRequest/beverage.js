@@ -45,7 +45,26 @@ const beverage = ({
 				}),
 				...(isBoolean(get(label, 'brewing.filtration')) && { filtration: get(label, 'brewing.filtration') }),
 				...(isBoolean(get(label, 'brewing.pasteurization')) && { pasteurization: get(label, 'brewing.pasteurization') }),
-				...(get(label, 'brewing.aged') && { aged: get(label, 'brewing.aged') }),
+				...(get(label, 'brewing.aged') && {
+					aged: get(label, 'brewing.aged', [])
+						.map(({
+							previousContent,
+							time,
+							type,
+							wood,
+						}) => ({
+							...(previousContent && { previousContent }),
+							...(time && {
+								time: {
+									unit: time.unit,
+									value: Decimal128.fromString(time.value.toString()),
+								}
+							}),
+							...(type && { type }),
+							...(wood && { wood }),
+						})
+					),
+				}),
 				...(get(label, 'brewing.style') && { style: get(label, 'brewing.style') }),
 				...(get(label, 'brewing.dryHopped') && { dryHopped: {
 					...(get(label, 'brewing.dryHopped').length > 0 && {
@@ -112,7 +131,26 @@ const beverage = ({
 				}),
 				...(isBoolean(get(producer, 'brewing.filtration')) && { filtration: get(producer, 'brewing.filtration') }),
 				...(isBoolean(get(producer, 'brewing.pasteurization')) && { pasteurization: get(producer, 'brewing.pasteurization') }),
-				...(get(producer, 'brewing.aged') && { aged: get(producer, 'brewing.aged') }),
+				...(get(producer, 'brewing.aged') && {
+					aged: get(producer, 'brewing.aged', [])
+						.map(({
+							previousContent,
+							time,
+							type,
+							wood,
+						}) => ({
+							...(previousContent && { previousContent }),
+							...(time && {
+								time: {
+									unit: time.unit,
+									value: Decimal128.fromString(time.value.toString()),
+								}
+							}),
+							...(type && { type }),
+							...(wood && { wood }),
+						})
+					),
+				}),
 				...(get(producer, 'brewing.style') && { style: get(producer, 'brewing.style') }),
 				...(get(producer, 'brewing.dryHopped') && { dryHopped: {
 					...(get(producer, 'brewing.dryHopped').length > 0 && {
@@ -166,7 +204,26 @@ const beverage = ({
 				}),
 				...(isBoolean(get(editorial, 'brewing.filtration')) && { filtration: get(editorial, 'brewing.filtration') }),
 				...(isBoolean(get(editorial, 'brewing.pasteurization')) && { pasteurization: get(editorial, 'brewing.pasteurization') }),
-				...(get(editorial, 'brewing.aged') && { aged: get(editorial, 'brewing.aged') }),
+				...(get(editorial, 'brewing.aged') && {
+					aged: get(editorial, 'brewing.aged', [])
+						.map(({
+							previousContent,
+							time,
+							type,
+							wood,
+						}) => ({
+							...(previousContent && { previousContent }),
+							...(time && {
+								time: {
+									unit: time.unit,
+									value: Decimal128.fromString(time.value.toString()),
+								}
+							}),
+							...(type && { type }),
+							...(wood && { wood }),
+						})
+					),
+				}),
 				...(get(editorial, 'brewing.style') && { style: get(editorial, 'brewing.style') }),
 				...(get(editorial, 'brewing.dryHopped') && { dryHopped: {
 					...(get(editorial, 'brewing.dryHopped').length > 0 && {
