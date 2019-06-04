@@ -1,481 +1,4 @@
 {
-	"badge": "hoppy-queen",
-	"name": "Hoppy Queen",
-	"brewery": {
-		"badge": "doctor-brew",
-		"name": {
-			"pl": "Doctor Brew",
-			"en": "Doctor Brew"
-		},
-		"website": "www.doctorbrew.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Niechanowo",
-		"fermentation": "top",
-		"extract": {
-			"value": 14,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5.2,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Uwolnij opentańczy aromat kompozycji 21 chmieli prosto z samego serca Ameryki, Europy, Australii i Nowej Zelandii. Nurkuj w doskonałym balansie pomiędzy szlachetną goryczką, a przyjemną słodowością, a potem wróć tu gdzie jesteś. Następnie weź kolejny łyk i… zachowuj się! Królowa patrzy."
-		},
-		"ingredients": {
-			"pl": "Woda, *słody jęczmienne*, chmiel, drożdze",
-			"en": "Water, *barley malts*, hop, yeasts"
-		},
-		"bitterness": {
-			"IBU": 45
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5903240674268,
-	"impressions": {
-		"color": {
-			"name": "amber",
-			"hex": "e3990c"
-		},
-		"kopyr": {
-			"movie": "x983h1-K9h0",
-			"comment": "raczej pozytywnie"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 20,
-		"cap": true
-	},
-	"added": 1499896800004
-}
-{
-	"badge": "bochkove",
-	"name": "Бочкове",
-	"brewery": {
-		"badge": "persha-privatna-brovarnya",
-		"name": {
-			"pl": "Перша приватна броварня",
-			"en": "Перша приватна броварня"
-		},
-		"website": "www.ppb.com.ua"
-	},
-	"country": "UA",
-	"label": {
-		"city": "Львів",
-		"fermentation": "bottom",
-		"style": [
-			"International Pale Lager"
-		],
-		"extract": {
-			"value": 11.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4.8,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": true,
-		"pasteurized": true,
-		"ingredients": {
-			"pl": "• woda, • słody, kukurydziana kasza lub mąka, • chmiel granulowany",
-			"en": "• water, • malts, corn groats or flour, • granulated hop"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 4820046960740,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "f6e494"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 23,
-		"cap": true
-	},
-	"added": 1502904218013
-}
-{
-	"badge": "svitle",
-	"name": "Львівське Світле",
-	"brewery": {
-		"badge": "lvivska-pivovarnya",
-		"name": {
-			"pl": "Львівська пивоварня",
-			"en": "Львівська пивоварня"
-		},
-		"website": "www.lvivske.com"
-	},
-	"country": "UA",
-	"label": {
-		"city": "Львів",
-		"fermentation": "bottom",
-		"style": [
-			"International Pale Lager"
-		],
-		"extract": {
-			"value": 10.4,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"pasteurized": true,
-		"ingredients": {
-			"pl": "Woda, słód, jęczmień, ekstrakt słodowy, chmiel",
-			"en": "Water, malt, barley, malt extract, hop"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 4823005000150,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "e8d486"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 21,
-		"cap": true
-	},
-	"added": 1502908463014
-}
-{
-	"badge": "1715",
-	"name": "Львівське 1715",
-	"brewery": {
-		"badge": "lvivska-pivovarnya",
-		"name": {
-			"pl": "Львівська пивоварня",
-			"en": "Львівська пивоварня"
-		},
-		"website": "www.lvivske.com"
-	},
-	"country": "UA",
-	"label": {
-		"city": "Львів",
-		"fermentation": "bottom",
-		"style": [
-			"International Pale Lager"
-		],
-		"extract": {
-			"value": 11.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4.7,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"pasteurized": true,
-		"ingredients": {
-			"pl": "Woda, słód, jęczmień, chmiel",
-			"en": "Water, malt, barley, hop"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "green",
-		"capacity": 0.45,
-		"unit": "liter"
-	},
-	"barcode": 4820000455732,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "e6d181"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 24,
-		"cap": true
-	},
-	"added": 1502910780015
-}
-{
-	"badge": "svitle",
-	"name": "Світле",
-	"brewery": {
-		"badge": "persha-privatna-brovarnya",
-		"name": {
-			"pl": "Перша приватна броварня",
-			"en": "Перша приватна броварня"
-		},
-		"website": "www.ppb.com.ua"
-	},
-	"country": "UA",
-	"label": {
-		"city": "Львів",
-		"fermentation": "bottom",
-		"style": [
-			"International Pale Lager"
-		],
-		"extract": {
-			"value": 11.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4.8,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": true,
-		"pasteurized": true,
-		"ingredients": {
-			"pl": "Woda, słód, kukurydziana kasza lub mąka, chmiel granulowany",
-			"en": "Water, malt, corn groats or flour, granulated hop"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 4820046960191,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "f4da83"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 25,
-		"cap": true
-	},
-	"added": 1502917285016
-}
-{
-	"badge": "pszeniczniak",
-	"name": "Pszeniczniak",
-	"brewery": {
-		"badge": "browar-amber",
-		"name": {
-			"pl": "Browar Amber",
-			"en": "Amber Brewery"
-		},
-		"website": "www.browar-amber.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Kolbudy",
-		"fermentation": "top",
-		"style": [
-			"Hefe-Weizen",
-			"Weizen"
-		],
-		"extract": {
-			"value": 12.1,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5.2,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Jeden z najstarszych stylów piwa w Europie, który dzięki Pszeniczniakowi odzyskuje swój polski charakter. Naturalnie mętne piwo, w stylu Hefeweizen, którego receptura inspirowana jest kilkusetletnią tradycją warzenia piwa pszenicznego na Pomorzu."
-		},
-		"ingredients": {
-			"pl": "Woda z własnych ujęć głębinowych, _słów pszeniczny, słód jęczmienny_, chmiel aromatyczny i goryczkowy, drożdże z własnej stacji propagacji",
-			"en": "Water from own water intakes, _wheat malt, barley malt_, hop aromatic and gentianaceous, yeasts from own propagation station"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906591001332,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "fad86e"
-		},
-		"kopyr": {
-			"movie": "CYZ1Qefhzrg",
-			"comment": "trochę nijakie, ale klasyka"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 26,
-		"cap": true
-	},
-	"added": 1504252962868
-}
-{
-	"badge": "art8",
-	"name": "Art 8",
-	"cooperation": {
-		"badge": "brlo",
-		"name": {
-			"pl": "Browar Brło",
-			"en": "Brlo Brewery"
-		},
-		"website": "www.brlo.de"
-	},
-	"brewery": {
-		"badge": "browar-stu-mostow",
-		"name": {
-			"pl": "Browar Stu Mostów",
-			"en": "Stu Mostów Brewery"
-		},
-		"website": "100mostow.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Wrocław",
-		"fermentation": "top",
-		"style": [
-			"Strawberry Berliner Weisse"
-		],
-		"extract": {
-			"value": 9.0,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 3.8,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "Woda, przecier truskawkowy (8%), słód _jęczmienny_, słód _pszeniczny_, chmiel, drożdże, bakterie kwasu mlekowego",
-			"en": "Water, strawberry mousse (8%), _barley_ malt, _wheat_ malt, hop, yeasts, lactic acid bacteria"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905279213388,
-	"impressions": {
-		"color": {
-			"name": "strawberry",
-			"hex": "e18540"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 21,
-		"cap": false
-	},
-	"added": 1504255342129
-}
-{
-	"badge": "natarcie-pszenicy",
-	"name": "Natarcie pszenicy",
-	"producer": {
-		"badge": "browar-czarnkow",
-		"name": {
-			"pl": "Browar Czarnków",
-			"en": "Czarnków Brewery"
-		},
-		"website": "www.browarczarnkow.pl"
-	},
-	"brewery": {
-		"badge": "browar-golem",
-		"name": {
-			"pl": "Browar Golem",
-			"en": "Golem Brewery"
-		},
-		"website": "browargolem.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Chodzież",
-		"fermentation": "top",
-		"style": [
-			"American Wheat"
-		],
-		"extract": {
-			"value": 10.0,
-			"unit": "°",
-			"relation": "Blg"
-		},
-		"alcohol": {
-			"value": 4.0,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"ingredients": {
-			"pl": "Woda, _słód jęczmienny_, _słód pszeniczny_, chmiel, pomelo kandyzowane, drożdże",
-			"en": "Water, _barley malt_, _wheat malt_, hop, candied pomelo, yeasts"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5904730961967,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "e4cd78"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 23,
-		"cap": false
-	},
-	"added": 1504259854313
-}
-{
 	"badge": "hefe-weissbier-dunkel",
 	"name": "Hefe-Weißbier Dunkel",
 	"brewery": {
@@ -531,469 +54,7 @@
 	},
 	"added": 1504260966052
 }
-{
-	"badge": "klasyczna-pszenica",
-	"name": "Klasyczna pszenica",
-	"brewery": {
-		"badge": "browar-okocim",
-		"name": {
-			"pl": "Browar Okocim",
-			"en": "Okocim Brewery"
-		},
-		"website": "okocim.pl",
-		"consortium": "Carlsberg"
-	},
-	"country": "PL",
-	"label": {
-		"fermentation": "top",
-		"style": [
-			"Hefe-Weizen",
-			"Weizen"
-		],
-		"extract": {
-			"value": 12.0,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5.0,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"pasteurized": true,
-		"tale": {
-			"pl": "Wyśmienite lekkie piwo wytwarzane z ziaren pszenicy było znane już w średniowieczu. Dziś warzymy je według klasycznej receptury, metodą górnej fermentacji, choć nie wszyscy tak robią. Nasza Klasyczna Pszenica to niefiltrowane, naturalnie mętne piwo o bukiecie moreli, goździków i dojrzałych bananów. Idealny wybór, gdy szukasz orzeźwienia. Kompozycja słodu pszenicznego i jęczmiennego uwiedzie cię niezwykle łagodnym, wybornym smakiem. Potwierdzają to liczne wyróżnienia, m.in. srebro w ogólnopolskim konkursie Chmielaki Krasnostawskie."
-		},
-		"ingredients": {
-			"pl": "Woda, *słód pszeniczny i jęczmienny*, chmiel",
-			"en": "Water, *wheat and barley malts*, hop"
-		},
-		"bitterness": {
-			"IBU": 14
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5900014002487,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "f0d473"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 26,
-		"cap": true
-	},
-	"added": 1504264245174
-}
-{
-	"badge": "miloslaw-niefiltrowane",
-	"name": "Miłosław Niefiltrowane",
-	"brewery": {
-		"badge": "browar-fortuna",
-		"name": {
-			"pl": "Browar Fortuna",
-			"en": "Fortuna Brewery"
-		},
-		"website": "www.browarfortuna.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Miłosław",
-		"fermentation": "bottom",
-		"extract": {
-			"value": 12.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Miłosław Niefiltrowane to naturalnie mętne, rześkie jasne piwo o tradycyjnym smaku. Powstaje jak w dawnych czasach, zanim wynaleziono technologię filtracji. W trakcie leżakowania drożdże niespiesznie osiadają na dnie zbiornika, niewielką ich część można odnaleźć w butelce z piwem."
-		},
-		"ingredients": {
-			"pl": "Woda, słód _jęczmienny_: pilzneński, palony, _pszenica_ niesłodowana, słód _pszeniczny_, chmiel goryczkowy Magnum/Herkules, _drożdże_ dolnej fermentacji",
-			"en": "Water, _barley_ malt: pilsner, roasted, unmalted _wheat_, _wheat_ malt, gentianaceous hop Magnum/Hercules, bottom fermentation _yeasts_"
-		},
-		"color": {
-			"EBC": 16
-		},
-		"bitterness": {
-			"IBU": 17
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5901687910086,
-	"impressions": {
-		"color": {
-			"name": "gold",
-			"hex": "e0b12d"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 24,
-		"cap": true
-	},
-	"added": 1504270258915
-}
-{
-	"badge": "podroze-kormorana-witbier",
-	"name": "Podróże Kormorana. Witbier",
-	"brewery": {
-		"badge": "browar-kormoran",
-		"name": {
-			"pl": "Browar Kormoran",
-			"en": "Kormoran Brewery"
-		},
-		"website": "www.browarkormoran.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Olsztyn",
-		"fermentation": "top",
-		"style": [
-			"Witbier"
-		],
-		"extract": {
-			"value": 12.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4.6,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Dziennik podróżnika, dzień 12. Letni dzień zachęcał do wyprawy. Tym razem wybrałem się na wycieczkę rowerową. Jadąc wiejską drogą nieopodal Hoegaarden mijałem kolejne urokliwe zabudowania wyglądające jakby pamiętały czasy średniowiecza. Z letniego rozmarzenia wybiło mnie dzwonienie… butelek. To mleczarz wracał z miasteczka. Podrowił mnie serdecznie i rzucił: „w taki upał to tylko piwo mleczarza!” Wjechałem do wsi, wszedłem do Cafe i (nie bez obawy) rzuciłem: „proszę piwo mleczarza”. Faktycznie wyglądało jak mleko, podane w małym wiaderku, kolor też daleko nie odbiegał od mlecznego. Pragnienie zwyciężyło… pierwszy łyk mnie zachwycił. Piwo było lekkie, ale sycące i gaszące pragnienie, miło szczypało w język i odurzało aromatem cytrusów i kolendry. „Dlaczego to piwo mleczarza?” — zapytałem. „Nazwę wymyślił mój ojciec. Jemu Pierre Celis — zanim zaczął warzyć piwo — przywoził mleko. Stąd piwo mleczarza.” — odparł uśmiechnięty właściciel kafejki."
-		},
-		"ingredients": {
-			"pl": "Woda, _słód jęczmienny_, _pszenica_, _słód pszeniczny_, _owies_, _orkisz_, chmiel, kolendra, skórki gorzkich pomarańczy curacao, skórki słodkich pomarańczy, drożdże",
-			"en": "Water, _barley malt_, _wheat_, _wheat malt_, _oat_, _spelt_, hop, coriander, curacao bitter oranges peel, sweet oranges peel, yeasts"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5902528221125,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "f7db66"
-		},
-		"kopyr": {
-			"movie": "1FvmWSGw9GE",
-			"comment": "bardzo dobre"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 23,
-		"cap": true
-	},
-	"added": 1504273656443
-}
-{
-	"badge": "gorzkie-zale",
-	"name": "Gorzkie żale",
-	"brewery": {
-		"badge": "browar-gloger",
-		"name": {
-			"pl": "Browar Gloger",
-			"en": "Gloger Brewery"
-		},
-		"website": "www.browargloger.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Białystok",
-		"fermentation": "top",
-		"style": [
-			"American Pale Ale"
-		],
-		"extract": {
-			"value": 12.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5.3,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": true,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Jasne piwo górnej fermentacji. Goryczka na średnim poziomie idealnie komponuje się ze smakiem słodu pilzneńskiego i pszenicznego. Bardzo intensywny aromat owoców cytrusowych uzyskano poprzez dodatek dużej ilości chmielów amerykańskich."
-		},
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny, słód karmelowy, słód pszeniczny, chmiele aromatyczne i goryczkowe, drożdże górnej fermentacji",
-			"en": "Water, barley malt, caramel malt, wheat malt, aromatic and gentianaceous hops, top fermentation yeasts"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905279390119,
-	"illustrations": {
-		"cover": true,
-		"bottle": 26,
-		"cap": false
-	},
-	"added": 1504275377734
-}
-{
-	"badge": "sokowirowka",
-	"name": "Sokowirówka",
-	"brewery": {
-		"badge": "browar-zakladowy",
-		"name": {
-			"pl": "Browar zakładowy",
-			"en": "Brewery Zakładowy"
-		},
-		"website": "browarzakladowy.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Poniatowa",
-		"fermentation": "top",
-		"extract": {
-			"value": 13.0,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5.0,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "Woda, _słody: jęczmienny, pszeniczny_, owoce: maliny, wiśnie, chmiel, drożdże, zakwaszane bakteriami: l. plantarum i l. rhamnosus",
-			"en": "Water, _malts: barley, wheat_, fruits: raspberries, cherries, hop, yeasts, acidified with bacteria: l. plantarum and l. rhamnosus"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906395388264,
-	"impressions": {
-		"color": {
-			"name": "raspberry",
-			"hex": "e82d1e"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 24,
-		"cap": false
-	},
-	"added": 1504280354571
-}
-{
-	"badge": "kwassiprunus",
-	"name": "Kwassiprunus",
-	"brewery": {
-		"badge": "browar-beer-bros",
-		"name": {
-			"pl": "Browar Beer Bros",
-			"en": "Beer Bros Brewery"
-		},
-		"website": "beerbros.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Żyrardów",
-		"fermentation": "top",
-		"style": [
-			"Berliner Weisse"
-		],
-		"extract": {
-			"value": 8.0,
-			"unit": "°",
-			"relation": "Blg"
-		},
-		"alcohol": {
-			"value": 3.0,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "*Słody* pszeniczny, pilzneński. *Chmiele* aurora. *Drożdże* US-05. Lactobacillus WY 5335. *Dodatki* śliwka",
-			"en": "*Malts* wheat, pilsner. *Hops* aurora. *Yeasts* US-05. Lactobacillus WY 5335. *Additives* plum"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906660365181,
-	"illustrations": {
-		"cover": true,
-		"bottle": 28,
-		"cap": false
-	},
-	"added": 1504859232783
-}
-{
-	"badge": "hoppyfes",
-	"name": "Hoppyfes",
-	"brewery": {
-		"badge": "browar-beer-bros",
-		"name": {
-			"pl": "Browar Beer Bros",
-			"en": "Beer Bros Brewery"
-		},
-		"website": "beerbros.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Żyrardów",
-		"fermentation": "top",
-		"style": [
-			"Foreign Extra Stout"
-		],
-		"extract": {
-			"value": 17.2,
-			"unit": "°",
-			"relation": "Blg"
-		},
-		"alcohol": {
-			"value": 6.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "*Słody* monachijski, Carafa II, przeniczny palony, czekoladowy, kawowy ciemny. *Chmiele* Columbus. *Drożdże* US-05",
-			"en": "*Malts* munich, Carafa II, roasted wheat, chocolate, dark coffee. *Hops* Columbus. *Yeasts* US-05"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906660365211,
-	"illustrations": {
-		"cover": true,
-		"bottle": 25,
-		"cap": false
-	},
-	"added": 1504859776674
-}
-{
-	"badge": "hopsbant-citra-ipa",
-	"name": "Hopsbant Citra IPA",
-	"producer": {
-		"badge": "browar-zarzecze",
-		"name": {
-			"pl": "Browar Zarzecze",
-			"en": "Zarzecze Brewery"
-		},
-		"website": "www.browarzarzecze.pl"
-	},
-	"brewery": {
-		"badge": "browar-birbant",
-		"name": {
-			"pl": "Browar Birbant",
-			"en": "Birbant Brewery"
-		},
-		"website": "www.browarbirbant.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Zarzecze",
-		"fermentation": "top",
-		"style": [
-			"Citra IPA"
-		],
-		"extract": {
-			"value": 15.5,
-			"unit": "°",
-			"relation": "Blg"
-		},
-		"alcohol": {
-			"value": 6.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Halo Polsko! Co tu tak szaro i smutno? Przybyłem z duuuużą dawką amerykańskiego optymizmu, słońca i citrusowych aromatów. Hola hola, zaraz zmieszam to wszystko ze świetną recepturą moich polskich friends: Jareda i Qlee i… poczujecie mój klimat, yo! Pijcie cool i bądźcie cool!"
-		},
-		"ingredients": {
-			"pl": "*Woda. Słody jęczmienne:* _Pale Ale_, _karmelowy jasny_. *Słód pszeniczny*. _Owies_. *Chmiele*: Citra. *Drożdże*: US-05",
-			"en": "*Water. Barley malts:* _Pale Ale_, _bright caramel_. *Wheat malt*. _Oat_. *Hops*: Citra. *Yeasts*: US-05"
-		},
-		"bitterness": {
-			"IBU": 60
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5903240620326,
-	"impressions": {
-		"kopyr": {
-			"movie": "ZhTkTXg2moY",
-			"comment": "nie powala"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 29,
-		"cap": true
-	},
-	"added": 1504860856601
-}
+
 {
 	"badge": "biale-ipa",
 	"name": "Białe IPA",
@@ -16897,3 +15958,247 @@ wys 23
 }
 
 wys 17
+
+
+---
+NIE MA ZDJĘĆ?
+---
+
+{
+	"badge": "hoppy-queen",
+	"name": "Hoppy Queen",
+	"brewery": {
+		"badge": "doctor-brew",
+		"name": {
+			"pl": "Doctor Brew",
+			"en": "Doctor Brew"
+		},
+		"website": "www.doctorbrew.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Niechanowo",
+		"fermentation": "top",
+		"extract": {
+			"value": 14,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Uwolnij opentańczy aromat kompozycji 21 chmieli prosto z samego serca Ameryki, Europy, Australii i Nowej Zelandii. Nurkuj w doskonałym balansie pomiędzy szlachetną goryczką, a przyjemną słodowością, a potem wróć tu gdzie jesteś. Następnie weź kolejny łyk i… zachowuj się! Królowa patrzy."
+		},
+		"ingredients": {
+			"pl": "Woda, *słody jęczmienne*, chmiel, drożdze",
+			"en": "Water, *barley malts*, hop, yeasts"
+		},
+		"bitterness": {
+			"IBU": 45
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5903240674268,
+	"impressions": {
+		"color": {
+			"name": "amber",
+			"hex": "e3990c"
+		},
+		"kopyr": {
+			"movie": "x983h1-K9h0",
+			"comment": "raczej pozytywnie"
+		}
+	},
+	"illustrations": {
+		"cover": true,
+		"bottle": 20,
+		"cap": true
+	},
+	"added": 1499896800004
+}
+{
+	"badge": "miloslaw-niefiltrowane",
+	"name": "Miłosław Niefiltrowane",
+	"brewery": {
+		"badge": "browar-fortuna",
+		"name": {
+			"pl": "Browar Fortuna",
+			"en": "Fortuna Brewery"
+		},
+		"website": "www.browarfortuna.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Miłosław",
+		"fermentation": "bottom",
+		"extract": {
+			"value": 12.5,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 5.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Miłosław Niefiltrowane to naturalnie mętne, rześkie jasne piwo o tradycyjnym smaku. Powstaje jak w dawnych czasach, zanim wynaleziono technologię filtracji. W trakcie leżakowania drożdże niespiesznie osiadają na dnie zbiornika, niewielką ich część można odnaleźć w butelce z piwem."
+		},
+		"ingredients": {
+			"pl": "Woda, słód _jęczmienny_: pilzneński, palony, _pszenica_ niesłodowana, słód _pszeniczny_, chmiel goryczkowy Magnum/Herkules, _drożdże_ dolnej fermentacji",
+			"en": "Water, _barley_ malt: pilsner, roasted, unmalted _wheat_, _wheat_ malt, gentianaceous hop Magnum/Hercules, bottom fermentation _yeasts_"
+		},
+		"color": {
+			"EBC": 16
+		},
+		"bitterness": {
+			"IBU": 17
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5901687910086,
+	"impressions": {
+		"color": {
+			"name": "gold",
+			"hex": "e0b12d"
+		}
+	},
+	"illustrations": {
+		"cover": true,
+		"bottle": 24,
+		"cap": true
+	},
+	"added": 1504270258915
+}
+{
+	"badge": "podroze-kormorana-witbier",
+	"name": "Podróże Kormorana. Witbier",
+	"brewery": {
+		"badge": "browar-kormoran",
+		"name": {
+			"pl": "Browar Kormoran",
+			"en": "Kormoran Brewery"
+		},
+		"website": "www.browarkormoran.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Olsztyn",
+		"fermentation": "top",
+		"style": [
+			"Witbier"
+		],
+		"extract": {
+			"value": 12.5,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 4.6,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Dziennik podróżnika, dzień 12. Letni dzień zachęcał do wyprawy. Tym razem wybrałem się na wycieczkę rowerową. Jadąc wiejską drogą nieopodal Hoegaarden mijałem kolejne urokliwe zabudowania wyglądające jakby pamiętały czasy średniowiecza. Z letniego rozmarzenia wybiło mnie dzwonienie… butelek. To mleczarz wracał z miasteczka. Podrowił mnie serdecznie i rzucił: „w taki upał to tylko piwo mleczarza!” Wjechałem do wsi, wszedłem do Cafe i (nie bez obawy) rzuciłem: „proszę piwo mleczarza”. Faktycznie wyglądało jak mleko, podane w małym wiaderku, kolor też daleko nie odbiegał od mlecznego. Pragnienie zwyciężyło… pierwszy łyk mnie zachwycił. Piwo było lekkie, ale sycące i gaszące pragnienie, miło szczypało w język i odurzało aromatem cytrusów i kolendry. „Dlaczego to piwo mleczarza?” — zapytałem. „Nazwę wymyślił mój ojciec. Jemu Pierre Celis — zanim zaczął warzyć piwo — przywoził mleko. Stąd piwo mleczarza.” — odparł uśmiechnięty właściciel kafejki."
+		},
+		"ingredients": {
+			"pl": "Woda, _słód jęczmienny_, _pszenica_, _słód pszeniczny_, _owies_, _orkisz_, chmiel, kolendra, skórki gorzkich pomarańczy curacao, skórki słodkich pomarańczy, drożdże",
+			"en": "Water, _barley malt_, _wheat_, _wheat malt_, _oat_, _spelt_, hop, coriander, curacao bitter oranges peel, sweet oranges peel, yeasts"
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5902528221125,
+	"impressions": {
+		"color": {
+			"name": "straw",
+			"hex": "f7db66"
+		},
+		"kopyr": {
+			"movie": "1FvmWSGw9GE",
+			"comment": "bardzo dobre"
+		}
+	},
+	"illustrations": {
+		"cover": true,
+		"bottle": 23,
+		"cap": true
+	},
+	"added": 1504273656443
+}
+{
+	"badge": "kwassiprunus",
+	"name": "Kwassiprunus",
+	"brewery": {
+		"badge": "browar-beer-bros",
+		"name": {
+			"pl": "Browar Beer Bros",
+			"en": "Beer Bros Brewery"
+		},
+		"website": "beerbros.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Żyrardów",
+		"fermentation": "top",
+		"style": [
+			"Berliner Weisse"
+		],
+		"extract": {
+			"value": 8.0,
+			"unit": "°",
+			"relation": "Blg"
+		},
+		"alcohol": {
+			"value": 3.0,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "*Słody* pszeniczny, pilzneński. *Chmiele* aurora. *Drożdże* US-05. Lactobacillus WY 5335. *Dodatki* śliwka",
+			"en": "*Malts* wheat, pilsner. *Hops* aurora. *Yeasts* US-05. Lactobacillus WY 5335. *Additives* plum"
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906660365181,
+	"illustrations": {
+		"cover": true,
+		"bottle": 28,
+		"cap": false
+	},
+	"added": 1504859232783
+}
