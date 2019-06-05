@@ -20,8 +20,8 @@ db.runCommand({ collMod: "places",
 						required: ["value"],
 						properties: {
 							"language": {
-								enum: ["en", "pl"],
-								description: "can only be one of the enum values"
+								bsonType: "string",
+								description: "must be a string"
 							},
 							"value": {
 								bsonType: "string",
