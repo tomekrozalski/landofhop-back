@@ -9450,60 +9450,6 @@ wys 25
 
 wys 25
 
-{
-	"badge": "miloslaw-bezalkoholowe-ipa",
-	"name": "Miłosław. Bezalkoholowe IPA",
-	"brewery": {
-		"badge": "browar-fortuna",
-		"name": {
-			"pl": "Browar Fortuna",
-			"en": "Fortuna Brewery"
-		},
-		"website": "www.browarfortuna.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Miłosław",
-		"fermentation": "top",
-		"extract": {
-			"value": 6.2,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": <0.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"pasteurized": true,
-		"tale": {
-			"pl": "Wyraziste IPA o chmielowym aromacie i smaku, ale bez alkoholu? Tak! To możliwe, dzięki autorskiej metodzie warzenia piwa bezalkoholowego. Miłosław Bezalkoholowe IPA chmielimy na zimno kompozycją aż czterech odmian chmielu - Citra, Amarillo, Chinook i Lubelski, a dodatek herbaty Sencha Earl Grey dopełnia cytrusowo-żywiczny profil piwa."
-		},
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny pilzneński, pszenica, słód żytni, chmiele: Citra, Amarillo, Chinook, Lubelski; herbata Sencha Earl Grey, drożdże US-05.",
-			
-		},
-		"color": {
-			"EBC": 15
-		},
-		"bitterness": {
-			"IBU": 30
-		}
-		temp 8-10
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5902838990469,
-	"added": 1531169896798
-	canea: 3.80
-}
-
-wys 25
 
 {
 	"badge": "duvel-triple-hop-citra",
@@ -11946,57 +11892,7 @@ wys 23
 
 wys 25
 
-{
-	"badge": "new-wave-gose",
-	"name": "New Wave Gose", <- seria?
-	"name": "Morela" / "Apricot"
-	"brewery": {
-		"badge": "alebrowar",
-		"name": {
-			"pl": "AleBrowar",
-			"en": "AleBrowar"
-		},
-		"website": "www.alebrowar.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Lębork",
-		"style": [
-			"Gose"
-		],
-		"extract": {
-			"value": 14,
-			"unit": "%",
-			"relation": "wag."
-		},
-		"alcohol": {
-			"value": 4.7,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Nowe spojrzenie na Gose - zakwaszone piwo warzone z solą, laktozą i wyrazistym dodatkiem w postaci pulpy moreli.",
-			"en": "A new look at Gose - acidified beer brewed with salt, lactose and a distinctive addition in the form of apricot pulp."
-		}
-		"ingredients": {
-			"pl": "Woda, słody: pilzneński, pszeniczny, CaraRed, płatki owsiane, chmiel Magnum, morela, laktoza, kolendra, sól, drożdże",
-			"en": "water, Pilsner malt, Wheat malt, CaraRed malt, oatmeal flakes, Magnum hop, apricot, lactose, coriander, salt, yeast"
-		},
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5907222039557,
-	"added": 1543594384118,
-}
 
-wys 26
 
 {
 	"badge": "jose",
