@@ -1017,6 +1017,10 @@ db.runCommand({ collMod: "beverages",
 							bsonType: "bool",
 							description: "must be a boolean"
 						},
+						notes: {
+							bsonType: "string",
+							description: "must be a string"
+						}
 					},
 				},
 				added: {

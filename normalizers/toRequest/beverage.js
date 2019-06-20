@@ -246,6 +246,7 @@ const beverage = ({
 				images: Decimal128.fromString(get(editorial, 'images').toString())
 			}),
 			...(isBoolean(get(editorial, 'cap')) && { cap: get(editorial, 'cap') }),
+			...(get(editorial, 'notes') && { notes: get(editorial, 'notes') }),
 		},
 		added: added ? new Date(added) : new Date(),
 		...(updated && { updated: new Date(updated) }),
