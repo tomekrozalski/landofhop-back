@@ -24,8 +24,9 @@ router.get('/list', (req, res) => {
 					added: 1,
 					badge: 1,
 					brand: '$label.general.brand',
-					name: '$label.general.name',
+					container: '$label.container',
 					id: '$_id',
+					name: '$label.general.name',
 					shortId: 1,
 				}
 			},
@@ -48,14 +49,27 @@ router.get('/list', (req, res) => {
 						badge: '$brand_info.badge',
 						name: '$brand_info.name'
 					},
-					name: 1,
+					container: {
+						type: 1,
+						unit: 1,
+						value: 1,
+					},
 					id: 1,
+					name: 1,
 					shortId: 1,
 				}
 			},
 		])
 		.forEach((beverage) => {
-			beverages.push(beverage);
+			const formattedBeverage = {
+				...beverage,
+				container: {
+					...beverage.container,
+					value: Number(beverage.container.value.toString())
+				}
+			}
+
+			beverages.push(formattedBeverage);
 		})
 		.then((result) => {
 			res
@@ -70,8 +84,6 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/details/:shortId/:brand/:badge', (req, res) => {
-	const beverages = [];
-
 	db.getDb()
 		.db()
 		.collection('beverages')
