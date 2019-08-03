@@ -28,7 +28,6 @@ router.post('/login', (req, res) => {
 	const password = req.body.password;
 
 	db.getDb()
-		.db()
 		.collection('users')
 		.findOne({ email })
 		.then(user => bcrypt.compare(password, user.password))
@@ -60,7 +59,6 @@ router.post('/signup', (req, res) => {
 		.hash(password, 12)
 		.then(hashedPassword => {
 			db.getDb()
-				.db()
 				.collection('users')
 				.insertOne({
 					email: email,

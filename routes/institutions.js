@@ -13,7 +13,6 @@ router.get('/list', (req, res) => {
 	const institutions = [];
 
 	db.getDb()
-		.db()
 		.collection('institutions')
 		.aggregate([
 			{
@@ -72,7 +71,6 @@ router.post('/', verifyToken, (req, res) => {
 			};
 
 			db.getDb()
-				.db()
 				.collection('institutions')
 				.insertOne(newInstitution)
 				.then((result) => {

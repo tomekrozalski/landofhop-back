@@ -10,7 +10,6 @@ router.get('/list/:lang', (req, res, next) => {
 	const countries = [];
 
 	db.getDb()
-		.db()
 		.collection('countries')
 		.aggregate([
 			{
@@ -59,7 +58,6 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 			db.getDb()
-				.db()
 				.collection('countries')
 				.insertOne(req.body)
 				.then((result) => {

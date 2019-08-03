@@ -1,5 +1,4 @@
 require('dotenv/config');
-const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -16,7 +15,6 @@ const db = require('./db');
 const app = express();
 
 app.use(bodyParser.json());
-app.use('/images', express.static(path.join('backend/images')));
 
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -31,12 +29,12 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use('/', authRoutes);
 app.use('/beverages', beverageRoutes);
 app.use('/countries', countryRoutes);
 app.use('/ingredients', ingredientsRoutes);
 app.use('/institutions', institutionRoutes);
 app.use('/places', placeRoutes);
+app.use('/', authRoutes);
 
 db.initDb((err, db) => {
 	if(err) {

@@ -3768,60 +3768,6 @@
 	"added": 1514675946753
 }
 {
-	"badge": "wrclw-schops",
-	"name": "WRCLW. Schöps",
-	"brewery": {
-		"badge": "browar-stu-mostow",
-		"name": {
-			"pl": "Browar Stu Mostów",
-			"en": "Stu Mostów Brewery"
-		},
-		"website": "100mostow.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Wrocław",
-		"fermentation": "top",
-		"style": [
-			"Schöps"
-		],
-		"extract": {
-			"value": 14.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4.8,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Ze wszystkich znanych wymienić muszę najzacniejsze we Wrocławiu i na całym Śląsku piwo schöps. Pośród wielu innych piw pszenicznych tylko ono nosi koronę, bowiem podobne jest do wina, podnosi naturalną ciepłotę ciała, poprawia trawienie i wzmacnia siły; jest tak pożywne, że zastępuje jedzenie i picie; poprawia samopoczucie i utrzymuje w zdrowiu. -- Johannes Spremberger 1555"
-		},
-		"ingredients": {
-			"pl": "Woda, słód _pszeniczny_, słody _jęczmienne_: pilzneński, Caramel Hell, Caramel Red, melanoidynowy, słód _pszeniczny_ czekoladowy, chmiel, drożdże, bakterie kwasu mlekowego",
-			"en": "Water, _wheat_ malt, _barley_ malts: Pilzner, Caramel Hell, Caramel Red, melanoidin, chocolate _wheat_ malt, hop, yeasts, lactic acid bacteria"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905279213135,
-	"illustrations": {
-		"cover": true,
-		"bottle": 20,
-		"cap": false
-	},
-	"added": 1514722235466
-	cena: 8.10 (24.01.2019)
-}
-{
 	"badge": "golden-monk",
 	"name": "Golden Monk",
 	"producer": {

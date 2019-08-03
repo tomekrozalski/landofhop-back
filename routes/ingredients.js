@@ -10,7 +10,6 @@ router.get('/list', (req, res) => {
 	const ingredients = [];
 
 	db.getDb()
-		.db()
 		.collection('ingredients')
 		.aggregate([
 			{
@@ -55,7 +54,6 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 			db.getDb()
-				.db()
 				.collection('ingredients')
 				.insertOne(req.body)
 				.then((result) => {
