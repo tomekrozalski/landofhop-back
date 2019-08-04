@@ -1,17 +1,7 @@
 const mongoose = require('mongoose');
+const name = require('./utils/langValueSchema');
 
 const Schema = mongoose.Schema;
-
-const citySchema = new Schema({
-	language: {
-		type: String,
-		required: false,
-	},
-	value: {
-		type: String,
-		required: true,
-	},
-}, { _id : false });
 
 const locationSchema = mongoose.Schema({
 	type: {
@@ -22,13 +12,15 @@ const locationSchema = mongoose.Schema({
 }, { _id : false });
 
 const placeSchema = new Schema({
-	city: [citySchema],
+	city: [name],
 	country: {
 		type: Schema.Types.ObjectId,
+		ref: 'Country',
 		required: true,
 	},
 	institution: {
 		type: Schema.Types.ObjectId,
+		ref: 'Institution',
 		required: true,
 	},
 	location: locationSchema,

@@ -1,16 +1,18 @@
 const Router = require('express').Router;
 const jwt = require('jsonwebtoken');
 
-const db = require('../db');
+const Country = require('../models/Country');
 const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
-router.get('/list/:lang', (req, res, next) => {
-	const countries = [];
+/*
+ * ------------------------------------------------------------------
+ * GET LIST OF COUNTRIES
+ */
 
-	db.getDb()
-		.collection('countries')
+router.get('/list/:lang', (req, res, next) => {
+	Country
 		.aggregate([
 			{
 				$project: {
@@ -37,13 +39,10 @@ router.get('/list/:lang', (req, res, next) => {
 				$sort: { label : 1 }
 			}
 		])
-		.forEach((country) => {
-			countries.push(country);
-		})
 		.then((result) => {
 			res
 				.status(200)
-				.json(countries);
+				.json(result);
 		})
 		.catch((err) => {
 			res
@@ -52,14 +51,20 @@ router.get('/list/:lang', (req, res, next) => {
 		});
 });
 
+/*
+ * ------------------------------------------------------------------
+ * ADD NEW COUNTRY
+ */
+
 router.post('/', verifyToken, (req, res) => {
 	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
-			db.getDb()
-				.collection('countries')
-				.insertOne(req.body)
+			const country = new Country(req.body);
+
+			country
+				.save()
 				.then((result) => {
 					res
 						.status(200)

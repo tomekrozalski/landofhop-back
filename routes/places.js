@@ -1,14 +1,11 @@
 const Router = require('express').Router;
-const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 
-const verifyToken = require('../utils/verifyToken');
-const shortIdGenerator = require('../utils/shortIdGenerator');
 const Place = require('../models/Place');
+const shortIdGenerator = require('../utils/shortIdGenerator');
+const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
-const Decimal128 = mongodb.Decimal128;
-const ObjectId = mongodb.ObjectId;
 
 /*
  * ------------------------------------------------------------------
@@ -99,30 +96,28 @@ router.post('/', verifyToken, (req, res) => {
 				city,
 				country,
 				institution,
-				location,
+				latitude,
+				longitude,
 			} = req.body;
-
-			console.log('req.body', req.body);
 
 			const place = new Place({
 				city,
 				country,
 				institution,
 				shortId: shortIdGenerator(),
-				...(location && { location: {
+				...(latitude && longitude && { location: {
 					type: 'Point',
 					coordinates: [
-						Decimal128.fromString(location.latitude),
-						Decimal128.fromString(location.longitude),
+						latitude,
+						longitude,
 					]
 				}})
 			});
 
-			console.log('place', place);
-
 			place
 				.save()
 				.then((result) => {
+					console.log('result', result);
 					res
 						.status(200)
 						.json(result);

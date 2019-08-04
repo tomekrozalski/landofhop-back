@@ -1,19 +1,19 @@
 const Router = require('express').Router;
-const mongodb = require('mongodb');
 const jwt = require('jsonwebtoken');
 
-const db = require('../db');
+const Institution = require('../models/Institution');
 const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 
-const ObjectId = mongodb.ObjectId;
 const router = Router();
 
-router.get('/list', (req, res) => {
-	const institutions = [];
+/*
+ * ------------------------------------------------------------------
+ * GET LIST OF INSTITUTIONS
+ */
 
-	db.getDb()
-		.collection('institutions')
+router.get('/list', (req, res) => {
+	Institution
 		.aggregate([
 			{
 				$project: {
@@ -41,13 +41,10 @@ router.get('/list', (req, res) => {
 				$sort: { name : 1 }
 			}
 		])
-		.forEach((institution) => {
-			institutions.push(institution);
-		})
 		.then((result) => {
 			res
 				.status(200)
-				.json(institutions);
+				.json(result);
 		})
 		.catch((err) => {
 			res
@@ -56,23 +53,34 @@ router.get('/list', (req, res) => {
 		});
 });
 
+/*
+ * ------------------------------------------------------------------
+ * ADD NEW INSTITUTION
+ */
+
 router.post('/', verifyToken, (req, res) => {
 	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
-			const newInstitution = {
-				...req.body,
+			const {
+				badge,
+				name,
+				website,
+				consortium,
+			} = req.body;
+
+			const place = new Institution({
+				badge,
+				name,
 				shortId: shortIdGenerator(),
-			};
+				...(website && { website }),
+				...(consortium && { consortium })
+				
+			});
 
-			if (newInstitution.consortium) {
-				newInstitution.consortium = new ObjectId(newInstitution.consortium);
-			};
-
-			db.getDb()
-				.collection('institutions')
-				.insertOne(newInstitution)
+			place
+				.save()
 				.then((result) => {
 					res
 						.status(200)

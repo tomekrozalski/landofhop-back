@@ -6,9 +6,9 @@ const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
 // const beverageRoutes = require('./routes/beverages');
-// const countryRoutes = require('./routes/countries');
+const countryRoutes = require('./routes/countries');
 // const ingredientsRoutes = require('./routes/ingredients');
-// const institutionRoutes = require('./routes/institutions');
+const institutionRoutes = require('./routes/institutions');
 const placeRoutes = require('./routes/places');
 
 const app = express();
@@ -29,9 +29,9 @@ app.use((req, res, next) => {
 });
 
 // app.use('/beverages', beverageRoutes);
-// app.use('/countries', countryRoutes);
+app.use('/countries', countryRoutes);
 // app.use('/ingredients', ingredientsRoutes);
-// app.use('/institutions', institutionRoutes);
+app.use('/institutions', institutionRoutes);
 app.use('/places', placeRoutes);
 app.use('/', authRoutes);
 
