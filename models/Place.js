@@ -8,7 +8,7 @@ const locationSchema = mongoose.Schema({
 		type: String,
 		enum: ['Point'],
 	},
-	coordinates: [mongoose.Decimal128],
+	coordinates: [Schema.Types.Decimal128],
 }, { _id: false });
 
 const placeSchema = new Schema({

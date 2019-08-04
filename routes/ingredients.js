@@ -1,16 +1,18 @@
-const Router = require('express').Router;
+const { Router } = require('express');
 const jwt = require('jsonwebtoken');
 
-const db = require('../db');
+const Ingredient = require('../models/Ingredient');
 const verifyToken = require('../utils/verifyToken');
 
 const router = Router();
 
-router.get('/list', (req, res) => {
-	const ingredients = [];
+/*
+ * ------------------------------------------------------------------
+ * GET LIST OF INGREDIENTS
+ */
 
-	db.getDb()
-		.collection('ingredients')
+router.get('/list', (req, res) => {
+	Ingredient
 		.aggregate([
 			{
 				$project: {
@@ -20,48 +22,51 @@ router.get('/list', (req, res) => {
 						$slice: ['$name', 1],
 					},
 					type: 1,
-				}
+				},
 			},
-			{ 
-				$unwind: '$name'
+			{
+				$unwind: '$name',
 			},
 			{
 				$project: {
 					value: '$id',
 					label: '$name.value',
 					type: 1,
-				}
+				},
 			},
 		])
-		.forEach((ingredient) => {
-			ingredients.push(ingredient);
-		})
 		.then((result) => {
 			res
 				.status(200)
-				.json(ingredients);
+				.json(result);
 		})
-		.catch((err) => {
+		.catch(() => {
 			res
 				.status(500)
 				.json({ message: 'An error occured' });
 		});
 });
 
+/*
+ * ------------------------------------------------------------------
+ * ADD NEW INGREDIENT
+ */
+
 router.post('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
-			db.getDb()
-				.collection('ingredients')
-				.insertOne(req.body)
+			const ingredient = new Ingredient(req.body);
+
+			ingredient
+				.save()
 				.then((result) => {
 					res
 						.status(200)
 						.json(result);
 				})
-				.catch((err) => {
+				.catch(() => {
 					res
 						.status(500)
 						.json({ message: 'An error occured' });
