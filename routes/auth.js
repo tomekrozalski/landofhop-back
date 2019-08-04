@@ -1,4 +1,4 @@
-const Router = require('express').Router;
+const { Router } = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -7,9 +7,7 @@ const User = require('../models/User');
 
 const router = Router();
 
-const createToken = () => {
-	return jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '12h' });
-};
+const createToken = () => jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '12h' });
 
 /*
  * ------------------------------------------------------------------
@@ -34,8 +32,7 @@ const createToken = () => {
  */
 
 router.post('/login', (req, res) => {
-	const email = req.body.email;
-	const password = req.body.password;
+	const { email, password } = req.body;
 
 	User
 		.findOne({ email })
@@ -53,7 +50,7 @@ router.post('/login', (req, res) => {
 					token,
 				});
 		})
-		.catch((err) => {
+		.catch(() => {
 			res
 				.status(401)
 				.json({ message: 'Authentication failed, invalid username or password' });

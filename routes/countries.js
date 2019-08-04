@@ -1,4 +1,4 @@
-const Router = require('express').Router;
+const { Router } = require('express');
 const jwt = require('jsonwebtoken');
 
 const Country = require('../models/Country');
@@ -11,40 +11,40 @@ const router = Router();
  * GET LIST OF COUNTRIES
  */
 
-router.get('/list/:lang', (req, res, next) => {
+router.get('/list/:lang', (req, res) => {
 	Country
 		.aggregate([
 			{
 				$project: {
 					_id: 0,
 					value: '$_id',
-					name: 1
-				}
+					name: 1,
+				},
 			},
-			{ 
-				$unwind: '$name'
+			{
+				$unwind: '$name',
 			},
 			{
 				$match: {
-					'name.language': req.params.lang
-				}
+					'name.language': req.params.lang,
+				},
 			},
 			{
 				$project: {
 					value: 1,
-					label: '$name.value'
-				}
+					label: '$name.value',
+				},
 			},
 			{
-				$sort: { label : 1 }
-			}
+				$sort: { label: 1 },
+			},
 		])
 		.then((result) => {
 			res
 				.status(200)
 				.json(result);
 		})
-		.catch((err) => {
+		.catch(() => {
 			res
 				.status(500)
 				.json({ message: 'An error occured' });
@@ -57,7 +57,7 @@ router.get('/list/:lang', (req, res, next) => {
  */
 
 router.post('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
@@ -70,7 +70,7 @@ router.post('/', verifyToken, (req, res) => {
 						.status(200)
 						.json(result);
 				})
-				.catch((err) => {
+				.catch(() => {
 					res
 						.status(500)
 						.json({ message: 'An error occured' });

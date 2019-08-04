@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const name = require('./utils/langValueSchema');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const locationSchema = mongoose.Schema({
 	type: {
@@ -9,7 +9,7 @@ const locationSchema = mongoose.Schema({
 		enum: ['Point'],
 	},
 	coordinates: [mongoose.Decimal128],
-}, { _id : false });
+}, { _id: false });
 
 const placeSchema = new Schema({
 	city: [name],
@@ -27,7 +27,7 @@ const placeSchema = new Schema({
 	shortId: {
 		type: String,
 		required: true,
-	}
+	},
 });
 
 module.exports = mongoose.model('Place', placeSchema);

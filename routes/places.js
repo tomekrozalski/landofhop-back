@@ -1,4 +1,4 @@
-const Router = require('express').Router;
+const { Router } = require('express');
 const jwt = require('jsonwebtoken');
 
 const Place = require('../models/Place');
@@ -22,27 +22,27 @@ router.get('/list', (req, res) => {
 					},
 					_id: 0,
 					id: '$_id',
-					institution_id: '$institution'
-				}
+					institution_id: '$institution',
+				},
 			},
 			{
 				$lookup: {
 					from: 'institutions',
 					localField: 'institution_id',
 					foreignField: '_id',
-					as: 'institution'
-				}
+					as: 'institution',
+				},
 			},
 			{
 				$unwind: {
 					path: '$institution',
 					preserveNullAndEmptyArrays: true,
-				}
+				},
 			},
 			{
 				$unwind: {
 					path: '$city',
-				}
+				},
 			},
 			{
 				$project: {
@@ -50,32 +50,32 @@ router.get('/list', (req, res) => {
 					id: 1,
 					institution: {
 						$slice: ['$institution.name', 1],
-					}
-				}
+					},
+				},
 			},
 			{
 				$unwind: {
 					path: '$institution',
-				}
+				},
 			},
 			{
 				$project: {
 					label: {
-						$concat: ['$city.value', ' (', '$institution.value', ')']
+						$concat: ['$city.value', ' (', '$institution.value', ')'],
 					},
-					value: '$id'
-				}
+					value: '$id',
+				},
 			},
 			{
-				$sort: { label : 1 }
-			}
+				$sort: { label: 1 },
+			},
 		])
 		.then((result) => {
 			res
 				.status(200)
 				.json(result);
 		})
-		.catch((err) => {
+		.catch(() => {
 			res
 				.status(500)
 				.json({ message: 'An error occured' });
@@ -88,7 +88,7 @@ router.get('/list', (req, res) => {
  */
 
 router.post('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
@@ -105,25 +105,25 @@ router.post('/', verifyToken, (req, res) => {
 				country,
 				institution,
 				shortId: shortIdGenerator(),
-				...(latitude && longitude && { location: {
-					type: 'Point',
-					coordinates: [
-						latitude,
-						longitude,
-					]
-				}})
+				...(latitude && longitude && {
+					location: {
+						type: 'Point',
+						coordinates: [
+							latitude,
+							longitude,
+						],
+					},
+				}),
 			});
 
 			place
 				.save()
 				.then((result) => {
-					console.log('result', result);
 					res
 						.status(200)
 						.json(result);
 				})
-				.catch((err) => {
-					console.log('err', err);
+				.catch(() => {
 					res
 						.status(500)
 						.json({ message: 'An error occured' });

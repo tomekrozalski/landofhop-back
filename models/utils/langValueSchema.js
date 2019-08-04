@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const langValueSchema = new Schema({
 	language: {
@@ -11,6 +11,6 @@ const langValueSchema = new Schema({
 		type: String,
 		required: true,
 	},
-}, { _id : false });
+}, { _id: false });
 
 module.exports = langValueSchema;

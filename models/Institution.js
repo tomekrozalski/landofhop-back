@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const name = require('./utils/langValueSchema');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const institutionSchema = new Schema({
 	badge: {
