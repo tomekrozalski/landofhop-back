@@ -14,17 +14,17 @@ const createToken = () => jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '12h
  * AUTHENTICATION
  */
 
-// router.post('/auth', verifyToken, (req, res) => {
-// 	jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) => {
-// 		if (err) {
-// 			res.sendStatus(403);
-// 		} else {
-// 			res
-// 				.status(200)
-// 				.json({ message: 'Authentication succeeded' });
-// 		}
-// 	});
-// });
+router.post('/auth', verifyToken, (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
+		if (err) {
+			res.sendStatus(403);
+		} else {
+			res
+				.status(200)
+				.json({ message: 'Authentication succeeded' });
+		}
+	});
+});
 
 /*
  * ------------------------------------------------------------------
