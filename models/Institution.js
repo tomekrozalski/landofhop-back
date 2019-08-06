@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const name = require('./utils/langValueSchema');
+const langValue = require('./fragments/langValueSchema');
 
 const { Schema } = mongoose;
 
@@ -8,7 +8,7 @@ const institutionSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	name: [name],
+	name: [langValue],
 	shortId: {
 		type: String,
 		required: true,

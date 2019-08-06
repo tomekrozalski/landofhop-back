@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const name = require('./utils/langValueSchema');
+const langValue = require('./fragments/langValueSchema');
 
 const { Schema } = mongoose;
 
-const locationSchema = mongoose.Schema({
+const locationSchema = Schema({
 	type: {
 		type: String,
 		enum: ['Point'],
@@ -12,7 +12,7 @@ const locationSchema = mongoose.Schema({
 }, { _id: false });
 
 const placeSchema = new Schema({
-	city: [name],
+	city: [langValue],
 	country: {
 		type: Schema.Types.ObjectId,
 		ref: 'Country',

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const Beverage = require('../models/Beverage');
 const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
-const normalizeBeverageFromResponse = require('../normalizers/fromResponse/beverage');
+const normalizeBeverageToResponse = require('../normalizers/toResponse/beverage');
 const normalizeBeverageToRequest = require('../normalizers/toRequest/beverage');
 
 const router = Router();
@@ -687,7 +687,7 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 		.then((result) => {
 			res
 				.status(200)
-				.json(normalizeBeverageFromResponse(result[0]));
+				.json(normalizeBeverageToResponse(result[0]));
 		})
 		.catch(() => {
 			res
@@ -711,6 +711,13 @@ router.post('/', verifyToken, (req, res) => {
 				shortId: shortIdGenerator(),
 			});
 
+			console.log('-->', {
+				...normalizeBeverageToRequest(req.body),
+				shortId: shortIdGenerator(),
+			});
+
+			console.log('beverage', beverage);
+
 			beverage
 				.save()
 				.then((result) => {
@@ -718,7 +725,8 @@ router.post('/', verifyToken, (req, res) => {
 						.status(200)
 						.json(result);
 				})
-				.catch(() => {
+				.catch((err) => {
+					console.log('err', err);
 					res
 						.status(500)
 						.json({ message: 'An error occured' });

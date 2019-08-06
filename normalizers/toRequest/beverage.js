@@ -4,8 +4,7 @@ const isBoolean = require('lodash/isBoolean');
 const isEmpty = require('lodash/isEmpty');
 const isNumber = require('lodash/isNumber');
 
-const Decimal128 = mongodb.Decimal128;
-const ObjectId = mongodb.ObjectId;
+const { Decimal128, ObjectId } = mongodb;
 
 const beverage = ({
 	badge,
@@ -35,13 +34,13 @@ const beverage = ({
 					extract: {
 						...get(label, 'brewing.extract', {}),
 						value: Decimal128.fromString(get(label, 'brewing.extract.value').toString()),
-					}
+					},
 				}),
 				...(get(label, 'brewing.alcohol') && {
 					alcohol: {
 						...get(label, 'brewing.alcohol', {}),
 						value: Decimal128.fromString(get(label, 'brewing.alcohol.value').toString()),
-					}
+					},
 				}),
 				...(isBoolean(get(label, 'brewing.filtration')) && { filtration: get(label, 'brewing.filtration') }),
 				...(isBoolean(get(label, 'brewing.pasteurization')) && { pasteurization: get(label, 'brewing.pasteurization') }),
@@ -58,28 +57,31 @@ const beverage = ({
 								time: {
 									unit: time.unit,
 									value: Decimal128.fromString(time.value.toString()),
-								}
+								},
 							}),
 							...(type && { type }),
 							...(wood && { wood }),
-						})
-					),
+						})),
 				}),
 				...(get(label, 'brewing.style') && { style: get(label, 'brewing.style') }),
-				...(get(label, 'brewing.dryHopped') && { dryHopped: {
-					...(get(label, 'brewing.dryHopped').length > 0 && {
-						hops: get(label, 'brewing.dryHopped').map(item => new ObjectId(item))
-					}),
-				} }),
-				...(get(label, 'brewing.expirationDate') && { expirationDate: {
-					value: Decimal128.fromString(get(label, 'brewing.expirationDate.value').toString()),
-					unit: get(label, 'brewing.expirationDate.unit'),
-				}})
+				...(get(label, 'brewing.dryHopped') && {
+					dryHopped: {
+						...(get(label, 'brewing.dryHopped').length > 0 && {
+							hops: get(label, 'brewing.dryHopped').map(item => new ObjectId(item)),
+						}),
+					},
+				}),
+				...(get(label, 'brewing.expirationDate') && {
+					expirationDate: {
+						value: Decimal128.fromString(get(label, 'brewing.expirationDate.value').toString()),
+						unit: get(label, 'brewing.expirationDate.unit'),
+					},
+				}),
 			},
 			ingredients: {
 				...(get(label, 'ingredients.description') && { description: get(label, 'ingredients.description') }),
 				...(get(label, 'ingredients.list') && { list: get(label, 'ingredients.list', []).map(item => new ObjectId(item)) }),
-				...(isBoolean(get(label, 'ingredients.smokedMalt')) && { smokedMalt: get(label, 'ingredients.smokedMalt') })
+				...(isBoolean(get(label, 'ingredients.smokedMalt')) && { smokedMalt: get(label, 'ingredients.smokedMalt') }),
 			},
 			impressions: {
 				...(isNumber(get(label, 'impressions.bitterness')) && { bitterness: Decimal128.fromString(get(label, 'impressions.bitterness').toString()) }),
@@ -92,20 +94,20 @@ const beverage = ({
 						from: Decimal128.fromString(get(label, 'impressions.temperature.from').toString()),
 						to: Decimal128.fromString(get(label, 'impressions.temperature.to').toString()),
 						unit: get(label, 'impressions.temperature.unit'),
-					}
-				})
+					},
+				}),
 			},
 			container: {
 				...get(label, 'container', {}),
-				value: Decimal128.fromString(get(label, 'container.value').toString())
+				value: Decimal128.fromString(get(label, 'container.value').toString()),
 			},
 			...(get(label, 'price') && {
 				price: get(label, 'price', {}).map(({ currency, date, value }) => ({
 					currency,
 					date: new Date(date),
-					value: Decimal128.fromString(value.toString())
-				}))
-			})
+					value: Decimal128.fromString(value.toString()),
+				})),
+			}),
 		},
 		producer: {
 			general: {
@@ -121,13 +123,13 @@ const beverage = ({
 					extract: {
 						...get(producer, 'brewing.extract', {}),
 						value: Decimal128.fromString(get(producer, 'brewing.extract.value').toString()),
-					}
+					},
 				}),
 				...(get(producer, 'brewing.alcohol') && {
 					alcohol: {
 						...get(producer, 'brewing.alcohol', {}),
 						value: Decimal128.fromString(get(producer, 'brewing.alcohol.value').toString()),
-					}
+					},
 				}),
 				...(isBoolean(get(producer, 'brewing.filtration')) && { filtration: get(producer, 'brewing.filtration') }),
 				...(isBoolean(get(producer, 'brewing.pasteurization')) && { pasteurization: get(producer, 'brewing.pasteurization') }),
@@ -144,28 +146,31 @@ const beverage = ({
 								time: {
 									unit: time.unit,
 									value: Decimal128.fromString(time.value.toString()),
-								}
+								},
 							}),
 							...(type && { type }),
 							...(wood && { wood }),
-						})
-					),
+						})),
 				}),
 				...(get(producer, 'brewing.style') && { style: get(producer, 'brewing.style') }),
-				...(get(producer, 'brewing.dryHopped') && { dryHopped: {
-					...(get(producer, 'brewing.dryHopped').length > 0 && {
-						hops: get(producer, 'brewing.dryHopped').map(item => new ObjectId(item))
-					}),
-				} }),
-				...(get(producer, 'brewing.expirationDate') && { expirationDate: {
-					value: Decimal128.fromString(get(producer, 'brewing.expirationDate.value').toString()),
-					unit: get(producer, 'brewing.expirationDate.unit'),
-				}})
+				...(get(producer, 'brewing.dryHopped') && {
+					dryHopped: {
+						...(get(producer, 'brewing.dryHopped').length > 0 && {
+							hops: get(producer, 'brewing.dryHopped').map(item => new ObjectId(item)),
+						}),
+					},
+				}),
+				...(get(producer, 'brewing.expirationDate') && {
+					expirationDate: {
+						value: Decimal128.fromString(get(producer, 'brewing.expirationDate.value').toString()),
+						unit: get(producer, 'brewing.expirationDate.unit'),
+					},
+				}),
 			},
 			ingredients: {
 				...(get(producer, 'ingredients.description') && { description: get(producer, 'ingredients.description') }),
 				...(get(producer, 'ingredients.list') && { list: get(producer, 'ingredients.list', []).map(item => new ObjectId(item)) }),
-				...(isBoolean(get(producer, 'ingredients.smokedMalt')) && { smokedMalt: get(producer, 'ingredients.smokedMalt') })
+				...(isBoolean(get(producer, 'ingredients.smokedMalt')) && { smokedMalt: get(producer, 'ingredients.smokedMalt') }),
 			},
 			impressions: {
 				...(isNumber(get(producer, 'impressions.bitterness')) && { bitterness: Decimal128.fromString(get(producer, 'impressions.bitterness').toString()) }),
@@ -178,16 +183,16 @@ const beverage = ({
 						from: Decimal128.fromString(get(producer, 'impressions.temperature.from').toString()),
 						to: Decimal128.fromString(get(producer, 'impressions.temperature.to').toString()),
 						unit: get(producer, 'impressions.temperature.unit'),
-					}
-				})
+					},
+				}),
 			},
 			...(get(producer, 'price') && {
 				price: get(producer, 'price', {}).map(({ currency, date, value }) => ({
 					currency,
 					date: new Date(date),
-					value: Decimal128.fromString(value.toString())
-				}))
-			})
+					value: Decimal128.fromString(value.toString()),
+				})),
+			}),
 		},
 		editorial: {
 			general: {
@@ -200,7 +205,7 @@ const beverage = ({
 				...(get(editorial, 'brewing.alcoholScope') && {
 					alcohol: {
 						scope: get(editorial, 'brewing.alcoholScope'),
-					}
+					},
 				}),
 				...(isBoolean(get(editorial, 'brewing.filtration')) && { filtration: get(editorial, 'brewing.filtration') }),
 				...(isBoolean(get(editorial, 'brewing.pasteurization')) && { pasteurization: get(editorial, 'brewing.pasteurization') }),
@@ -217,19 +222,20 @@ const beverage = ({
 								time: {
 									unit: time.unit,
 									value: Decimal128.fromString(time.value.toString()),
-								}
+								},
 							}),
 							...(type && { type }),
 							...(wood && { wood }),
-						})
-					),
+						})),
 				}),
 				...(get(editorial, 'brewing.style') && { style: get(editorial, 'brewing.style') }),
-				...(get(editorial, 'brewing.dryHopped') && { dryHopped: {
-					...(get(editorial, 'brewing.dryHopped').length > 0 && {
-						hops: get(editorial, 'brewing.dryHopped').map(item => new ObjectId(item))
-					}),
-				} }),
+				...(get(editorial, 'brewing.dryHopped') && {
+					dryHopped: {
+						...(get(editorial, 'brewing.dryHopped').length > 0 && {
+							hops: get(editorial, 'brewing.dryHopped').map(item => new ObjectId(item)),
+						}),
+					},
+				}),
 			},
 			impressions: {
 				...(get(editorial, 'impressions.color') && { color: get(editorial, 'impressions.color') }),
@@ -239,11 +245,11 @@ const beverage = ({
 				price: get(editorial, 'price', {}).map(({ currency, date, value }) => ({
 					currency,
 					date: new Date(date),
-					value: Decimal128.fromString(value.toString())
-				}))
+					value: Decimal128.fromString(value.toString()),
+				})),
 			}),
 			...(get(editorial, 'images') && {
-				images: Decimal128.fromString(get(editorial, 'images').toString())
+				images: Decimal128.fromString(get(editorial, 'images').toString()),
 			}),
 			...(isBoolean(get(editorial, 'cap')) && { cap: get(editorial, 'cap') }),
 			...(get(editorial, 'notes') && { notes: get(editorial, 'notes') }),

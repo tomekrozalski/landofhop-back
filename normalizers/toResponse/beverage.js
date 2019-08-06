@@ -13,7 +13,7 @@ const beverage = (values) => {
 		if (isEmpty(updatedValues[section].general.cooperation)) {
 			delete updatedValues[section].general.cooperation;
 		}
-	
+
 		if (isEmpty(updatedValues[section].general.contract)) {
 			delete updatedValues[section].general.contract;
 		}
@@ -31,7 +31,7 @@ const beverage = (values) => {
 			country: {},
 			institution: {},
 		};
-	
+
 		if (place && isEqual(place, emptyPlace)) {
 			delete updatedValues[section].general.place;
 		}
@@ -48,7 +48,7 @@ const beverage = (values) => {
 		const dryHopped = {
 			empty: get(updatedValues, [section, 'brewing', 'dryHopped', 'empty'], false),
 			hops: get(updatedValues, [section, 'brewing', 'dryHopped', 'hops'], []),
-		}
+		};
 
 		if (!dryHopped.empty && isEmpty(dryHopped.hops)) {
 			delete updatedValues[section].brewing.dryHopped;
@@ -78,7 +78,7 @@ const beverage = (values) => {
 		}
 
 		const ingredients = get(updatedValues, [section, 'ingredients']);
-	
+
 		if (ingredients && isEmpty(ingredients)) {
 			delete updatedValues[section].ingredients;
 		}
@@ -88,7 +88,7 @@ const beverage = (values) => {
 		if (isEmpty(updatedValues[section])) {
 			delete updatedValues[section];
 		}
-	}
+	};
 
 	cleanUp('label');
 	cleanUp('producer');
@@ -104,9 +104,9 @@ const beverage = (values) => {
 			const formatted = Number(extractValue.toString());
 			set(updatedValues, [section, 'brewing', 'extract', 'value'], formatted);
 		}
-	
+
 		const alcoholValue = get(updatedValues, [section, 'brewing', 'alcohol', 'value']);
-	
+
 		if (alcoholValue) {
 			const formatted = Number(alcoholValue.toString());
 			set(updatedValues, [section, 'brewing', 'alcohol', 'value'], formatted);
@@ -145,22 +145,22 @@ const beverage = (values) => {
 			const formatted = Number(bitterness.toString());
 			set(updatedValues, [section, 'impressions', 'bitterness'], formatted);
 		}
-	
+
 		if (sweetness) {
 			const formatted = Number(sweetness.toString());
 			set(updatedValues, [section, 'impressions', 'sweetness'], formatted);
 		}
-	
+
 		if (fullness) {
 			const formatted = Number(fullness.toString());
 			set(updatedValues, [section, 'impressions', 'fullness'], formatted);
 		}
-	
+
 		if (power) {
 			const formatted = Number(power.toString());
 			set(updatedValues, [section, 'impressions', 'power'], formatted);
 		}
-	
+
 		if (hoppyness) {
 			const formatted = Number(hoppyness.toString());
 			set(updatedValues, [section, 'impressions', 'hoppyness'], formatted);
@@ -187,9 +187,9 @@ const beverage = (values) => {
 		const price = get(updatedValues, [section, 'price']);
 
 		if (price) {
-			const formatted = price.map((item) => ({
+			const formatted = price.map(item => ({
 				...item,
-				value: Number(item.value.toString())
+				value: Number(item.value.toString()),
 			}));
 
 			set(updatedValues, [section, 'price'], formatted);
@@ -201,13 +201,13 @@ const beverage = (values) => {
 			const formatted = Number(images.toString());
 			set(updatedValues, [section, 'images'], formatted);
 		}
-	}
+	};
 
 	fixFormats('label');
 	fixFormats('producer');
 	fixFormats('editorial');
 
 	return updatedValues;
-}
+};
 
 module.exports = beverage;
