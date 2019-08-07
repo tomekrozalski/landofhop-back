@@ -1,75 +1,80 @@
 const mongoose = require('mongoose');
 const Int32 = require('mongoose-int32');
+const agedSchema = require('./agedSchema');
 const langValue = require('./langValueSchema');
+const priceSchema = require('./priceSchema');
 
 const { Schema } = mongoose;
 
-const editorialSchema = new Schema({
-	general: {
-		cooperation: [{
+const generalSchema = new Schema({
+	cooperation: {
+		type: [{
 			type: Schema.Types.ObjectId,
 			ref: 'Institution',
 		}],
-		contract: {
-			type: Schema.Types.ObjectId,
-			ref: 'Institution',
-		},
-		place: {
-			type: Schema.Types.ObjectId,
-			ref: 'Place',
-		},
+		default: undefined,
 	},
-	brewing: {
-		fermentation: [{
+	contract: {
+		type: Schema.Types.ObjectId,
+		ref: 'Institution',
+	},
+	place: {
+		type: Schema.Types.ObjectId,
+		ref: 'Place',
+	},
+}, { _id: false });
+
+const brewingSchema = new Schema({
+	fermentation: {
+		type: [{
 			type: String,
 			enum: ['top', 'bottom', 'spontaneous'],
 		}],
-		alcohol: {
-			scope: {
-				type: String,
-				enum: ['<0.5%', '±0.5%', '±1.0%'],
-			},
+		default: undefined,
+	},
+	alcohol: {
+		scope: {
+			type: String,
+			enum: ['<0.5%', '±0.5%', '±1.0%'],
 		},
-		filtration: Boolean,
-		pasteurization: Boolean,
-		aged: [{
-			type: {
-				type: String,
-				enum: ['barrel', 'wood'],
-			},
-			wood: String,
-			time: {
-				value: Int32,
-				unit: {
-					type: String,
-					enum: ['day', 'month', 'year'],
-				},
-			},
-			previousContent: [String],
-		}],
-		style: [langValue],
-		dryHopped: {
-			hops: [{
+	},
+	filtration: Boolean,
+	pasteurization: Boolean,
+	aged: {
+		type: [agedSchema],
+		default: undefined,
+	},
+	style: {
+		type: [langValue],
+		default: undefined,
+	},
+	dryHopped: {
+		hops: {
+			type: [{
 				type: Schema.Types.ObjectId,
 				ref: 'Ingredient',
 			}],
+			default: undefined,
 		},
 	},
-	impressions: {
-		color: String,
-		clarity: {
-			type: String,
-			enum: ['crystalline', 'clear', 'opalescent', 'misty', 'hazy', 'muddy'],
-		},
+}, { _id: false });
+
+const impressionsSchema = new Schema({
+	color: String,
+	clarity: {
+		type: String,
+		enum: ['crystalline', 'clear', 'opalescent', 'misty', 'hazy', 'muddy'],
 	},
-	price: [{
-		date: Date,
-		value: Schema.Types.Decimal128,
-		currency: {
-			type: String,
-			enum: ['PLN', 'EUR'],
-		},
-	}],
+}, { _id: false });
+
+const editorialSchema = new Schema({
+	general: generalSchema,
+	brewing: brewingSchema,
+	impressions: impressionsSchema,
+	price: {
+		type: [priceSchema],
+		default: undefined,
+	},
 	images: Int32,
 	cap: Boolean,
 	notes: String,
