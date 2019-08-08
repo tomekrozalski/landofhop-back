@@ -4,7 +4,7 @@ const isBoolean = require('lodash/isBoolean');
 const isEmpty = require('lodash/isEmpty');
 const isNumber = require('lodash/isNumber');
 
-const { Decimal128, ObjectId } = mongodb;
+const { ObjectId } = mongodb;
 
 const beverage = ({
 	badge,
@@ -33,13 +33,13 @@ const beverage = ({
 				...(get(label, 'brewing.extract') && {
 					extract: {
 						...get(label, 'brewing.extract', {}),
-						value: Decimal128.fromString(get(label, 'brewing.extract.value').toString()),
+						value: get(label, 'brewing.extract.value').toString(),
 					},
 				}),
 				...(get(label, 'brewing.alcohol') && {
 					alcohol: {
 						...get(label, 'brewing.alcohol', {}),
-						value: Decimal128.fromString(get(label, 'brewing.alcohol.value').toString()),
+						value: get(label, 'brewing.alcohol.value').toString(),
 					},
 				}),
 				...(isBoolean(get(label, 'brewing.filtration')) && { filtration: get(label, 'brewing.filtration') }),
@@ -56,7 +56,7 @@ const beverage = ({
 							...(time && {
 								time: {
 									unit: time.unit,
-									value: Decimal128.fromString(time.value.toString()),
+									value: time.value.toString(),
 								},
 							}),
 							...(type && { type }),
@@ -73,7 +73,7 @@ const beverage = ({
 				}),
 				...(get(label, 'brewing.expirationDate') && {
 					expirationDate: {
-						value: Decimal128.fromString(get(label, 'brewing.expirationDate.value').toString()),
+						value: get(label, 'brewing.expirationDate.value').toString(),
 						unit: get(label, 'brewing.expirationDate.unit'),
 					},
 				}),
@@ -81,31 +81,31 @@ const beverage = ({
 			ingredients: {
 				...(get(label, 'ingredients.description') && { description: get(label, 'ingredients.description') }),
 				...(get(label, 'ingredients.list') && { list: get(label, 'ingredients.list', []).map(item => new ObjectId(item)) }),
-				...(isBoolean(get(label, 'ingredients.smokedMalt')) && { smokedMalt: get(label, 'ingredients.smokedMalt') }),
+				...(get(label, 'ingredients.smokedMalt') === true && { smokedMalt: true }),
 			},
 			impressions: {
-				...(isNumber(get(label, 'impressions.bitterness')) && { bitterness: Decimal128.fromString(get(label, 'impressions.bitterness').toString()) }),
-				...(isNumber(get(label, 'impressions.sweetness')) && { sweetness: Decimal128.fromString(get(label, 'impressions.sweetness').toString()) }),
-				...(isNumber(get(label, 'impressions.fullness')) && { fullness: Decimal128.fromString(get(label, 'impressions.fullness').toString()) }),
-				...(isNumber(get(label, 'impressions.power')) && { power: Decimal128.fromString(get(label, 'impressions.power').toString()) }),
-				...(isNumber(get(label, 'impressions.hoppyness')) && { hoppyness: Decimal128.fromString(get(label, 'impressions.hoppyness').toString()) }),
+				...(isNumber(get(label, 'impressions.bitterness')) && { bitterness: get(label, 'impressions.bitterness').toString() }),
+				...(isNumber(get(label, 'impressions.sweetness')) && { sweetness: get(label, 'impressions.sweetness').toString() }),
+				...(isNumber(get(label, 'impressions.fullness')) && { fullness: get(label, 'impressions.fullness').toString() }),
+				...(isNumber(get(label, 'impressions.power')) && { power: get(label, 'impressions.power').toString() }),
+				...(isNumber(get(label, 'impressions.hoppyness')) && { hoppyness: get(label, 'impressions.hoppyness').toString() }),
 				...(get(label, 'impressions.temperature') && {
 					temperature: {
-						from: Decimal128.fromString(get(label, 'impressions.temperature.from').toString()),
-						to: Decimal128.fromString(get(label, 'impressions.temperature.to').toString()),
+						from: get(label, 'impressions.temperature.from').toString(),
+						to: get(label, 'impressions.temperature.to').toString(),
 						unit: get(label, 'impressions.temperature.unit'),
 					},
 				}),
 			},
 			container: {
 				...get(label, 'container', {}),
-				value: Decimal128.fromString(get(label, 'container.value').toString()),
+				value: get(label, 'container.value').toString(),
 			},
 			...(get(label, 'price') && {
 				price: get(label, 'price', {}).map(({ currency, date, value }) => ({
 					currency,
 					date: new Date(date),
-					value: Decimal128.fromString(value.toString()),
+					value: value.toString(),
 				})),
 			}),
 		},
@@ -122,13 +122,13 @@ const beverage = ({
 				...(get(producer, 'brewing.extract') && {
 					extract: {
 						...get(producer, 'brewing.extract', {}),
-						value: Decimal128.fromString(get(producer, 'brewing.extract.value').toString()),
+						value: get(producer, 'brewing.extract.value').toString(),
 					},
 				}),
 				...(get(producer, 'brewing.alcohol') && {
 					alcohol: {
 						...get(producer, 'brewing.alcohol', {}),
-						value: Decimal128.fromString(get(producer, 'brewing.alcohol.value').toString()),
+						value: get(producer, 'brewing.alcohol.value').toString(),
 					},
 				}),
 				...(isBoolean(get(producer, 'brewing.filtration')) && { filtration: get(producer, 'brewing.filtration') }),
@@ -145,7 +145,7 @@ const beverage = ({
 							...(time && {
 								time: {
 									unit: time.unit,
-									value: Decimal128.fromString(time.value.toString()),
+									value: time.value.toString(),
 								},
 							}),
 							...(type && { type }),
@@ -162,7 +162,7 @@ const beverage = ({
 				}),
 				...(get(producer, 'brewing.expirationDate') && {
 					expirationDate: {
-						value: Decimal128.fromString(get(producer, 'brewing.expirationDate.value').toString()),
+						value: get(producer, 'brewing.expirationDate.value').toString(),
 						unit: get(producer, 'brewing.expirationDate.unit'),
 					},
 				}),
@@ -170,18 +170,18 @@ const beverage = ({
 			ingredients: {
 				...(get(producer, 'ingredients.description') && { description: get(producer, 'ingredients.description') }),
 				...(get(producer, 'ingredients.list') && { list: get(producer, 'ingredients.list', []).map(item => new ObjectId(item)) }),
-				...(isBoolean(get(producer, 'ingredients.smokedMalt')) && { smokedMalt: get(producer, 'ingredients.smokedMalt') }),
+				...(get(producer, 'ingredients.smokedMalt') === true && { smokedMalt: true }),
 			},
 			impressions: {
-				...(isNumber(get(producer, 'impressions.bitterness')) && { bitterness: Decimal128.fromString(get(producer, 'impressions.bitterness').toString()) }),
-				...(isNumber(get(producer, 'impressions.sweetness')) && { sweetness: Decimal128.fromString(get(producer, 'impressions.sweetness').toString()) }),
-				...(isNumber(get(producer, 'impressions.fullness')) && { fullness: Decimal128.fromString(get(producer, 'impressions.fullness').toString()) }),
-				...(isNumber(get(producer, 'impressions.power')) && { power: Decimal128.fromString(get(producer, 'impressions.power').toString()) }),
-				...(isNumber(get(producer, 'impressions.hoppyness')) && { hoppyness: Decimal128.fromString(get(producer, 'impressions.hoppyness').toString()) }),
+				...(isNumber(get(producer, 'impressions.bitterness')) && { bitterness: get(producer, 'impressions.bitterness').toString() }),
+				...(isNumber(get(producer, 'impressions.sweetness')) && { sweetness: get(producer, 'impressions.sweetness').toString() }),
+				...(isNumber(get(producer, 'impressions.fullness')) && { fullness: get(producer, 'impressions.fullness').toString() }),
+				...(isNumber(get(producer, 'impressions.power')) && { power: get(producer, 'impressions.power').toString() }),
+				...(isNumber(get(producer, 'impressions.hoppyness')) && { hoppyness: get(producer, 'impressions.hoppyness').toString() }),
 				...(get(producer, 'impressions.temperature') && {
 					temperature: {
-						from: Decimal128.fromString(get(producer, 'impressions.temperature.from').toString()),
-						to: Decimal128.fromString(get(producer, 'impressions.temperature.to').toString()),
+						from: get(producer, 'impressions.temperature.from').toString(),
+						to: get(producer, 'impressions.temperature.to').toString(),
 						unit: get(producer, 'impressions.temperature.unit'),
 					},
 				}),
@@ -190,7 +190,7 @@ const beverage = ({
 				price: get(producer, 'price', {}).map(({ currency, date, value }) => ({
 					currency,
 					date: new Date(date),
-					value: Decimal128.fromString(value.toString()),
+					value: value.toString(),
 				})),
 			}),
 		},
@@ -221,7 +221,7 @@ const beverage = ({
 							...(time && {
 								time: {
 									unit: time.unit,
-									value: Decimal128.fromString(time.value.toString()),
+									value: time.value.toString(),
 								},
 							}),
 							...(type && { type }),
@@ -245,13 +245,13 @@ const beverage = ({
 				price: get(editorial, 'price', {}).map(({ currency, date, value }) => ({
 					currency,
 					date: new Date(date),
-					value: Decimal128.fromString(value.toString()),
+					value: value.toString(),
 				})),
 			}),
 			...(get(editorial, 'images') && {
-				images: Decimal128.fromString(get(editorial, 'images').toString()),
+				images: get(editorial, 'images').toString(),
 			}),
-			...(isBoolean(get(editorial, 'cap')) && { cap: get(editorial, 'cap') }),
+			...(get(editorial, 'cap') === true && { cap: true }),
 			...(get(editorial, 'notes') && { notes: get(editorial, 'notes') }),
 		},
 		added: added ? new Date(added) : new Date(),

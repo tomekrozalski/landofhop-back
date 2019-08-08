@@ -5,7 +5,7 @@ const Beverage = require('../models/Beverage');
 const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 const normalizeBeverageToResponse = require('../normalizers/toResponse/beverage');
-const normalizeBeverageToRequest = require('../normalizers/toRequest/beverage');
+const normalizeToSave = require('../normalizers/toSave/beverage');
 
 const router = Router();
 
@@ -707,16 +707,9 @@ router.post('/', verifyToken, (req, res) => {
 			res.sendStatus(403);
 		} else {
 			const beverage = new Beverage({
-				...normalizeBeverageToRequest(req.body),
+				...normalizeToSave(req.body),
 				shortId: shortIdGenerator(),
 			});
-
-			console.log('-->', {
-				...normalizeBeverageToRequest(req.body),
-				shortId: shortIdGenerator(),
-			});
-
-			console.log('beverage', beverage);
 
 			beverage
 				.save()
@@ -748,7 +741,7 @@ router.put('/', verifyToken, (req, res) => {
 			Beverage
 				.replaceOne({
 					_id: req.body.id,
-				}, normalizeBeverageToRequest(req.body))
+				}, normalizeToSave(req.body))
 				.then((result) => {
 					res
 						.status(200)

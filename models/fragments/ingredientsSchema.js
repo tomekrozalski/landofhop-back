@@ -18,7 +18,15 @@ const ingredientsSchema = new Schema({
 		}],
 		default: undefined,
 	},
-	smokedMalt: Boolean,
+	smokedMalt: {
+		type: Boolean,
+		validate: {
+			validator(v) {
+				return v;
+			},
+			message: props => `${props.value} need to be true or be undefined`,
+		},
+	},
 }, { _id: false });
 
 module.exports = ingredientsSchema;

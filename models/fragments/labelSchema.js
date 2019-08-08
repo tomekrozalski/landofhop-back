@@ -11,6 +11,12 @@ const { Schema } = mongoose;
 const generalSchema = new Schema({
 	name: {
 		type: [langValue],
+		validate: {
+			validator(v) {
+				return v.length;
+			},
+			message: props => `${props.value} is empty`,
+		},
 		required: true,
 	},
 	series: {
@@ -39,6 +45,12 @@ const generalSchema = new Schema({
 	},
 	tale: {
 		type: [langValue],
+		validate: {
+			validator(v) {
+				return !v.find(({ value }) => value.length < 5);
+			},
+			message: props => `${props.value} has less then 4 signs`,
+		},
 		default: undefined,
 	},
 	barcode: String,
@@ -66,7 +78,15 @@ const containerSchema = new Schema({
 		min: 0,
 		max: 100000,
 	},
-	hasCapWireFlip: Boolean,
+	hasCapWireFlip: {
+		type: Boolean,
+		validate: {
+			validator(v) {
+				return v;
+			},
+			message: props => `${props.value} need to be true or be undefined`,
+		},
+	},
 }, { _id: false });
 
 const labelSchema = new Schema({

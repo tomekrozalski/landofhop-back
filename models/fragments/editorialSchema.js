@@ -76,7 +76,15 @@ const editorialSchema = new Schema({
 		default: undefined,
 	},
 	images: Int32,
-	cap: Boolean,
+	cap: {
+		type: Boolean,
+		validate: {
+			validator(v) {
+				return v;
+			},
+			message: props => `${props.value} need to be true or be undefined`,
+		},
+	},
 	notes: String,
 }, { _id: false });
 
