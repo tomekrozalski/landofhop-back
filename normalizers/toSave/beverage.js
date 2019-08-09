@@ -248,10 +248,6 @@ const beverage = ({
 					value: value.toString(),
 				})),
 			}),
-			...(get(editorial, 'images') && {
-				images: get(editorial, 'images').toString(),
-			}),
-			...(get(editorial, 'cap') === true && { cap: true }),
 			...(get(editorial, 'notes') && { notes: get(editorial, 'notes') }),
 		},
 		added: added ? new Date(added) : new Date(),
