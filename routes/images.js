@@ -14,6 +14,8 @@ const router = Router();
  * ADD NEW BEVERAGE GALLERY IMAGES
  */
 
+const rootImages = 'public/images/beverages/';
+
 function checkIfDirectoryExists(directory) {
 	if (!fs.existsSync(directory)) {
 		fs.mkdirSync(directory);
@@ -43,10 +45,10 @@ function createForldersInsideContainer(containerDir) {
 
 function checkIfGalleryExists({ badge, brand, shortId }) {
 	return new Promise((resolve) => {
-		const brandDir = `images/${brand}`;
-		const badgeDir = `images/${brand}/${badge}`;
-		const shortIdDir = `images/${brand}/${badge}/${shortId}`;
-		const containerDir = `images/${brand}/${badge}/${shortId}/container`;
+		const brandDir = `${rootImages}/${brand}`;
+		const badgeDir = `${rootImages}/${brand}/${badge}`;
+		const shortIdDir = `${rootImages}/${brand}/${badge}/${shortId}`;
+		const containerDir = `${rootImages}/${brand}/${badge}/${shortId}/container`;
 
 		checkIfDirectoryExists(brandDir);
 		checkIfDirectoryExists(badgeDir);
@@ -67,7 +69,7 @@ function checkIfGalleryExists({ badge, brand, shortId }) {
 const fileStorage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		const { badge, brand, shortId } = req.params;
-		cb(null, `images/${brand}/${badge}/${shortId}/container/original`);
+		cb(null, `${rootImages}/${brand}/${badge}/${shortId}/container/original`);
 	},
 	filename: (req, file, cb) => {
 		cb(null, req.files.length < 10 ? `0${req.files.length}.jpg` : `${req.files.length}.jpg`);
