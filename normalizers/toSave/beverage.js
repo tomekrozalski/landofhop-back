@@ -241,6 +241,8 @@ const beverage = ({
 				...(get(editorial, 'impressions.color') && { color: get(editorial, 'impressions.color') }),
 				...(get(editorial, 'impressions.clarity') && { clarity: get(editorial, 'impressions.clarity') }),
 			},
+			...(get(editorial, 'images') && { images: get(editorial, 'images').toString() }),
+			...(get(editorial, 'cap') && get(editorial, 'cap') === true && { cap: true }),
 			...(get(editorial, 'price') && {
 				price: get(editorial, 'price', {}).map(({ currency, date, value }) => ({
 					currency,

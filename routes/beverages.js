@@ -758,6 +758,33 @@ router.put('/', verifyToken, (req, res) => {
 
 /*
  * ------------------------------------------------------------------
+ * UPDATE A BEVERAGE GALLERY COUNT
+ */
+
+router.put('/gallery', verifyToken, (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
+		if (err) {
+			res.sendStatus(403);
+		} else {
+			Beverage
+				.findByIdAndUpdate(req.body.id, { 'editorial.images': req.body.files })
+				.then((result) => {
+					res
+						.status(200)
+						.json(result);
+				})
+				.catch(() => {
+					res
+						.status(500)
+						.json({ message: 'An error occured' });
+				});
+		}
+	});
+});
+
+
+/*
+ * ------------------------------------------------------------------
  * REMOVE A BEVERAGE
  */
 
