@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const compression = require('compression');
 
 const authRoutes = require('./routes/auth');
 const beverageRoutes = require('./routes/beverages');
@@ -15,6 +16,7 @@ const placeRoutes = require('./routes/places');
 
 const app = express();
 
+app.use(compression());
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -39,13 +41,13 @@ app.use('/institutions', institutionRoutes);
 app.use('/places', placeRoutes);
 app.use('/', authRoutes);
 
-const { MONGODB_PASSWORD, MONGODB_USERNAME } = process.env;
+const { MONGODB_PASSWORD, MONGODB_USERNAME, PORT } = process.env;
 const mongoDbUrl = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@landofhop-ku9ye.mongodb.net/landofhop?retryWrites=true`;
 
 mongoose
 	.connect(mongoDbUrl)
 	.then(() => {
-		app.listen(3100);
+		app.listen(PORT || 3100);
 	})
 	.catch((err) => {
 		// eslint-disable-next-line no-console
