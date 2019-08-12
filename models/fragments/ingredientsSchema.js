@@ -2,13 +2,15 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const langValueCompleteSchema = new Schema({
+	complete: Boolean,
+	language: String,
+	value: String,
+}, { _id: false });
+
 const ingredientsSchema = new Schema({
 	description: {
-		type: [{
-			complete: Boolean,
-			language: String,
-			value: String,
-		}],
+		type: [langValueCompleteSchema],
 		default: undefined,
 	},
 	list: {
