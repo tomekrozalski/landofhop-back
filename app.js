@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const beverageRoutes = require('./routes/beverages');
 const countryRoutes = require('./routes/countries');
-// const imagesRoutes = require('./routes/images');
+const imagesRoutes = require('./routes/images');
 const ingredientsRoutes = require('./routes/ingredients');
 const institutionRoutes = require('./routes/institutions');
 const placeRoutes = require('./routes/places');
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-// app.use('/images', imagesRoutes);
+app.use('/images', imagesRoutes);
 app.use('/beverages', beverageRoutes);
 app.use('/countries', countryRoutes);
 app.use('/ingredients', ingredientsRoutes);
