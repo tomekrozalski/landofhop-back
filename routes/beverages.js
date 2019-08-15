@@ -766,8 +766,16 @@ router.put('/gallery', verifyToken, (req, res) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
+			const { files } = req.body;
+
+			const query = files ? {
+				'editorial.images': files,
+			} : {
+				$unset: { 'editorial.images': '' },
+			};
+
 			Beverage
-				.findByIdAndUpdate(req.body.id, { 'editorial.images': req.body.files })
+				.findByIdAndUpdate(req.body.id, query, { useFindAndModify: false })
 				.then((result) => {
 					res
 						.status(200)
@@ -781,7 +789,6 @@ router.put('/gallery', verifyToken, (req, res) => {
 		}
 	});
 });
-
 
 /*
  * ------------------------------------------------------------------
