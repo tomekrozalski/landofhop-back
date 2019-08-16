@@ -36,22 +36,11 @@ router.post('/beverage/gallery/:shortId/:brand/:badge', verifyToken, upload.arra
 
 				sharp(file.buffer)
 					.jpeg({})
+					.resize(880)
 					.toBuffer((err, data) => {
 						s3.upload({
 							Bucket: 'land-of-hop-images',
-							Key: `${containerPath}/original/${fileName}.jpg`,
-							Body: data,
-							ACL: 'public-read',
-						}, () => {});
-					});
-
-				sharp(file.buffer)
-					.jpeg({})
-					.resize(220)
-					.toBuffer((err, data) => {
-						s3.upload({
-							Bucket: 'land-of-hop-images',
-							Key: `${containerPath}/jpg/1x/${fileName}.jpg`,
+							Key: `${containerPath}/jpg/4x/${fileName}.jpg`,
 							Body: data,
 							ACL: 'public-read',
 						}, () => {});
@@ -74,12 +63,25 @@ router.post('/beverage/gallery/:shortId/:brand/:badge', verifyToken, upload.arra
 					});
 
 				sharp(file.buffer)
-					.webp({})
+					.jpeg({})
 					.resize(220)
 					.toBuffer((err, data) => {
 						s3.upload({
 							Bucket: 'land-of-hop-images',
-							Key: `${containerPath}/webp/1x/${fileName}.webp`,
+							Key: `${containerPath}/jpg/1x/${fileName}.jpg`,
+							Body: data,
+							ACL: 'public-read',
+						}, () => {});
+					});
+
+
+				sharp(file.buffer)
+					.webp({})
+					.resize(880)
+					.toBuffer((err, data) => {
+						s3.upload({
+							Bucket: 'land-of-hop-images',
+							Key: `${containerPath}/webp/4x/${fileName}.webp`,
 							Body: data,
 							ACL: 'public-read',
 						}, () => {});
@@ -92,6 +94,18 @@ router.post('/beverage/gallery/:shortId/:brand/:badge', verifyToken, upload.arra
 						s3.upload({
 							Bucket: 'land-of-hop-images',
 							Key: `${containerPath}/webp/2x/${fileName}.webp`,
+							Body: data,
+							ACL: 'public-read',
+						}, () => {});
+					});
+
+				sharp(file.buffer)
+					.webp({})
+					.resize(220)
+					.toBuffer((err, data) => {
+						s3.upload({
+							Bucket: 'land-of-hop-images',
+							Key: `${containerPath}/webp/1x/${fileName}.webp`,
 							Body: data,
 							ACL: 'public-read',
 						}, () => {});
@@ -208,18 +222,20 @@ function generatePathsToRemove({
 		const fileName = properIndex < 10 ? `0${properIndex}` : properIndex;
 
 		paths.push(
-			{ Key: `${brand}/${badge}/${shortId}/container/original/${fileName}.jpg` },
+			{ Key: `${brand}/${badge}/${shortId}/container/jpg/4x/${fileName}.jpg` },
 			{ Key: `${brand}/${badge}/${shortId}/container/jpg/2x/${fileName}.jpg` },
 			{ Key: `${brand}/${badge}/${shortId}/container/jpg/1x/${fileName}.jpg` },
+			{ Key: `${brand}/${badge}/${shortId}/container/webp/4x/${fileName}.webp` },
 			{ Key: `${brand}/${badge}/${shortId}/container/webp/2x/${fileName}.webp` },
 			{ Key: `${brand}/${badge}/${shortId}/container/webp/1x/${fileName}.webp` },
 		);
 
 		if (properIndex === files) {
 			paths.push(
-				{ Key: `${brand}/${badge}/${shortId}/container/original` },
+				{ Key: `${brand}/${badge}/${shortId}/container/jpg/4x` },
 				{ Key: `${brand}/${badge}/${shortId}/container/jpg/2x` },
 				{ Key: `${brand}/${badge}/${shortId}/container/jpg/1x` },
+				{ Key: `${brand}/${badge}/${shortId}/container/webp/4x` },
 				{ Key: `${brand}/${badge}/${shortId}/container/webp/2x` },
 				{ Key: `${brand}/${badge}/${shortId}/container/webp/1x` },
 				{ Key: `${brand}/${badge}/${shortId}/container/jpg` },
