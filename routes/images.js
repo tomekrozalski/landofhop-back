@@ -15,13 +15,12 @@ aws.config.update({
 });
 
 const s3 = new aws.S3({});
+const upload = multer({});
 
 /*
  * ------------------------------------------------------------------
  * ADD NEW BEVERAGE GALLERY IMAGES
  */
-
-const upload = multer({});
 
 router.post('/beverage/gallery/:shortId/:brand/:badge', verifyToken, upload.array('image'), (req, res) => {
 	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
@@ -117,92 +116,97 @@ router.post('/beverage/gallery/:shortId/:brand/:badge', verifyToken, upload.arra
 
 /*
  * ------------------------------------------------------------------
- * XXX
+ * UPDATE BEVERAGE COVER IMAGE
  */
 
-// const rootImages = 'public/images/beverages/';
+router.post('/beverage/cover/:shortId/:brand/:badge', verifyToken, upload.single('image'), (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
+		if (authErr) {
+			res.sendStatus(403);
+		} else {
+			const { badge, brand, shortId } = req.params;
+			const coverPath = `${brand}/${badge}/${shortId}/cover`;
 
-// const fileStorage = multer.diskStorage({
-// 	destination: (req, file, cb) => {
-// 		const { badge, brand, shortId } = req.params;
-// 		cb(null, `${rootImages}/${brand}/${badge}/${shortId}/container/original`);
-// 	},
-// 	filename: (req, file, cb) => {
-// 		cb(null, req.files.length < 10 ? `0${req.files.length}.jpg` : `${req.files.length}.jpg`);
-// 	},
-// });
+			sharp(req.file.buffer)
+				.flatten({ background: { r: 255, g: 255, b: 255 } })
+				.jpeg({})
+				.resize(880)
+				.toBuffer((err, data) => {
+					s3.upload({
+						Bucket: 'land-of-hop-images',
+						Key: `${coverPath}/jpg/4x.jpg`,
+						Body: data,
+						ACL: 'public-read',
+					}, () => {});
+				});
 
-// const fileFilter = (req, file, cb) => {
-// 	if (file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg') {
-// 		cb(null, true);
-// 	} else {
-// 		cb(null, false);
-// 	}
-// };
+			sharp(req.file.buffer)
+				.flatten({ background: { r: 255, g: 255, b: 255 } })
+				.jpeg({})
+				.resize(440)
+				.toBuffer(async (err, data) => {
+					await s3.upload({
+						Bucket: 'land-of-hop-images',
+						Key: `${coverPath}/jpg/2x.jpg`,
+						Body: data,
+						ACL: 'public-read',
+					}, () => {
+						res.json({ success: true });
+					});
+				});
 
-// const upload = multer({ storage: fileStorage, fileFilter }).array('image');
-
-// router.post('/beverage/gallery/:shortId/:brand/:badge', verifyToken, (req, res) => {
-// 	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
-// 		if (authErr) {
-// 			res.sendStatus(403);
-// 		} else {
-// 			const upload = multer({
-// 				storage: multerS3({
-// 					s3,
-// 					bucket: 'land-of-hop-images',
-// 					acl: 'public-read',
-// 					contentType(req, file, cb) {
-// 						cb(null, file.mimetype);
-// 					},
-// 					key(req, file, cb) {
-// 						console.log('req.files', req.files);
-// 						cb(null, req.files.length < 10 ? `mistrzu/jasne/0${req.files.length}.jpg` : `mistrzu/ciemne/${req.files.length}.jpg`);
-// 					},
-// 				}),
-// 			});
-
-// 			router.post('/upload', upload.array('photos'), (req, res) => {
-// 				res.json({ success: req.files });
-// 			});
+			sharp(req.file.buffer)
+				.flatten({ background: { r: 255, g: 255, b: 255 } })
+				.jpeg({})
+				.resize(220)
+				.toBuffer((err, data) => {
+					s3.upload({
+						Bucket: 'land-of-hop-images',
+						Key: `${coverPath}/jpg/1x.jpg`,
+						Body: data,
+						ACL: 'public-read',
+					}, () => {});
+				});
 
 
-// 			upload(req, res, () => {
-// 				const actualDirectory = `${containerDir}/original`;
+			sharp(req.file.buffer)
+				.webp({})
+				.resize(880)
+				.toBuffer((err, data) => {
+					s3.upload({
+						Bucket: 'land-of-hop-images',
+						Key: `${coverPath}/webp/4x.webp`,
+						Body: data,
+						ACL: 'public-read',
+					}, () => {});
+				});
 
-// 				fs.readdir(actualDirectory, (err, files) => {
-// 					if (err) {
-// 						return false;
-// 					}
+			sharp(req.file.buffer)
+				.webp({})
+				.resize(440)
+				.toBuffer((err, data) => {
+					s3.upload({
+						Bucket: 'land-of-hop-images',
+						Key: `${coverPath}/webp/2x.webp`,
+						Body: data,
+						ACL: 'public-read',
+					}, () => {});
+				});
 
-// 					files.forEach((file) => {
-// 						const [fileName] = file.split('.');
-
-// 						sharp(`${actualDirectory}/${file}`)
-// 							.resize(440)
-// 							.toFile(`${containerDir}/2x/jpg/${fileName}.jpg`);
-
-// 						sharp(`${actualDirectory}/${file}`)
-// 							.resize(440)
-// 							.toFile(`${containerDir}/2x/webp/${fileName}.webp`);
-
-// 						sharp(`${actualDirectory}/${file}`)
-// 							.resize(220)
-// 							.toFile(`${containerDir}/1x/jpg/${fileName}.jpg`);
-
-// 						sharp(`${actualDirectory}/${file}`)
-// 							.resize(220)
-// 							.toFile(`${containerDir}/1x/webp/${fileName}.webp`);
-// 					});
-
-// 					return true;
-// 				});
-
-// 				res.end('UPLOAD COMPLETED!');
-// 			});
-// 		}
-// 	});
-// });
+			sharp(req.file.buffer)
+				.webp({})
+				.resize(220)
+				.toBuffer((err, data) => {
+					s3.upload({
+						Bucket: 'land-of-hop-images',
+						Key: `${coverPath}/webp/1x.webp`,
+						Body: data,
+						ACL: 'public-read',
+					}, () => {});
+				});
+		}
+	});
+});
 
 /*
  * ------------------------------------------------------------------
