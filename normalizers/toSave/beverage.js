@@ -65,10 +65,8 @@ const beverage = ({
 				}),
 				...(get(label, 'brewing.style') && { style: get(label, 'brewing.style') }),
 				...(get(label, 'brewing.dryHopped') && {
-					dryHopped: {
-						...(get(label, 'brewing.dryHopped').length > 0 && {
-							hops: get(label, 'brewing.dryHopped').map(item => new ObjectId(item)),
-						}),
+					dryHopped: get(label, 'brewing.dryHopped') === true ? true : {
+						hops: get(label, 'brewing.dryHopped').map(item => new ObjectId(item)),
 					},
 				}),
 				...(get(label, 'brewing.expirationDate') && {

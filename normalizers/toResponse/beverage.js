@@ -46,19 +46,19 @@ const beverage = (values) => {
 		// Brewering
 
 		const dryHopped = {
-			empty: get(updatedValues, [section, 'brewing', 'dryHopped', 'empty'], false),
+			isTrue: get(updatedValues, [section, 'brewing', 'dryHopped', 'isTrue'], false),
 			hops: get(updatedValues, [section, 'brewing', 'dryHopped', 'hops'], []),
 		};
 
-		if (!dryHopped.empty && isEmpty(dryHopped.hops)) {
+		if (!dryHopped.isTrue && isEmpty(dryHopped.hops)) {
 			delete updatedValues[section].brewing.dryHopped;
 		}
 
-		if (dryHopped.empty && isEmpty(dryHopped.hops)) {
+		if (dryHopped.isTrue && isEmpty(dryHopped.hops)) {
 			set(updatedValues, [section, 'brewing', 'dryHopped'], true);
 		}
 
-		if (!dryHopped.empty && !isEmpty(dryHopped.hops)) {
+		if (!isEmpty(dryHopped.hops)) {
 			set(updatedValues, [section, 'brewing', 'dryHopped'], dryHopped.hops);
 		}
 

@@ -445,9 +445,9 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
 							aged: 1,
 							style: 1,
 							dryHopped: {
-								empty: {
+								isTrue: {
 									$cond: [
-										{ $eq: ['$label.brewing.dryHopped', {}] },
+										{ $eq: ['$label.brewing.dryHopped', true] },
 										true,
 										false,
 									],

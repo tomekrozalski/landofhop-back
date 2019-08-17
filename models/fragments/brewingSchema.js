@@ -75,15 +75,7 @@ const brewingSchema = new Schema({
 		type: [langValue],
 		default: undefined,
 	},
-	dryHopped: {
-		hops: {
-			type: [{
-				type: Schema.Types.ObjectId,
-				ref: 'Ingredient',
-			}],
-			default: undefined,
-		},
-	},
+	dryHopped: Schema.Types.Mixed,
 	expirationDate: {
 		value: {
 			type: Int32,

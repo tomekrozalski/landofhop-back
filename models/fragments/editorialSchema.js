@@ -48,15 +48,7 @@ const brewingSchema = new Schema({
 		type: [langValue],
 		default: undefined,
 	},
-	dryHopped: {
-		hops: {
-			type: [{
-				type: Schema.Types.ObjectId,
-				ref: 'Ingredient',
-			}],
-			default: undefined,
-		},
-	},
+	dryHopped: Schema.Types.Mixed,
 }, { _id: false });
 
 const impressionsSchema = new Schema({
