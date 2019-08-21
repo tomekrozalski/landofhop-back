@@ -1,13 +1,16 @@
 const { Router } = require('express');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
 
 const Beverage = require('../models/Beverage');
 const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 const normalizeBeverageToResponse = require('../normalizers/toResponse/beverage');
 const normalizeToSave = require('../normalizers/toSave/beverage');
+const { removeCap, saveCap } = require('../utils');
 
 const router = Router();
+const upload = multer({});
 
 /*
  * ------------------------------------------------------------------
@@ -812,6 +815,81 @@ router.delete('/', verifyToken, (req, res) => {
 						.status(500)
 						.json({ message: 'An error occured' });
 				});
+		}
+	});
+});
+
+/*
+ * ------------------------------------------------------------------
+ * SAVE CAP
+ */
+
+router.post('/cap', verifyToken, upload.single('image'), (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
+		if (authErr) {
+			res.sendStatus(403);
+		} else {
+			const { buffer } = req.file;
+			const {
+				brand,
+				badge,
+				id,
+				shortId,
+			} = req.body;
+
+			const capPath = `${brand}/${badge}/${shortId}/cap`;
+
+			saveCap(buffer, capPath, () => {
+				Beverage
+					.findByIdAndUpdate(id, { 'editorial.cap': true }, { useFindAndModify: false })
+					.then((result) => {
+						res
+							.status(200)
+							.json(result);
+					})
+					.catch(() => {
+						res
+							.status(500)
+							.json({ message: 'An error occured' });
+					});
+			});
+		}
+	});
+});
+
+/*
+ * ------------------------------------------------------------------
+ * REMOVE CAP
+ */
+
+router.delete('/cap', verifyToken, (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
+		if (authErr) {
+			res.sendStatus(403);
+		} else {
+			const {
+				badge,
+				brand,
+				id,
+				shortId,
+			} = req.body;
+
+			removeCap({ badge, brand, shortId }, res, () => {
+				Beverage
+					.findByIdAndUpdate(id, {
+						$unset: { 'editorial.cap': '' },
+					}, { useFindAndModify: false })
+					.then((result) => {
+						res
+							.status(200)
+							.json(result);
+					})
+					.catch(() => {
+						res
+							.status(500)
+							.json({ message: 'An error occured' });
+					});
+			});
 		}
 	});
 });

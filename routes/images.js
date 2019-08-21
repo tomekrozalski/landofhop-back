@@ -213,7 +213,7 @@ router.post('/beverage/cover/:shortId/:brand/:badge', verifyToken, upload.single
  * REMOVE BEVERAGE GALLERY IMAGES
  */
 
-function generatePathsToRemove({
+function generateGalleryImagePathToRemove({
 	badge,
 	brand,
 	files,
@@ -257,7 +257,7 @@ router.delete('/beverage/gallery', verifyToken, (req, res) => {
 		if (authErr) {
 			res.sendStatus(403);
 		} else {
-			const paths = generatePathsToRemove(req.body);
+			const paths = generateGalleryImagePathToRemove(req.body);
 
 			const params = {
 				Bucket: 'land-of-hop-images',
