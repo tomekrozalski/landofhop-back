@@ -7,7 +7,13 @@ const shortIdGenerator = require('../utils/shortIdGenerator');
 const verifyToken = require('../utils/verifyToken');
 const normalizeBeverageToResponse = require('../normalizers/toResponse/beverage');
 const normalizeToSave = require('../normalizers/toSave/beverage');
-const { removeCap, saveCap } = require('../utils');
+const {
+	removeCap,
+	removeGallery,
+	saveCap,
+	saveCover,
+	saveGallery,
+} = require('../utils');
 
 const router = Router();
 const upload = multer({});
@@ -721,8 +727,7 @@ router.post('/', verifyToken, (req, res) => {
 						.status(200)
 						.json(result);
 				})
-				.catch((err) => {
-					console.log('err', err);
+				.catch(() => {
 					res
 						.status(500)
 						.json({ message: 'An error occured' });
@@ -761,40 +766,6 @@ router.put('/', verifyToken, (req, res) => {
 
 /*
  * ------------------------------------------------------------------
- * UPDATE A BEVERAGE GALLERY COUNT
- */
-
-router.put('/gallery', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			const { files } = req.body;
-
-			const query = files ? {
-				'editorial.images': files,
-			} : {
-				$unset: { 'editorial.images': '' },
-			};
-
-			Beverage
-				.findByIdAndUpdate(req.body.id, query, { useFindAndModify: false })
-				.then((result) => {
-					res
-						.status(200)
-						.json(result);
-				})
-				.catch(() => {
-					res
-						.status(500)
-						.json({ message: 'An error occured' });
-				});
-		}
-	});
-});
-
-/*
- * ------------------------------------------------------------------
  * REMOVE A BEVERAGE
  */
 
@@ -815,6 +786,112 @@ router.delete('/', verifyToken, (req, res) => {
 						.status(500)
 						.json({ message: 'An error occured' });
 				});
+		}
+	});
+});
+
+/*
+ * ------------------------------------------------------------------
+ * SAVE COVER
+ */
+
+router.post('/cover', verifyToken, upload.single('image'), (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
+		if (authErr) {
+			res.sendStatus(403);
+		} else {
+			const { buffer } = req.file;
+			const {
+				brand,
+				badge,
+				shortId,
+			} = req.body;
+
+			const coverPath = `${brand}/${badge}/${shortId}/cover`;
+
+			saveCover(buffer, coverPath, () => {
+				res.status(200).json({ success: true });
+			});
+		}
+	});
+});
+
+/*
+ * ------------------------------------------------------------------
+ * SAVE GALLERY
+ */
+
+router.post('/gallery', verifyToken, upload.array('image'), (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
+		if (err) {
+			res.sendStatus(403);
+		} else {
+			const {
+				brand,
+				badge,
+				id,
+				shortId,
+			} = req.body;
+
+			saveGallery(req.files, { brand, badge, shortId }, () => {
+				Beverage
+					.findByIdAndUpdate(id, {
+						'editorial.images': req.files.length,
+					}, { useFindAndModify: false })
+					.then((result) => {
+						res
+							.status(200)
+							.json(result);
+					})
+					.catch(() => {
+						res
+							.status(500)
+							.json({ message: 'An error occured' });
+					});
+			});
+		}
+	});
+});
+
+/*
+ * ------------------------------------------------------------------
+ * REMOVE GALLERY
+ */
+
+router.delete('/gallery', verifyToken, (req, res) => {
+	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
+		if (err) {
+			res.sendStatus(403);
+		} else {
+			const {
+				badge,
+				brand,
+				files,
+				id,
+				shortId,
+			} = req.body;
+
+			removeGallery({
+				brand,
+				badge,
+				files,
+				shortId,
+			}, res, () => {
+				Beverage
+					.findByIdAndUpdate(id, {
+						$unset: { 'editorial.images': '' },
+					}, { useFindAndModify: false })
+					.then((result) => {
+						res
+							.status(200)
+							.json(result);
+					})
+					.catch(() => {
+						res
+							.status(500)
+							.json({ message: 'An error occured' });
+					});
+			});
 		}
 	});
 });
