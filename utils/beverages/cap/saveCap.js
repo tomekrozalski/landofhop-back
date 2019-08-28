@@ -5,7 +5,6 @@ const s3 = new aws.S3({});
 
 function saveCap(buffer, capPath, cb) {
 	sharp(buffer)
-		.flatten({ background: { r: 255, g: 255, b: 255 } })
 		.jpeg({})
 		.resize(440)
 		.toBuffer((err, data) => {
@@ -18,7 +17,6 @@ function saveCap(buffer, capPath, cb) {
 		});
 
 	sharp(buffer)
-		.flatten({ background: { r: 255, g: 255, b: 255 } })
 		.jpeg({})
 		.resize(220)
 		.toBuffer(async (err, data) => {
@@ -31,7 +29,6 @@ function saveCap(buffer, capPath, cb) {
 		});
 
 	sharp(buffer)
-		.flatten({ background: { r: 255, g: 255, b: 255 } })
 		.jpeg({})
 		.resize(110)
 		.toBuffer((err, data) => {
