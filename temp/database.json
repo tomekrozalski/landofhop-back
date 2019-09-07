@@ -10505,53 +10505,6 @@ wys 25
 wys 23
 
 {
-	"badge": "kontenerowiec",
-	"name": "Kontenerowiec",
-	"brewery": {
-		"badge": "browar-zakladowy",
-		"name": {
-			"pl": "Browar zakładowy",
-			"en": "Brewery Zakładowy"
-		},
-		"website": "browarzakladowy.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Poniatowa",
-		"style": [
-			"New England Pale Ale"
-		],
-		"extract": {
-			"value": 12,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 4,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny, płatki pszenne, płatki owsiane, chmiel, drożdże",
-		}
-		temp: 9-12
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906395388486,
-	"added": 1542134074728
-}
-
-wys 25
-
-{
 	"badge": "amarillo",
 	"name": "Amarillo",
 	"brewery": {

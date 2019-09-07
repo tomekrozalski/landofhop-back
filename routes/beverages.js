@@ -8,6 +8,7 @@ const verifyToken = require('../utils/verifyToken');
 const normalizeBeverageToResponse = require('../normalizers/toResponse/beverage');
 const normalizeToSave = require('../normalizers/toSave/beverage');
 const {
+	removeBeverage,
 	removeCap,
 	removeGallery,
 	saveCap,
@@ -746,6 +747,8 @@ router.put('/', verifyToken, (req, res) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
+			console.log('normalizeToSave(req.body)', normalizeToSave(req.body));
+
 			Beverage
 				.replaceOne({
 					_id: req.body.id,
@@ -774,18 +777,28 @@ router.delete('/', verifyToken, (req, res) => {
 		if (err) {
 			res.sendStatus(403);
 		} else {
-			Beverage
-				.deleteOne({ _id: req.body.id })
-				.then((result) => {
-					res
-						.status(200)
-						.json(result);
-				})
-				.catch(() => {
-					res
-						.status(500)
-						.json({ message: 'An error occured' });
-				});
+			const { files, id, params } = req.body;
+			const { badge, brand, shortId } = params;
+
+			removeBeverage({
+				badge,
+				brand,
+				files,
+				shortId,
+			}, res, () => {
+				Beverage
+					.deleteOne({ _id: id })
+					.then((result) => {
+						res
+							.status(200)
+							.json(result);
+					})
+					.catch(() => {
+						res
+							.status(500)
+							.json({ message: 'An error occured' });
+					});
+			});
 		}
 	});
 });
