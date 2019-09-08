@@ -1,234 +1,4 @@
 {
-	"badge": "mangonel",
-	"name": "Mangonel",
-	"brewery": {
-		"badge": "browar-szpunt",
-		"name": {
-			"pl": "Browar Szpunt",
-			"en": "Szpunt Brewery"
-		},
-		"website": "browarszpunt.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Zduńska Wola",
-		"fermentation": "top",
-		"style": [
-			"Mango Wheat IPA"
-		],
-		"extract": {
-			"value": 15.0,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 6.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"ingredients": {
-			"pl": "Woda, _słód jęczmienny, słód pszeniczny_, pulpa mango, chmiele: Citra, Mosaic, drożdze",
-			"en": "Water, _barley malt, wheat malt_, mango pulp, hops: Citra, Mosaic, yeasts"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905279326231,
-	"impressions": {
-		"color": {
-			"name": "mango",
-			"hex": "f8c200"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 19,
-		"cap": true
-	},
-	"added": 1506690195925
-}
-{
-	"badge": "kolektyw",
-	"name": "Kolektyw",
-	"brewery": {
-		"badge": "browar-zakladowy",
-		"name": {
-			"pl": "Browar zakładowy",
-			"en": "Brewery Zakładowy"
-		},
-		"website": "browarzakladowy.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Poniatowa",
-		"fermentation": "top",
-		"style": [
-			"Tropical Berliner Weisse"
-		],
-		"extract": {
-			"value": 9,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 3.3,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "Woda, _słody: pszeniczny, jęczmienny_, owoce: mango, ananas, chmiel, drożdze, zakwaszane bakteriami: l. plantarum i l. rhamnosus",
-			"en": "Water, _malts: wheat, barley_, fruits: mango, pineapple, hop, yeasts, acidified with bacteria: l. plantarum and l. rhamnosus"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906395388325,
-	"impressions": {
-		"color": {
-			"name": "straw",
-			"hex": "fee5a4"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 24,
-		"cap": true
-	},
-	"added": 1506692671304
-}
-{
-	"badge": "ryczyn",
-	"name": "Ryczyn",
-	"brewery": {
-		"badge": "browar-probus",
-		"name": {
-			"pl": "Browar Probus",
-			"en": "Probus Brewery"
-		},
-		"website": "browarprobus.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Oława",
-		"fermentation": "top",
-		"style": [
-			"Weizen"
-		],
-		"extract": {
-			"value": 11.8,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Ryczyn to nazwa grodu piastowskiego, położonego 10 km od dzisiejszej Oławy, który strzegł przeprawy przez Odrę i wiodący w pobliżu szlaków. Jego początki sięgają 983 r. Do końca XIII w. był siedzibą kasztelanii, o czym zaświadcza m.in. „Księga Henrykowska”, w której znajduje się zdanie uważane za najstarsze zapisane w języku polskim. Analiza pyłków roślinnych zebranych w wykopaliskach ryczyńskich wykazała w nich obecność chmielu."
-		},
-		"ingredients": {
-			"pl": "Woda, _słody: pszeniczny, pilzneński, karmelowy_, chmiele: Marynka, Lubelski, drożdze górnej fermentacji",
-			"en": "Water, _malts: wheat, pilzner, caramel_, hops: Marynka, Lubelski, top fermentation yeasts"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5906395854011,
-	"impressions": {
-		"color": {
-			"name": "gold",
-			"hex": "ffdd5c"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 23,
-		"cap": true
-	},
-	"added": 1506694836068
-}
-{
-	"badge": "ortodox-pale-ale",
-	"name": "Ortodox. Pale ale",
-	"producer": {
-		"badge": "browar-gosciszewo",
-		"name": {
-			"pl": "Browar Gościszewo",
-			"en": "Gościszewo Brewery"
-		},
-		"website": "gosciszewo.pl"
-	},
-	"brewery": {
-		"badge": "alebrowar",
-		"name": {
-			"pl": "AleBrowar",
-			"en": "AleBrowar"
-		},
-		"website": "alebrowar.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Gościszewo",
-		"fermentation": "top",
-		"style": [
-			"Pale Ale"
-		],
-		"alcohol": {
-			"value": 4.2,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"ingredients": {
-			"pl": "Woda, _słód jęczmienny_, _słód pszeniczny_, chmiel, drożdże",
-			"en": "Water, _barley malt_, _wheat malt_, hop, yeasts"
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5903364108571,
-	"impressions": {
-		"color": {
-			"name": "gold",
-			"hex": "eec533"
-		}
-	},
-	"illustrations": {
-		"cover": true,
-		"bottle": 25,
-		"cap": true
-	},
-	"added": 1506889609001
-}
-{
 	"badge": "shake-the-world-peach",
 	"name": "Shake the world. Peach",
 	"brewery": {
@@ -14322,4 +14092,60 @@ NIE MA ZDJĘĆ?
 		"cap": false
 	},
 	"added": 1504859232783
+}
+{
+	"badge": "kolektyw",
+	"name": "Kolektyw",
+	"brewery": {
+		"badge": "browar-zakladowy",
+		"name": {
+			"pl": "Browar zakładowy",
+			"en": "Brewery Zakładowy"
+		},
+		"website": "browarzakladowy.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Poniatowa",
+		"fermentation": "top",
+		"style": [
+			"Tropical Berliner Weisse"
+		],
+		"extract": {
+			"value": 9,
+			"unit": "%",
+			"relation": "weight"
+		},
+		"alcohol": {
+			"value": 3.3,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"ingredients": {
+			"pl": "Woda, _słody: pszeniczny, jęczmienny_, owoce: mango, ananas, chmiel, drożdze, zakwaszane bakteriami: l. plantarum i l. rhamnosus",
+			"en": "Water, _malts: wheat, barley_, fruits: mango, pineapple, hop, yeasts, acidified with bacteria: l. plantarum and l. rhamnosus"
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5906395388325,
+	"impressions": {
+		"color": {
+			"name": "straw",
+			"hex": "fee5a4"
+		}
+	},
+	"illustrations": {
+		"cover": true,
+		"bottle": 24,
+		"cap": true
+	},
+	"added": 1506692671304
 }

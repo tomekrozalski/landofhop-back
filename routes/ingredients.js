@@ -1,8 +1,7 @@
 const { Router } = require('express');
-const jwt = require('jsonwebtoken');
 
 const Ingredient = require('../models/Ingredient');
-const verifyToken = require('../utils/verifyToken');
+const { isAuth } = require('../utils');
 
 const router = Router();
 
@@ -52,27 +51,21 @@ router.get('/list', (req, res) => {
  * ADD NEW INGREDIENT
  */
 
-router.post('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			const ingredient = new Ingredient(req.body);
+router.post('/', isAuth, (req, res) => {
+	const ingredient = new Ingredient(req.body);
 
-			ingredient
-				.save()
-				.then((result) => {
-					res
-						.status(200)
-						.json(result);
-				})
-				.catch(() => {
-					res
-						.status(500)
-						.json({ message: 'An error occured' });
-				});
-		}
-	});
+	ingredient
+		.save()
+		.then((result) => {
+			res
+				.status(200)
+				.json(result);
+		})
+		.catch(() => {
+			res
+				.status(500)
+				.json({ message: 'An error occured' });
+		});
 });
 
 module.exports = router;

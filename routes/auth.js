@@ -1,56 +1,48 @@
 const { Router } = require('express');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const verifyToken = require('../utils/verifyToken');
 const User = require('../models/User');
 
 const router = Router();
-
-const createToken = () => jwt.sign({}, process.env.JWT_SECRET, { expiresIn: '12h' });
-
-/*
- * ------------------------------------------------------------------
- * AUTHENTICATION
- */
-
-router.post('/auth', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			res
-				.status(200)
-				.json({ message: 'Authentication succeeded' });
-		}
-	});
-});
 
 /*
  * ------------------------------------------------------------------
  * LOGIN
  */
 
-router.post('/login', (req, res) => {
+router.post('/auth/login', (req, res) => {
 	const { email, password } = req.body;
-
-	req.session.secure = true;
-	console.log('true!');
 
 	User
 		.findOne({ email })
-		.then(user => bcrypt.compare(password, user.password))
-		.then((result) => {
-			if (!result) {
-				throw Error();
+		.then((user) => {
+			if (!user) {
+				return res
+					.status(404)
+					.json({ message: `User with the email address: ${email} not found` });
 			}
 
-			const token = createToken();
-			res
-				.status(200)
-				.json({
-					message: 'Authentication succeeded',
-					token,
+			return bcrypt.compare(password, user.password)
+				.then((doMatch) => {
+					if (!doMatch) {
+						res
+							.status(400)
+							.json({ message: 'Authentication failed, invalid password' });
+					}
+
+					req.session.isLoggedIn = true;
+					req.session.user = user;
+
+					res
+						.status(200)
+						.json({
+							message: 'Authentication succeeded',
+						});
+				})
+				.catch(() => {
+					res
+						.status(500)
+						.json({ message: 'Decryption failed' });
 				});
 		})
 		.catch(() => {
@@ -60,36 +52,15 @@ router.post('/login', (req, res) => {
 		});
 });
 
-// router.post('/signup', (req, res) => {
-// 	const email = req.body.email;
-// 	const password = req.body.password;
+/*
+ * ------------------------------------------------------------------
+ * LOGOUT
+ */
 
-// 	bcrypt
-// 		.hash(password, 12)
-// 		.then(hashedPassword => {
-// 			db.getDb()
-// 				.collection('users')
-// 				.insertOne({
-// 					email: email,
-// 					password: hashedPassword,
-// 				})
-// 				.then((result) => {
-// 					const token = createToken();
-// 					res
-// 						.status(201)
-// 						.json({ token });
-// 				})
-// 				.catch((err) => {
-// 					res
-// 						.status(500)
-// 						.json({ message: 'Creating the user failed. Probably the email address is already taken' });
-// 				});
-// 		})
-// 		.catch(err => {
-// 			res
-// 				.status(500)
-// 				.json({ message: 'Creating the user failed' });
-// 		});
-// });
+router.post('/auth/logout', (req, res) => {
+	req.session.destroy(() => {
+		res.redirect('/');
+	});
+});
 
 module.exports = router;

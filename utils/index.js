@@ -12,7 +12,11 @@ const saveCover = require('./beverages/cover/saveCover');
 const removeGallery = require('./beverages/gallery/removeGallery');
 const saveGallery = require('./beverages/gallery/saveGallery');
 
+// OTHER
+const isAuth = require('./isAuth');
+
 module.exports = {
+	isAuth,
 	removeBeverage,
 	removeCap,
 	removeGallery,

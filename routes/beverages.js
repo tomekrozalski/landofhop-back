@@ -1,13 +1,12 @@
 const { Router } = require('express');
-const jwt = require('jsonwebtoken');
 const multer = require('multer');
 
 const Beverage = require('../models/Beverage');
 const shortIdGenerator = require('../utils/shortIdGenerator');
-const verifyToken = require('../utils/verifyToken');
 const normalizeBeverageToResponse = require('../normalizers/toResponse/beverage');
 const normalizeToSave = require('../normalizers/toSave/beverage');
 const {
+	isAuth,
 	removeBeverage,
 	removeCap,
 	removeGallery,
@@ -25,8 +24,6 @@ const upload = multer({});
  */
 
 router.get('/list', (req, res) => {
-	req.session.abc = true;
-
 	Beverage
 		.aggregate([
 			{
@@ -97,11 +94,6 @@ router.get('/list', (req, res) => {
  */
 
 router.get('/details/:shortId/:brand/:badge', (req, res) => {
-	console.log('------');
-	console.log('req.session', req.session);
-	console.log('req.session.abc', req.session.abc);
-	console.log('Cookie-->', req.get('Cookie'));
-
 	Beverage
 		.aggregate([
 			// ------------------------------------------------
@@ -718,30 +710,24 @@ router.get('/details/:shortId/:brand/:badge', (req, res) => {
  * ADD NEW BEVERAGE
  */
 
-router.post('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			const beverage = new Beverage({
-				...normalizeToSave(req.body),
-				shortId: shortIdGenerator(),
-			});
-
-			beverage
-				.save()
-				.then((result) => {
-					res
-						.status(200)
-						.json(result);
-				})
-				.catch(() => {
-					res
-						.status(500)
-						.json({ message: 'An error occured' });
-				});
-		}
+router.post('/', isAuth, (req, res) => {
+	const beverage = new Beverage({
+		...normalizeToSave(req.body),
+		shortId: shortIdGenerator(),
 	});
+
+	beverage
+		.save()
+		.then((result) => {
+			res
+				.status(200)
+				.json(result);
+		})
+		.catch(() => {
+			res
+				.status(500)
+				.json({ message: 'An error occured' });
+		});
 });
 
 /*
@@ -749,29 +735,21 @@ router.post('/', verifyToken, (req, res) => {
  * UPDATE A BEVERAGE
  */
 
-router.put('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			console.log('normalizeToSave(req.body)', normalizeToSave(req.body));
-
-			Beverage
-				.replaceOne({
-					_id: req.body.id,
-				}, normalizeToSave(req.body))
-				.then((result) => {
-					res
-						.status(200)
-						.json(result);
-				})
-				.catch(() => {
-					res
-						.status(500)
-						.json({ message: 'An error occured' });
-				});
-		}
-	});
+router.put('/', isAuth, (req, res) => {
+	Beverage
+		.replaceOne({
+			_id: req.body.id,
+		}, normalizeToSave(req.body))
+		.then((result) => {
+			res
+				.status(200)
+				.json(result);
+		})
+		.catch(() => {
+			res
+				.status(500)
+				.json({ message: 'An error occured' });
+		});
 });
 
 /*
@@ -779,34 +757,28 @@ router.put('/', verifyToken, (req, res) => {
  * REMOVE A BEVERAGE
  */
 
-router.delete('/', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			const { files, id, params } = req.body;
-			const { badge, brand, shortId } = params;
+router.delete('/', isAuth, (req, res) => {
+	const { files, id, params } = req.body;
+	const { badge, brand, shortId } = params;
 
-			removeBeverage({
-				badge,
-				brand,
-				files,
-				shortId,
-			}, res, () => {
-				Beverage
-					.deleteOne({ _id: id })
-					.then((result) => {
-						res
-							.status(200)
-							.json(result);
-					})
-					.catch(() => {
-						res
-							.status(500)
-							.json({ message: 'An error occured' });
-					});
+	removeBeverage({
+		badge,
+		brand,
+		files,
+		shortId,
+	}, res, () => {
+		Beverage
+			.deleteOne({ _id: id })
+			.then((result) => {
+				res
+					.status(200)
+					.json(result);
+			})
+			.catch(() => {
+				res
+					.status(500)
+					.json({ message: 'An error occured' });
 			});
-		}
 	});
 });
 
@@ -815,24 +787,18 @@ router.delete('/', verifyToken, (req, res) => {
  * SAVE COVER
  */
 
-router.post('/cover', verifyToken, upload.single('image'), (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
-		if (authErr) {
-			res.sendStatus(403);
-		} else {
-			const { buffer } = req.file;
-			const {
-				brand,
-				badge,
-				shortId,
-			} = req.body;
+router.post('/cover', isAuth, upload.single('image'), (req, res) => {
+	const { buffer } = req.file;
+	const {
+		brand,
+		badge,
+		shortId,
+	} = req.body;
 
-			const coverPath = `${brand}/${badge}/${shortId}/cover`;
+	const coverPath = `${brand}/${badge}/${shortId}/cover`;
 
-			saveCover(buffer, coverPath, () => {
-				res.status(200).json({ success: true });
-			});
-		}
+	saveCover(buffer, coverPath, () => {
+		res.status(200).json({ success: true });
 	});
 });
 
@@ -841,35 +807,29 @@ router.post('/cover', verifyToken, upload.single('image'), (req, res) => {
  * SAVE GALLERY
  */
 
-router.post('/gallery', verifyToken, upload.array('image'), (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			const {
-				brand,
-				badge,
-				id,
-				shortId,
-			} = req.body;
+router.post('/gallery', isAuth, upload.array('image'), (req, res) => {
+	const {
+		brand,
+		badge,
+		id,
+		shortId,
+	} = req.body;
 
-			saveGallery(req.files, { brand, badge, shortId }, () => {
-				Beverage
-					.findByIdAndUpdate(id, {
-						'editorial.images': req.files.length,
-					}, { useFindAndModify: false })
-					.then((result) => {
-						res
-							.status(200)
-							.json(result);
-					})
-					.catch(() => {
-						res
-							.status(500)
-							.json({ message: 'An error occured' });
-					});
+	saveGallery(req.files, { brand, badge, shortId }, () => {
+		Beverage
+			.findByIdAndUpdate(id, {
+				'editorial.images': req.files.length,
+			}, { useFindAndModify: false })
+			.then((result) => {
+				res
+					.status(200)
+					.json(result);
+			})
+			.catch(() => {
+				res
+					.status(500)
+					.json({ message: 'An error occured' });
 			});
-		}
 	});
 });
 
@@ -878,41 +838,35 @@ router.post('/gallery', verifyToken, upload.array('image'), (req, res) => {
  * REMOVE GALLERY
  */
 
-router.delete('/gallery', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (err) => {
-		if (err) {
-			res.sendStatus(403);
-		} else {
-			const {
-				badge,
-				brand,
-				files,
-				id,
-				shortId,
-			} = req.body;
+router.delete('/gallery', isAuth, (req, res) => {
+	const {
+		badge,
+		brand,
+		files,
+		id,
+		shortId,
+	} = req.body;
 
-			removeGallery({
-				brand,
-				badge,
-				files,
-				shortId,
-			}, res, () => {
-				Beverage
-					.findByIdAndUpdate(id, {
-						$unset: { 'editorial.images': '' },
-					}, { useFindAndModify: false })
-					.then((result) => {
-						res
-							.status(200)
-							.json(result);
-					})
-					.catch(() => {
-						res
-							.status(500)
-							.json({ message: 'An error occured' });
-					});
+	removeGallery({
+		brand,
+		badge,
+		files,
+		shortId,
+	}, res, () => {
+		Beverage
+			.findByIdAndUpdate(id, {
+				$unset: { 'editorial.images': '' },
+			}, { useFindAndModify: false })
+			.then((result) => {
+				res
+					.status(200)
+					.json(result);
+			})
+			.catch(() => {
+				res
+					.status(500)
+					.json({ message: 'An error occured' });
 			});
-		}
 	});
 });
 
@@ -921,36 +875,30 @@ router.delete('/gallery', verifyToken, (req, res) => {
  * SAVE CAP
  */
 
-router.post('/cap', verifyToken, upload.single('image'), (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
-		if (authErr) {
-			res.sendStatus(403);
-		} else {
-			const { buffer } = req.file;
-			const {
-				brand,
-				badge,
-				id,
-				shortId,
-			} = req.body;
+router.post('/cap', isAuth, upload.single('image'), (req, res) => {
+	const { buffer } = req.file;
+	const {
+		brand,
+		badge,
+		id,
+		shortId,
+	} = req.body;
 
-			const capPath = `${brand}/${badge}/${shortId}/cap`;
+	const capPath = `${brand}/${badge}/${shortId}/cap`;
 
-			saveCap(buffer, capPath, () => {
-				Beverage
-					.findByIdAndUpdate(id, { 'editorial.cap': true }, { useFindAndModify: false })
-					.then((result) => {
-						res
-							.status(200)
-							.json(result);
-					})
-					.catch(() => {
-						res
-							.status(500)
-							.json({ message: 'An error occured' });
-					});
+	saveCap(buffer, capPath, () => {
+		Beverage
+			.findByIdAndUpdate(id, { 'editorial.cap': true }, { useFindAndModify: false })
+			.then((result) => {
+				res
+					.status(200)
+					.json(result);
+			})
+			.catch(() => {
+				res
+					.status(500)
+					.json({ message: 'An error occured' });
 			});
-		}
 	});
 });
 
@@ -959,35 +907,29 @@ router.post('/cap', verifyToken, upload.single('image'), (req, res) => {
  * REMOVE CAP
  */
 
-router.delete('/cap', verifyToken, (req, res) => {
-	jwt.verify(req.token, process.env.JWT_SECRET, (authErr) => {
-		if (authErr) {
-			res.sendStatus(403);
-		} else {
-			const {
-				badge,
-				brand,
-				id,
-				shortId,
-			} = req.body;
+router.delete('/cap', isAuth, (req, res) => {
+	const {
+		badge,
+		brand,
+		id,
+		shortId,
+	} = req.body;
 
-			removeCap({ badge, brand, shortId }, res, () => {
-				Beverage
-					.findByIdAndUpdate(id, {
-						$unset: { 'editorial.cap': '' },
-					}, { useFindAndModify: false })
-					.then((result) => {
-						res
-							.status(200)
-							.json(result);
-					})
-					.catch(() => {
-						res
-							.status(500)
-							.json({ message: 'An error occured' });
-					});
+	removeCap({ badge, brand, shortId }, res, () => {
+		Beverage
+			.findByIdAndUpdate(id, {
+				$unset: { 'editorial.cap': '' },
+			}, { useFindAndModify: false })
+			.then((result) => {
+				res
+					.status(200)
+					.json(result);
+			})
+			.catch(() => {
+				res
+					.status(500)
+					.json({ message: 'An error occured' });
 			});
-		}
 	});
 });
 
