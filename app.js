@@ -1,9 +1,13 @@
 require('dotenv/config');
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
-const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const authRoutes = require('./routes/auth');
 const beverageRoutes = require('./routes/beverages');
@@ -12,33 +16,42 @@ const ingredientsRoutes = require('./routes/ingredients');
 const institutionRoutes = require('./routes/institutions');
 const placeRoutes = require('./routes/places');
 
+const {
+	CLIENT,
+	MONGODB_PASSWORD,
+	MONGODB_USERNAME,
+	PORT,
+} = process.env;
+
+const mongoDbUrl = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@landofhop-ku9ye.mongodb.net/landofhop?retryWrites=true`;
+
 const app = express();
-
-app.use(bodyParser.json());
-
-app.use((req, res, next) => {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader(
-		'Access-Control-Allow-Methods',
-		'GET, POST, PUT, PATCH, DELETE, OPTIONS',
-	);
-	res.setHeader(
-		'Access-Control-Allow-Headers',
-		'Content-Type, Authorization',
-	);
-	next();
+const store = new MongoDBStore({
+	uri: mongoDbUrl,
+	collection: 'sessions',
 });
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(session({
+	secret: 'mysecret',
+	resave: false,
+	saveUninitialized: false,
+	store,
+}));
+
+app.use(cors({
+	origin: CLIENT,
+	credentials: true,
+	preflightContinue: true,
+	optionsSuccessStatus: 200,
+}));
+
 app.use('/beverages', beverageRoutes);
 app.use('/countries', countryRoutes);
 app.use('/ingredients', ingredientsRoutes);
 app.use('/institutions', institutionRoutes);
 app.use('/places', placeRoutes);
 app.use('/', authRoutes);
-
-const { MONGODB_PASSWORD, MONGODB_USERNAME, PORT } = process.env;
-const mongoDbUrl = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@landofhop-ku9ye.mongodb.net/landofhop?retryWrites=true`;
 
 mongoose
 	.connect(mongoDbUrl)

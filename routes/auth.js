@@ -34,6 +34,9 @@ router.post('/auth', verifyToken, (req, res) => {
 router.post('/login', (req, res) => {
 	const { email, password } = req.body;
 
+	req.session.secure = true;
+	console.log('true!');
+
 	User
 		.findOne({ email })
 		.then(user => bcrypt.compare(password, user.password))

@@ -25,6 +25,8 @@ const upload = multer({});
  */
 
 router.get('/list', (req, res) => {
+	req.session.abc = true;
+
 	Beverage
 		.aggregate([
 			{
@@ -95,6 +97,11 @@ router.get('/list', (req, res) => {
  */
 
 router.get('/details/:shortId/:brand/:badge', (req, res) => {
+	console.log('------');
+	console.log('req.session', req.session);
+	console.log('req.session.abc', req.session.abc);
+	console.log('Cookie-->', req.get('Cookie'));
+
 	Beverage
 		.aggregate([
 			// ------------------------------------------------
