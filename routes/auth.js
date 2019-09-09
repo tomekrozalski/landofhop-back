@@ -2,15 +2,25 @@ const { Router } = require('express');
 const bcrypt = require('bcryptjs');
 
 const User = require('../models/User');
+const { isAuth } = require('../utils');
 
 const router = Router();
+
+/*
+ * ------------------------------------------------------------------
+ * IS COOKIE VALID
+ */
+
+router.post('/test', isAuth, (req, res) => {
+	res.status(200).json({ success: true });
+});
 
 /*
  * ------------------------------------------------------------------
  * LOGIN
  */
 
-router.post('/auth/login', (req, res) => {
+router.post('/login', (req, res) => {
 	const { email, password } = req.body;
 
 	User
@@ -57,7 +67,7 @@ router.post('/auth/login', (req, res) => {
  * LOGOUT
  */
 
-router.post('/auth/logout', (req, res) => {
+router.post('/logout', (req, res) => {
 	req.session.destroy(() => {
 		res.redirect('/');
 	});

@@ -20,7 +20,9 @@ const {
 	CLIENT,
 	MONGODB_PASSWORD,
 	MONGODB_USERNAME,
+	NODE_ENV,
 	PORT,
+	SESSION_SECRET,
 } = process.env;
 
 const mongoDbUrl = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@landofhop-ku9ye.mongodb.net/landofhop?retryWrites=true`;
@@ -33,17 +35,22 @@ const store = new MongoDBStore({
 
 app.use(bodyParser.json());
 app.use(session({
-	secret: 'mysecret',
-	resave: false,
+	cookie: {
+		maxAge: 1 * 60 * 1000,
+		httpOnly: NODE_ENV === 'production',
+	},
+	name: 'session_auth',
+	resave: true,
+	rolling: true,
 	saveUninitialized: false,
+	secret: SESSION_SECRET,
 	store,
+	unset: 'destroy',
 }));
 
 app.use(cors({
 	origin: CLIENT,
 	credentials: true,
-	preflightContinue: true,
-	optionsSuccessStatus: 200,
 }));
 
 app.use('/beverages', beverageRoutes);
@@ -51,7 +58,7 @@ app.use('/countries', countryRoutes);
 app.use('/ingredients', ingredientsRoutes);
 app.use('/institutions', institutionRoutes);
 app.use('/places', placeRoutes);
-app.use('/', authRoutes);
+app.use('/auth', authRoutes);
 
 mongoose
 	.connect(mongoDbUrl)
