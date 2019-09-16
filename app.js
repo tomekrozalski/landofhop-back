@@ -36,7 +36,7 @@ const store = new MongoDBStore({
 app.use(bodyParser.json());
 app.use(session({
 	cookie: {
-		maxAge: 1 * 60 * 1000,
+		maxAge: 30 * 60 * 1000,
 		httpOnly: NODE_ENV === 'production',
 	},
 	name: 'session_auth',

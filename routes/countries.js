@@ -10,7 +10,7 @@ const router = Router();
  * GET LIST OF COUNTRIES
  */
 
-router.get('/list/:lang', (req, res) => {
+router.get('/list', (req, res) => {
 	Country
 		.aggregate([
 			{
@@ -25,7 +25,7 @@ router.get('/list/:lang', (req, res) => {
 			},
 			{
 				$match: {
-					'name.language': req.params.lang,
+					'name.language': 'pl',
 				},
 			},
 			{
