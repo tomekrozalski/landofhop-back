@@ -22,12 +22,6 @@ const agedSchema = new Schema({
 	},
 	previousContent: {
 		type: [String],
-		validate: {
-			validator(v) {
-				return !v.find(({ value }) => value.length < 5);
-			},
-			message: props => `${props.value} has less then 4 signs`,
-		},
 		default: undefined,
 	},
 }, { _id: false });
