@@ -1,20 +1,13 @@
 import mongoose from 'mongoose';
 
+import { langValue } from 'utils/models';
+
 const countrySchema = new mongoose.Schema({
 	code: {
 		type: String,
 		required: false,
 	},
-	name: [{
-		language: {
-			type: String,
-			required: false,
-		},
-		value: {
-			type: String,
-			required: true,
-		},
-	}],
+	name: [langValue],
 });
 
 export default mongoose.model('Country', countrySchema);

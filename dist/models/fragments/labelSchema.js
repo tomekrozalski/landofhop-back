@@ -4,15 +4,15 @@ const mongoose = require('mongoose');
 
 const Int32 = require('mongoose-int32');
 
-const langValue = require('./langValueSchema');
+const langValue = require("./langValueSchema");
 
-const brewingSchema = require('./brewingSchema');
+const brewingSchema = require("./brewingSchema");
 
-const impressionsSchema = require('./impressionsSchema');
+const impressionsSchema = require("./impressionsSchema");
 
-const ingredientsSchema = require('./ingredientsSchema');
+const ingredientsSchema = require("./ingredientsSchema");
 
-const priceSchema = require('./priceSchema');
+const priceSchema = require("./priceSchema");
 
 const {
   Schema

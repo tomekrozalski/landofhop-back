@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const langValue = require('./fragments/langValueSchema');
+const langValue = require("./fragments/langValueSchema");
 
 const {
   Schema

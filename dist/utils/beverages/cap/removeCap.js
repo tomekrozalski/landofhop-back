@@ -2,7 +2,7 @@
 
 const aws = require('aws-sdk');
 
-const capPathsToRemove = require('./capPathsToRemove');
+const capPathsToRemove = require("./capPathsToRemove");
 
 const s3 = new aws.S3({});
 

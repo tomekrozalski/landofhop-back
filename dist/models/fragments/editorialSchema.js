@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 const Int32 = require('mongoose-int32');
 
-const agedSchema = require('./agedSchema');
+const agedSchema = require("./agedSchema");
 
-const langValue = require('./langValueSchema');
+const langValue = require("./langValueSchema");
 
-const priceSchema = require('./priceSchema');
+const priceSchema = require("./priceSchema");
 
 const {
   Schema

@@ -7,18 +7,19 @@ exports.default = void 0;
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var _models = require("../../utils/models");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const countrySchema = new _mongoose.default.Schema({
-  code: {
+var _default = new _mongoose.default.Schema({
+  language: {
     type: String,
     required: false
   },
-  name: [_models.langValue]
+  value: {
+    type: String,
+    required: true
+  }
+}, {
+  _id: false
 });
-
-var _default = _mongoose.default.model('Country', countrySchema);
 
 exports.default = _default;

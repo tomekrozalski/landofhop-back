@@ -1,22 +1,22 @@
 "use strict";
 
-const agedSchema = require('./agedSchema');
+const agedSchema = require("./agedSchema");
 
-const brewingSchema = require('./brewingSchema');
+const brewingSchema = require("./brewingSchema");
 
-const editorialSchema = require('./editorialSchema');
+const editorialSchema = require("./editorialSchema");
 
-const impressionsSchema = require('./impressionsSchema');
+const impressionsSchema = require("./impressionsSchema");
 
-const ingredientsSchema = require('./ingredientsSchema');
+const ingredientsSchema = require("./ingredientsSchema");
 
-const labelSchema = require('./labelSchema');
+const labelSchema = require("./labelSchema");
 
-const langValueSchema = require('./langValueSchema');
+const langValueSchema = require("./langValueSchema");
 
-const priceSchema = require('./priceSchema');
+const priceSchema = require("./priceSchema");
 
-const producerSchema = require('./producerSchema');
+const producerSchema = require("./producerSchema");
 
 module.exports = {
   agedSchema,

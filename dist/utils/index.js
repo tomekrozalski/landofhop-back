@@ -1,23 +1,23 @@
 "use strict";
 
 // All images
-const removeBeverage = require('./beverages/removeBeverage'); // Cap
+const removeBeverage = require("./beverages/removeBeverage"); // Cap
 
 
-const removeCap = require('./beverages/cap/removeCap');
+const removeCap = require("./beverages/cap/removeCap");
 
-const saveCap = require('./beverages/cap/saveCap'); // Cover
-
-
-const saveCover = require('./beverages/cover/saveCover'); // Gallery
+const saveCap = require("./beverages/cap/saveCap"); // Cover
 
 
-const removeGallery = require('./beverages/gallery/removeGallery');
-
-const saveGallery = require('./beverages/gallery/saveGallery'); // OTHER
+const saveCover = require("./beverages/cover/saveCover"); // Gallery
 
 
-const isAuth = require('./isAuth');
+const removeGallery = require("./beverages/gallery/removeGallery");
+
+const saveGallery = require("./beverages/gallery/saveGallery"); // OTHER
+
+
+const isAuth = require("./isAuth");
 
 module.exports = {
   isAuth,

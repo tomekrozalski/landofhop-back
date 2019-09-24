@@ -2,11 +2,11 @@
 
 const aws = require('aws-sdk');
 
-const capPathsToRemove = require('./cap/capPathsToRemove');
+const capPathsToRemove = require("./cap/capPathsToRemove");
 
-const coverPathsToRemove = require('./cover/coverPathsToRemove');
+const coverPathsToRemove = require("./cover/coverPathsToRemove");
 
-const galleryPathsToRemove = require('./gallery/galleryPathsToRemove');
+const galleryPathsToRemove = require("./gallery/galleryPathsToRemove");
 
 const s3 = new aws.S3({});
 

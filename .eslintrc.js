@@ -12,6 +12,11 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": 2018
     },
+    "settings": {
+        "import/resolver": {
+            "babel-module": {}
+        }
+    },
     "rules": {
         "indent": [2, "tab"],
         "no-tabs": 0,

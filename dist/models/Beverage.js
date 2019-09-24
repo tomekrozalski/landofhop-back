@@ -6,7 +6,7 @@ const {
   editorialSchema,
   labelSchema,
   producerSchema
-} = require('./fragments');
+} = require("./fragments");
 
 const {
   Schema

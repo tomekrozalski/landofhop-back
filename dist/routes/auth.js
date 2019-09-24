@@ -6,11 +6,11 @@ const {
 
 const bcrypt = require('bcryptjs');
 
-const User = require('../models/User');
+const User = require("../models/User");
 
 const {
   isAuth
-} = require('../utils');
+} = require("../utils");
 
 const router = Router();
 /*

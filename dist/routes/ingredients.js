@@ -4,11 +4,11 @@ const {
   Router
 } = require('express');
 
-const Ingredient = require('../models/Ingredient');
+const Ingredient = require("../models/Ingredient");
 
 const {
   isAuth
-} = require('../utils');
+} = require("../utils");
 
 const router = Router();
 /*

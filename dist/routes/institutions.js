@@ -10,13 +10,13 @@ const {
   Router
 } = require('express');
 
-const Institution = require('../models/Institution');
+const Institution = require("../models/Institution");
 
-const shortIdGenerator = require('../utils/shortIdGenerator');
+const shortIdGenerator = require("../utils/shortIdGenerator");
 
 const {
   isAuth
-} = require('../utils');
+} = require("../utils");
 
 const router = Router();
 /*

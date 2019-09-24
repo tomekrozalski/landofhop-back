@@ -2,7 +2,7 @@
 
 const aws = require('aws-sdk');
 
-const galleryPathsToRemove = require('./galleryPathsToRemove');
+const galleryPathsToRemove = require("./galleryPathsToRemove");
 
 const s3 = new aws.S3({});
 
