@@ -9,7 +9,12 @@ import es6Promise from 'es6-promise';
 import 'dotenv/config';
 import 'isomorphic-fetch';
 
-import { country, institution } from './v1/resources';
+import {
+	country,
+	ingredient,
+	institution,
+	place,
+} from './v1/resources';
 
 es6Promise.polyfill();
 const MongoDBStore = connectMongoSession(session);
@@ -52,7 +57,9 @@ app.use(cors({
 }));
 
 app.use('/api/v1/country', country);
+app.use('/api/v1/ingredient', ingredient);
 app.use('/api/v1/institution', institution);
+app.use('/api/v1/place', place);
 
 mongoose
 	.connect(mongoDbUrl)

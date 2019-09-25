@@ -58,7 +58,9 @@ app.use((0, _cors.default)({
   credentials: true
 }));
 app.use('/api/v1/country', _resources.country);
+app.use('/api/v1/ingredient', _resources.ingredient);
 app.use('/api/v1/institution', _resources.institution);
+app.use('/api/v1/place', _resources.place);
 
 _mongoose.default.connect(mongoDbUrl).then(() => {
   app.listen(PORT || 3100);
