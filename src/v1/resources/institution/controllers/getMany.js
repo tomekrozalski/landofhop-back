@@ -1,31 +1,32 @@
-import Country from './country.model';
+import Institution from '../institution.model';
 
-const get = (req, res) => {
-	Country
+const getMany = (req, res) => {
+	Institution
 		.aggregate([
 			{
 				$project: {
 					_id: 0,
+					badge: 1,
+					name: {
+						$slice: ['$name', 1],
+					},
 					value: '$_id',
-					name: 1,
 				},
 			},
 			{
-				$unwind: '$name',
-			},
-			{
-				$match: {
-					'name.language': 'pl',
+				$unwind: {
+					path: '$name',
 				},
 			},
 			{
 				$project: {
-					value: 1,
+					badge: 1,
 					label: '$name.value',
+					value: 1,
 				},
 			},
 			{
-				$sort: { label: 1 },
+				$sort: { name: 1 },
 			},
 		])
 		.then((result) => {
@@ -40,4 +41,4 @@ const get = (req, res) => {
 		});
 };
 
-export default get;
+export default getMany;

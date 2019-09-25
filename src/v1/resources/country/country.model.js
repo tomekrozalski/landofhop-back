@@ -5,9 +5,14 @@ import { langValue } from 'utils/models';
 const countrySchema = new mongoose.Schema({
 	code: {
 		type: String,
-		required: false,
+		required: true,
 	},
-	name: [langValue],
+	name: {
+		type: [langValue],
+		required: true,
+	},
 });
+
+countrySchema.index({ code: 1 }, { unique: true });
 
 export default mongoose.model('Country', countrySchema);

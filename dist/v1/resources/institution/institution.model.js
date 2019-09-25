@@ -11,22 +11,32 @@ var _models = require("../../utils/models");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const countrySchema = new _mongoose.default.Schema({
-  code: {
+const institutionSchema = new _mongoose.default.Schema({
+  badge: {
     type: String,
     required: true
   },
   name: {
     type: [_models.langValue],
     required: true
+  },
+  shortId: {
+    type: String,
+    required: true
+  },
+  website: String,
+  consortium: {
+    type: _mongoose.default.Schema.Types.ObjectId,
+    ref: 'Institution'
   }
 });
-countrySchema.index({
-  code: 1
+institutionSchema.index({
+  badge: 1,
+  shortId: 1
 }, {
   unique: true
 });
 
-var _default = _mongoose.default.model('Country', countrySchema);
+var _default = _mongoose.default.model('Institution', institutionSchema);
 
 exports.default = _default;

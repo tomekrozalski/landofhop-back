@@ -12,6 +12,6 @@ var _middlewares = require("../../utils/middlewares");
 var _controllers = require("./controllers");
 
 const router = (0, _express.Router)();
-router.route('/').get(_controllers.getMany).post(_middlewares.isAuth, _controllers.saveOne);
+router.route('/').get(_controllers.getMany).post(_middlewares.isAuth, _middlewares.withShortId, _controllers.saveOne);
 var _default = router;
 exports.default = _default;

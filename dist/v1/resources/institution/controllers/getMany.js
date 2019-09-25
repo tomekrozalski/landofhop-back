@@ -5,31 +5,33 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _country = _interopRequireDefault(require("./country.model"));
+var _institution = _interopRequireDefault(require("../institution.model"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const get = (req, res) => {
-  _country.default.aggregate([{
+const getMany = (req, res) => {
+  _institution.default.aggregate([{
     $project: {
       _id: 0,
-      value: '$_id',
-      name: 1
+      badge: 1,
+      name: {
+        $slice: ['$name', 1]
+      },
+      value: '$_id'
     }
   }, {
-    $unwind: '$name'
-  }, {
-    $match: {
-      'name.language': 'pl'
+    $unwind: {
+      path: '$name'
     }
   }, {
     $project: {
-      value: 1,
-      label: '$name.value'
+      badge: 1,
+      label: '$name.value',
+      value: 1
     }
   }, {
     $sort: {
-      label: 1
+      name: 1
     }
   }]).then(result => {
     res.status(200).json(result);
@@ -40,5 +42,5 @@ const get = (req, res) => {
   });
 };
 
-var _default = get;
+var _default = getMany;
 exports.default = _default;
