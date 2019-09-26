@@ -9,6 +9,12 @@ Object.defineProperty(exports, "auth", {
     return _auth.default;
   }
 });
+Object.defineProperty(exports, "beverage", {
+  enumerable: true,
+  get: function () {
+    return _beverage.default;
+  }
+});
 Object.defineProperty(exports, "country", {
   enumerable: true,
   get: function () {
@@ -35,6 +41,8 @@ Object.defineProperty(exports, "place", {
 });
 
 var _auth = _interopRequireDefault(require("./auth"));
+
+var _beverage = _interopRequireDefault(require("./beverage"));
 
 var _country = _interopRequireDefault(require("./country"));
 

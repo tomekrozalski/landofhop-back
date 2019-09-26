@@ -11,6 +11,7 @@ import 'isomorphic-fetch';
 
 import {
 	auth,
+	beverage,
 	country,
 	ingredient,
 	institution,
@@ -58,6 +59,7 @@ app.use(cors({
 }));
 
 app.use('/api/v1/auth', auth);
+app.use('/api/v1/beverage', beverage);
 app.use('/api/v1/country', country);
 app.use('/api/v1/ingredient', ingredient);
 app.use('/api/v1/institution', institution);
