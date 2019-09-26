@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "auth", {
+  enumerable: true,
+  get: function () {
+    return _auth.default;
+  }
+});
 Object.defineProperty(exports, "country", {
   enumerable: true,
   get: function () {
@@ -27,6 +33,8 @@ Object.defineProperty(exports, "place", {
     return _place.default;
   }
 });
+
+var _auth = _interopRequireDefault(require("./auth"));
 
 var _country = _interopRequireDefault(require("./country"));
 

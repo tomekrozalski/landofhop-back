@@ -10,6 +10,7 @@ import 'dotenv/config';
 import 'isomorphic-fetch';
 
 import {
+	auth,
 	country,
 	ingredient,
 	institution,
@@ -56,6 +57,7 @@ app.use(cors({
 	credentials: true,
 }));
 
+app.use('/api/v1/auth', auth);
 app.use('/api/v1/country', country);
 app.use('/api/v1/ingredient', ingredient);
 app.use('/api/v1/institution', institution);

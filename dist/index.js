@@ -57,6 +57,7 @@ app.use((0, _cors.default)({
   origin: CLIENT,
   credentials: true
 }));
+app.use('/api/v1/auth', _resources.auth);
 app.use('/api/v1/country', _resources.country);
 app.use('/api/v1/ingredient', _resources.ingredient);
 app.use('/api/v1/institution', _resources.institution);
