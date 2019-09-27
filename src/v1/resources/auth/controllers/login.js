@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 
+import { createToken } from 'utils/functions';
 import User from '../auth.model';
 
 const login = (req, res) => {
@@ -7,6 +8,7 @@ const login = (req, res) => {
 
 	User
 		.findOne({ email })
+		.exec()
 		.then((user) => {
 			if (!user) {
 				return res
@@ -17,18 +19,19 @@ const login = (req, res) => {
 			return bcrypt.compare(password, user.password)
 				.then((doMatch) => {
 					if (!doMatch) {
-						res
+						return res
 							.status(400)
 							.json({ message: 'Authentication failed, invalid password' });
 					}
 
-					req.session.isLoggedIn = true;
-					req.session.user = user;
+					// eslint-disable-next-line no-underscore-dangle
+					const token = createToken(user._id);
 
-					res
+					return res
 						.status(200)
 						.json({
 							message: 'Authentication succeeded',
+							token,
 						});
 				})
 				.catch(() => {
@@ -36,11 +39,6 @@ const login = (req, res) => {
 						.status(500)
 						.json({ message: 'Decryption failed' });
 				});
-		})
-		.catch(() => {
-			res
-				.status(401)
-				.json({ message: 'Authentication failed, invalid username or password' });
 		});
 };
 

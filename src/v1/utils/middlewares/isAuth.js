@@ -1,9 +1,18 @@
+import jwt from 'jsonwebtoken';
+import get from 'lodash/get';
+
 export default (req, res, next) => {
-	if (!req.session.isLoggedIn) {
-		return res
-			.status(403)
-			.json({ message: 'Path forbidden for users who are not correctly logged in' });
+	if (!get(req, 'headers.authorization')) {
+		return res.status(403).end();
 	}
 
-	return next();
+	const token = req.headers.authorization.split(' ')[1];
+
+	return jwt.verify(token, process.env.JWT_SECRET, (err) => {
+		if (err) {
+			res.status(403).end();
+		} else {
+			next();
+		}
+	});
 };
