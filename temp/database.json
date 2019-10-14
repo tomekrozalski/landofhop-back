@@ -1,267 +1,4 @@
 {
-	"badge": "motmot",
-	"name": "Motmot",
-	"brewery": {
-		"badge": "browar-nepomucen",
-		"name": {
-			"pl": "Browar Nepomucen",
-			"en": "Nepomucen Brewery"
-		},
-		"website": "www.browar-nepomucen.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Jutrosin",
-		"style": [
-			"Tropical Weizen IPA"
-		],
-		"extract": {
-			"value": 14,
-			"unit": "°",
-			"relation": "Blg"
-		},
-		"alcohol": {
-			"value": 5.3,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Tropical Weizen IPA to połączenie tradycyjnego piwa pszenicznego z pełną owoców tropikalną IPA. Lekkie orzeźwienie dla spragnionych spojone z innowacyjną nutą."
-		},
-		"ingredients": {
-			"pl": "Woda. Słody: pszeniczne, jęczmienne. Chmiel. Drożdże. Dodatki: ananasy, brzoskwinia, mango, laktoza",
-		}
-		goryczka: 2/6
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905279959682,
-	"added": 1522957713910
-	cena: 7,90 zł
-}
-
-wys 26
-
-{
-	"badge": "cashmere",
-	"name": "Cashmere",
-	"brewery": {
-		"badge": "alebrowar",
-		"name": {
-			"pl": "AleBrowar",
-			"en": "AleBrowar"
-		},
-		"website": "www.alebrowar.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Lębork",
-		"style": [
-			"Single Hop IPA"
-		],
-		"extract": {
-			"value": 16,
-			"unit": "%",
-			"relation": "wag."
-		},
-		"alcohol": {
-			"value": 6.2,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Jedno piwo, jeden chmiel. Tym razem odmiana powstała z połączenia chmielu Cascade i Northern Brewer. Uprawiana od 2013 r., daje gładką goryczkę, subtelny ziołowy aromat oraz owocową nutę cytryny, limonki i melona."
-		},
-		"ingredients": {
-			"pl": "Woda. Słody: Pale Ale, pszeniczny, wiedeński, Carapils, zakwaszający; chmiel Cashmere, drożdże Safale US-05",
-		},
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5907222039250,
-	"added": 1522958256449
-}
-
-wys 26
-
-{
-	"badge": "dudziarz",
-	"name": "Dudiarz",
-	"brewery": {
-		"badge": "browar-profesja",
-		"name": {
-			"pl": "Browar Profesja",
-			"en": "Profesja Brewery"
-		},
-		"website": "www.browarprofesja.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Wrocław",
-		"style": [
-			"Strong Scotch Ale",
-			"Wee Haevy"
-		],
-		"extract": {
-			"value": 20,
-			"unit": "°",
-			"relation": "Plato"
-		},
-		"alcohol": {
-			"value": 9.6,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Dudziarz… to piwo bardzo treściwe, słodowe, o karmelowym finiszu. Poprzez wyrazisty aromat słodowy przebijają się nuty torfowe. Wyczuwalny aromat suszonych owoców takich jak śliwki i rodzynki. Piwo ma niewielką goryczkę i delikatne nuty chmielowe, co w całości sprawia, że jest to trunek zdecydowanie deserowy i rozgrzewający. /n Używamy wyłącznie płynnych drożdży własnej propagacji!"
-		},
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny (Pilzneński, Monachijski ciemny, Wiedeński, Special X, Whisky), słód pszeniczny, chmiele (Magnum, Hallertau Tradition), drożdże (Scottish Ale)",
-		}
-		goryczka: 1/5
-		temperatura serwowania: 12-16C
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5904730658287,
-	"added": 1523040177976
-}
-
-wys 25
-
-{
-	"badge": "karuzelarz",
-	"name": "Karuzelarz",
-	"brewery": {
-		"badge": "browar-profesja",
-		"name": {
-			"pl": "Browar Profesja",
-			"en": "Profesja Brewery"
-		},
-		"website": "www.browarprofesja.pl"
-	},
-	kooperacja: Bielański Browar Karuzela 
-	"country": "PL",
-	"label": {
-		fermentatio: top
-		"city": "Wrocław",
-		"style": [
-			"Black Currant Brett Ale"
-		],
-		"extract": {
-			"value": 12,
-			"unit": "°",
-			"relation": "Plato"
-		},
-		"alcohol": {
-			"value": 5.1,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Karuzelarz… to lekkie piwo górnej fermentacji z dodatkiem czarnej porzeczki, fermentowane mieszanką belgijskich drożdży. Karuzelarz charakteryzuje się ciemną barwą oraz wyraźnymi nutami owocowymi pochodzącymi zarówno od czarnej porzeczki jak i od fermentacji. W zapachu na pierwszy plan wysuwają się nuty czarnej porzeczki wymieszane z zapachem \"dzikiej\" fermentacji, charakterystycznej dla piw typu lambic. Podobnie jak w zapachu, również w smaku wyczuwalna jest intensywna nuta czarnej porzeczki oraz pochodząca od niej kwaśność. \n Używamy wyłącznie płynnych drożdży własnej propagacji!"
-		},
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny (Pilzeński), słód pszeniczny (Pszeniczny jasny), dodatki: płatki pszeniczne, płatki owsiane, czarna porzeczka, chmiele: lubelski, drożdże: Belgian Abbey, Brettanomyces bruxellensis Trois, Brettanomyces bruxellensis, Brettanomyces claussenii",
-		}
-		goryczka: 0.3/5
-		temperatura serwowania: 10-14C
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5904730658423,
-	"added": 1523044854061
-}
-
-wys 25
-
-{
-	"badge": "panipani",
-	"name": "Pan IPAni",
-	"producer": {
-		"badge": "browar-zapanbrat",
-		"name": {
-			"pl": "Browar Zapanbrat",
-			"en": "Zapanbrat Brewery"
-		},
-		"website": "www.zapanbrat.com"
-	},
-	"brewery": {
-		"badge": "trzech-kumpli",
-		"name": {
-			"pl": "Trzech Kumpli",
-			"en": "Trzech Kumpli"
-		},
-		"website": "www.trzechkumpli.pl"
-	},
-	"country": "PL",
-	"label": {
-		fermentation: top
-		"city": "Żywiec",
-		"style": [
-			"Wheat India Pale Ale"
-		],
-		"extract": {
-			"value": 16.5,
-			"unit": "%",
-			"relation": "weight"
-		},
-		"alcohol": {
-			"value": 6.0,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Pan IPAni to hybryda dwóch piwnych światów. Lekkość i zwiewność piwa pszenicznego balansowana jest mocą, goryczką i aromatem stylu India Pale Ale. \n W aromacie dominują akcenty cytrusów, gruszek i mango przeplatane delikatnymi nutami kwiatowymi. Jasno-złote, lekko zamglone. W smaku cytrusowe, treściwe i umiarkowanie goryczkowe. Zbalansowane. \n Pan IPAni to doskonałe piwo na początek przygody ze stylem India Pale Ale oraz na pierwsze zetknięcie się ze zniewalająco aromatycznymi amerykańskimi chmielami. \n Jeśli chcesz poznać je w pełni, koniecznie nalej je do szkolanki z osadem z dna butelki."
-		},
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny, słód pszeniczny, płatki pszenne, płatki owsiane, chmiel, drożdże",
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905669479196,
-	"added": 1523045354625
-}
-
-wys 25
-
-{
 	"badge": "hazy-dipa",
 	"name": "Hazy DIPA",
 	"producer": {
@@ -8360,3 +8097,52 @@ NIE MA ZDJĘĆ?
 	},
 	"added": 1506692671304
 }
+
+{
+	"badge": "cashmere",
+	"name": "Cashmere",
+	"brewery": {
+		"badge": "alebrowar",
+		"name": {
+			"pl": "AleBrowar",
+			"en": "AleBrowar"
+		},
+		"website": "www.alebrowar.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Lębork",
+		"style": [
+			"Single Hop IPA"
+		],
+		"extract": {
+			"value": 16,
+			"unit": "%",
+			"relation": "wag."
+		},
+		"alcohol": {
+			"value": 6.2,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"tale": {
+			"pl": "Jedno piwo, jeden chmiel. Tym razem odmiana powstała z połączenia chmielu Cascade i Northern Brewer. Uprawiana od 2013 r., daje gładką goryczkę, subtelny ziołowy aromat oraz owocową nutę cytryny, limonki i melona."
+		},
+		"ingredients": {
+			"pl": "Woda. Słody: Pale Ale, pszeniczny, wiedeński, Carapils, zakwaszający; chmiel Cashmere, drożdże Safale US-05",
+		},
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "dark brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222039250,
+	"added": 1522958256449
+}
+
+wys 26
