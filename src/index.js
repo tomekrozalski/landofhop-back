@@ -31,7 +31,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(cors({
-	origin: CLIENT,
+	origin: CLIENT.split(', '),
 	credentials: true,
 }));
 
