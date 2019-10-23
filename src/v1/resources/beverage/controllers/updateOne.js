@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import normalizeToSave from '../normalizers/toSave';
 
 const updateOne = (req, res) => {

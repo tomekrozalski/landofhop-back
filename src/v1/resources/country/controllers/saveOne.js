@@ -1,4 +1,4 @@
-import Country from '../country.model';
+import Country from 'models/country';
 
 const saveOne = (req, res) => {
 	const country = new Country(req.body);

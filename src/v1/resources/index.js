@@ -5,7 +5,7 @@ import ingredient from './ingredient';
 import institution from './institution';
 import place from './place';
 
-export {
+export default {
 	auth,
 	beverage,
 	country,

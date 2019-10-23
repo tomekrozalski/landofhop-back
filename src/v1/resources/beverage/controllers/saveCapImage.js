@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import { saveCap } from '../images/cap';
 
 const saveCapImage = (req, res) => {

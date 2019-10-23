@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import { removeGallery } from '../images/gallery';
 
 const deleteGalleryImages = (req, res) => {

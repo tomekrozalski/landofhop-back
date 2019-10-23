@@ -6,14 +6,7 @@ import es6Promise from 'es6-promise';
 import 'dotenv/config';
 import 'isomorphic-fetch';
 
-import {
-	auth,
-	beverage,
-	country,
-	ingredient,
-	institution,
-	place,
-} from './v1/resources';
+import version1 from './v1/resources';
 
 es6Promise.polyfill();
 
@@ -35,12 +28,12 @@ app.use(cors({
 	credentials: true,
 }));
 
-app.use('/api/v1/auth', auth);
-app.use('/api/v1/beverage', beverage);
-app.use('/api/v1/country', country);
-app.use('/api/v1/ingredient', ingredient);
-app.use('/api/v1/institution', institution);
-app.use('/api/v1/place', place);
+app.use('/api/v1/auth', version1.auth);
+app.use('/api/v1/beverage', version1.beverage);
+app.use('/api/v1/country', version1.country);
+app.use('/api/v1/ingredient', version1.ingredient);
+app.use('/api/v1/institution', version1.institution);
+app.use('/api/v1/place', version1.place);
 
 mongoose
 	.connect(mongoDbUrl)

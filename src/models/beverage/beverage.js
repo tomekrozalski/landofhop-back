@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 
-import { editorialSchema, labelSchema, producerSchema } from './models';
+import editorialSchema from './editorialSchema';
+import labelSchema from './labelSchema';
+import producerSchema from './producerSchema';
 
 const beverageSchema = new mongoose.Schema({
 	shortId: {

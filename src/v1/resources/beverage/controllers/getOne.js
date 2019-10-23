@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import normalizeBeverageToResponse from '../normalizers/toResponse';
 
 const getOne = (req, res) => {

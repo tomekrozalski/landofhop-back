@@ -1,4 +1,4 @@
-import Institution from '../institution.model';
+import Institution from 'models/institution';
 
 const getMany = (req, res) => {
 	Institution

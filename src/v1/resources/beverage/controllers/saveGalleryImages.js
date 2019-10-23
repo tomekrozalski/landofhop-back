@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import { saveGallery } from '../images/gallery';
 
 const saveGalleryImages = (req, res) => {

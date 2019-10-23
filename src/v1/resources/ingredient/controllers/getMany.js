@@ -1,4 +1,4 @@
-import Ingredient from '../ingredient.model';
+import Ingredient from 'models/ingredient';
 
 const getMany = (req, res) => {
 	Ingredient

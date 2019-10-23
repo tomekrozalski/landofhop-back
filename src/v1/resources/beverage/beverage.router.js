@@ -18,6 +18,7 @@ import {
 const router = Router();
 const upload = multer({});
 
+router.get('/:skip/:limit', getMany);
 router.route('/')
 	.get(getMany)
 	.post(isAuth, withShortId, saveOne)

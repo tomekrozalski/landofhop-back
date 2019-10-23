@@ -1,4 +1,4 @@
-import Country from '../country.model';
+import Country from 'models/country';
 
 const getMany = (req, res) => {
 	Country

@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 
 import { createToken } from 'utils/functions';
-import User from '../auth.model';
+import User from 'models/auth';
 
 const login = (req, res) => {
 	const { email, password } = req.body;

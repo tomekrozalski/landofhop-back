@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import { removeBeverageImages } from '../images';
 
 const saveOne = (req, res) => {

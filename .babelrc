@@ -12,6 +12,7 @@
 		["module-resolver", {
 			"root": ["./src/v1"],
 			"alias": {
+				"models": "./src/models",
 				"utils": "./src/v1/utils"
 			}
 		}]

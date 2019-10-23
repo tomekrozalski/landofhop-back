@@ -1,4 +1,5 @@
 import agedSchema from './agedSchema';
+import beverage from './beverage';
 import brewingSchema from './brewingSchema';
 import editorialSchema from './editorialSchema';
 import impressionsSchema from './impressionsSchema';
@@ -17,3 +18,5 @@ export {
 	priceSchema,
 	producerSchema,
 };
+
+export default beverage;

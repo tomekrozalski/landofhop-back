@@ -1,4 +1,4 @@
-import Beverage from '../beverage.model';
+import Beverage from 'models/beverage';
 import { removeCap } from '../images/cap';
 
 const deleteCapImage = (req, res) => {

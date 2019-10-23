@@ -1,4 +1,4 @@
-import Place from '../place.model';
+import Place from 'models/place';
 
 const saveOne = (req, res) => {
 	const {
