@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import Int32 from 'mongoose-int32';
 
-import { langValue } from 'utils/models';
+import { langValue } from 'models/common';
 import brewingSchema from './brewingSchema';
 import impressionsSchema from './impressionsSchema';
 import ingredientsSchema from './ingredientsSchema';

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { langValue } from 'utils/models';
+import { langValue } from 'models/common';
 
 const locationSchema = mongoose.Schema({
 	type: {

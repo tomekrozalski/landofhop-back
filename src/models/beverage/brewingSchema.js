@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import Int32 from 'mongoose-int32';
 
-import { langValue } from 'utils/models';
+import { langValue } from 'models/common';
 import agedSchema from './agedSchema';
 
 const brewingSchema = new mongoose.Schema({
