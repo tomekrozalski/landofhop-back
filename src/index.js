@@ -24,6 +24,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
+// app.use((req, res, next) => { setTimeout(next, 5000); });
+
 app.use(cors({
 	origin: CLIENT.split(', '),
 	credentials: true,
