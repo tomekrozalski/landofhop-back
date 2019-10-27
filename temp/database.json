@@ -1,43 +1,4 @@
 {
-	"badge": "duvel-triple-hop-citra",
-	"name": "Duvel. Tripel Hop Citra",
-	"brewery": {
-		"badge": "duvel",
-		"name": {
-			"pl": "Browar Duvel",
-			"en": "Duvel Brewery"
-		},
-		"website": "www.duvel.be"
-	},
-	"country": "BE",
-	"label": {
-		"city": "Puurs",
-		"alcohol": {
-			"value": 9.5,
-			"unit": "%",
-			"relation": "capacity"
-		}
-		"tale": {
-			http://www.duvel.com/en-gb/the-beer/duvel-tripel-hop
-		},
-		"consists": {
-			"en": "barley malt",
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.33,
-		"unit": "liter"
-	},
-	"barcode": 5411681401164,
-	"added": 1534184850378
-}
-
-wys 17.5
-
-{
 	"badge": "st-martin-abbey-blond",
 	"name": "St Martin Abbey Blond",
 	"brewery": {
