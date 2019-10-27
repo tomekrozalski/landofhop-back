@@ -3,6 +3,7 @@ import multer from 'multer';
 
 import { isAuth, withShortId } from 'utils/middlewares';
 import {
+	count,
 	deleteCapImage,
 	deleteGalleryImages,
 	deleteOne,
@@ -19,6 +20,7 @@ const router = Router();
 const upload = multer({});
 
 router.get('/:skip/:limit', getMany);
+router.get('/count', count);
 router.route('/')
 	.post(isAuth, withShortId, saveOne)
 	.put(isAuth, updateOne)

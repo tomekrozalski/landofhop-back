@@ -46,7 +46,7 @@ app.use('/api/v2/institution', v2.institution);
 app.use('/api/v2/place', v2.place);
 
 mongoose
-	.connect(mongoDbUrl)
+	.connect(mongoDbUrl, { useNewUrlParser: true })
 	.then(() => {
 		app.listen(PORT || 3100);
 	})

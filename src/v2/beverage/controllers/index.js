@@ -1,3 +1,4 @@
+import count from './count';
 import deleteCapImage from './deleteCapImage';
 import deleteGalleryImages from './deleteGalleryImages';
 import deleteOne from './deleteOne';
@@ -10,6 +11,7 @@ import saveOne from './saveOne';
 import updateOne from './updateOne';
 
 export {
+	count,
 	deleteCapImage,
 	deleteGalleryImages,
 	deleteOne,
