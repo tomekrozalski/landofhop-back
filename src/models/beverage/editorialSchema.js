@@ -47,7 +47,16 @@ const brewingSchema = new mongoose.Schema({
 		type: [langValue],
 		default: undefined,
 	},
-	dryHopped: mongoose.Schema.Types.Mixed,
+	isDryHopped: Boolean,
+	dryHopped: {
+		hops: {
+			type: [{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'Ingredients',
+			}],
+			default: undefined,
+		},
+	},
 }, { _id: false });
 
 const impressionsSchema = new mongoose.Schema({

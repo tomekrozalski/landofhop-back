@@ -64,8 +64,9 @@ const beverage = ({
 						})),
 				}),
 				...(get(label, 'brewing.style') && { style: get(label, 'brewing.style') }),
+				...(get(label, 'brewing.isDryHopped') && { isDryHopped: true }),
 				...(get(label, 'brewing.dryHopped') && {
-					dryHopped: get(label, 'brewing.dryHopped') === true ? true : {
+					dryHopped: {
 						hops: get(label, 'brewing.dryHopped').map(item => new ObjectId(item)),
 					},
 				}),
@@ -151,11 +152,10 @@ const beverage = ({
 						})),
 				}),
 				...(get(producer, 'brewing.style') && { style: get(producer, 'brewing.style') }),
+				...(get(producer, 'brewing.isDryHopped') && { isDryHopped: true }),
 				...(get(producer, 'brewing.dryHopped') && {
 					dryHopped: {
-						...(get(producer, 'brewing.dryHopped').length > 0 && {
-							hops: get(producer, 'brewing.dryHopped').map(item => new ObjectId(item)),
-						}),
+						hops: get(producer, 'brewing.dryHopped').map(item => new ObjectId(item)),
 					},
 				}),
 				...(get(producer, 'brewing.expirationDate') && {
@@ -227,11 +227,10 @@ const beverage = ({
 						})),
 				}),
 				...(get(editorial, 'brewing.style') && { style: get(editorial, 'brewing.style') }),
+				...(get(editorial, 'brewing.isDryHopped') && { isDryHopped: true }),
 				...(get(editorial, 'brewing.dryHopped') && {
 					dryHopped: {
-						...(get(editorial, 'brewing.dryHopped').length > 0 && {
-							hops: get(editorial, 'brewing.dryHopped').map(item => new ObjectId(item)),
-						}),
+						hops: get(editorial, 'brewing.dryHopped').map(item => new ObjectId(item)),
 					},
 				}),
 			},

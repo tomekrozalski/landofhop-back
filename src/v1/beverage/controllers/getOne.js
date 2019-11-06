@@ -361,14 +361,8 @@ const getOne = (req, res) => {
 							pasteurization: 1,
 							aged: 1,
 							style: 1,
+							isDryHopped: 1,
 							dryHopped: {
-								isTrue: {
-									$cond: [
-										{ $eq: ['$label.brewing.dryHopped', true] },
-										true,
-										false,
-									],
-								},
 								hops: {
 									$map: {
 										input: '$label.brewing.dryHopped_info',
@@ -465,14 +459,8 @@ const getOne = (req, res) => {
 							pasteurization: 1,
 							aged: 1,
 							style: 1,
+							isDryHopped: 1,
 							dryHopped: {
-								empty: {
-									$cond: [
-										{ $eq: ['$producer.brewing.dryHopped', {}] },
-										true,
-										false,
-									],
-								},
 								hops: {
 									$map: {
 										input: '$producer.brewing.dryHopped_info',
@@ -565,14 +553,8 @@ const getOne = (req, res) => {
 							pasteurization: 1,
 							aged: 1,
 							style: 1,
+							isDryHopped: 1,
 							dryHopped: {
-								empty: {
-									$cond: [
-										{ $eq: ['$editorial.brewing.dryHopped', {}] },
-										true,
-										false,
-									],
-								},
 								hops: {
 									$map: {
 										input: '$editorial.brewing.dryHopped_info',
