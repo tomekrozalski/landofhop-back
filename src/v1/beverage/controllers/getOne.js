@@ -575,6 +575,7 @@ const getOne = (req, res) => {
 						},
 						price: 1,
 						images: 1,
+						coverImage: 1,
 						cap: 1,
 						notes: 1,
 					},

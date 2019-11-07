@@ -67,6 +67,11 @@ const impressionsSchema = new mongoose.Schema({
 	},
 }, { _id: false });
 
+const coverImageSchema = new mongoose.Schema({
+	height: Int32,
+	width: Int32,
+}, { _id: false });
+
 const editorialSchema = new mongoose.Schema({
 	general: generalSchema,
 	brewing: brewingSchema,
@@ -85,6 +90,7 @@ const editorialSchema = new mongoose.Schema({
 			message: props => `${props.value} need to be true or be undefined`,
 		},
 	},
+	coverImage: coverImageSchema,
 	notes: String,
 }, { _id: false });
 

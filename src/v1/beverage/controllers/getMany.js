@@ -13,6 +13,7 @@ const getMany = (req, res) => {
 					id: '$_id',
 					name: '$label.general.name',
 					shortId: 1,
+					coverImage: '$editorial.coverImage',
 				},
 			},
 			{
@@ -42,6 +43,7 @@ const getMany = (req, res) => {
 					id: 1,
 					name: 1,
 					shortId: 1,
+					coverImage: 1,
 				},
 			},
 		])
