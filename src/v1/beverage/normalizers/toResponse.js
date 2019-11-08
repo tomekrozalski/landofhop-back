@@ -190,12 +190,14 @@ const beverage = (values) => {
 			set(updatedValues, [section, 'price'], formatted);
 		}
 
-		const images = get(updatedValues, [section, 'images']);
+		const gallery = get(updatedValues, [section, 'editorial.photos.gallery']);
 
-		if (images) {
-			const formatted = Number(images.toString());
-			set(updatedValues, [section, 'images'], formatted);
+		if (gallery) {
+			const formatted = Number(gallery.toString());
+			set(updatedValues, [section, 'editorial.photos.gallery'], formatted);
 		}
+
+		// @ToDo: cover values to be toString()?
 	};
 
 	fixFormats('label');

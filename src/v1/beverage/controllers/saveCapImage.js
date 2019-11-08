@@ -14,7 +14,7 @@ const saveCapImage = (req, res) => {
 
 	saveCap(buffer, capPath, () => {
 		Beverage
-			.findByIdAndUpdate(id, { 'editorial.cap': true }, { useFindAndModify: false })
+			.findByIdAndUpdate(id, { 'editorial.photos.cap': true }, { useFindAndModify: false })
 			.then((result) => {
 				res
 					.status(200)

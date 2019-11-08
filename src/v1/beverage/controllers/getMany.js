@@ -12,8 +12,8 @@ const getMany = (req, res) => {
 					container: '$label.container',
 					id: '$_id',
 					name: '$label.general.name',
+					photos: '$editorial.photos',
 					shortId: 1,
-					coverImage: '$editorial.coverImage',
 				},
 			},
 			{
@@ -42,8 +42,8 @@ const getMany = (req, res) => {
 					},
 					id: 1,
 					name: 1,
+					photos: 1,
 					shortId: 1,
-					coverImage: 1,
 				},
 			},
 		])

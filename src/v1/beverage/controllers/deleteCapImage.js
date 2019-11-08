@@ -12,7 +12,7 @@ const deleteCapImage = (req, res) => {
 	removeCap({ badge, brand, shortId }, res, () => {
 		Beverage
 			.findByIdAndUpdate(id, {
-				$unset: { 'editorial.cap': '' },
+				$unset: { 'editorial.photos.cap': '' },
 			}, { useFindAndModify: false })
 			.then((result) => {
 				res

@@ -12,7 +12,7 @@ const saveGalleryImages = (req, res) => {
 	saveGallery(req.files, { brand, badge, shortId }, () => {
 		Beverage
 			.findByIdAndUpdate(id, {
-				'editorial.images': req.files.length,
+				'editorial.photos.gallery': req.files.length,
 			}, { useFindAndModify: false })
 			.then((result) => {
 				res

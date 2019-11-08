@@ -6,21 +6,16 @@ const saveCoverImage = (req, res) => {
 	const {
 		brand,
 		badge,
-		height,
 		id,
 		shortId,
-		width,
 	} = req.body;
 
 	const coverPath = `${brand}/${badge}/${shortId}/cover`;
 
-	saveCover(buffer, coverPath, () => {
+	saveCover(buffer, coverPath, ({ height, width }) => {
 		Beverage
 			.findByIdAndUpdate(id, {
-				'editorial.coverImage': {
-					height: Number(height),
-					width: Number(width),
-				},
+				'editorial.photos.cover': { height, width },
 			}, { useFindAndModify: false })
 			.then((result) => {
 				res

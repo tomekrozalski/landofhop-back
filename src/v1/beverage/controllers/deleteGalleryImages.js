@@ -18,7 +18,7 @@ const deleteGalleryImages = (req, res) => {
 	}, res, () => {
 		Beverage
 			.findByIdAndUpdate(id, {
-				$unset: { 'editorial.images': '' },
+				$unset: { 'editorial.photos.gallery': '' },
 			}, { useFindAndModify: false })
 			.then((result) => {
 				res

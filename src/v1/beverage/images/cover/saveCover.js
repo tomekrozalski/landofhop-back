@@ -1,5 +1,6 @@
 import aws from 'aws-sdk';
 import sharp from 'sharp';
+import sizeOf from 'buffer-image-size';
 
 const s3 = new aws.S3({});
 
@@ -8,12 +9,14 @@ function saveCover(buffer, coverPath, cb) {
 		.jpeg({})
 		.resize(880)
 		.toBuffer((err, data) => {
+			const largeCoverInfo = sizeOf(buffer);
+
 			s3.upload({
 				Bucket: 'land-of-hop-images',
 				Key: `${coverPath}/jpg/4x.jpg`,
 				Body: data,
 				ACL: 'public-read',
-			}, () => {});
+			}, () => cb(largeCoverInfo));
 		});
 
 	sharp(buffer)
@@ -25,7 +28,7 @@ function saveCover(buffer, coverPath, cb) {
 				Key: `${coverPath}/jpg/2x.jpg`,
 				Body: data,
 				ACL: 'public-read',
-			}, cb);
+			}, () => {});
 		});
 
 	sharp(buffer)

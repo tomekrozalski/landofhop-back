@@ -72,15 +72,7 @@ const coverImageSchema = new mongoose.Schema({
 	width: Int32,
 }, { _id: false });
 
-const editorialSchema = new mongoose.Schema({
-	general: generalSchema,
-	brewing: brewingSchema,
-	impressions: impressionsSchema,
-	price: {
-		type: [priceSchema],
-		default: undefined,
-	},
-	images: Int32,
+const photosSchema = new mongoose.Schema({
 	cap: {
 		type: Boolean,
 		validate: {
@@ -90,7 +82,19 @@ const editorialSchema = new mongoose.Schema({
 			message: props => `${props.value} need to be true or be undefined`,
 		},
 	},
-	coverImage: coverImageSchema,
+	cover: coverImageSchema,
+	gallery: Int32,
+}, { _id: false });
+
+const editorialSchema = new mongoose.Schema({
+	general: generalSchema,
+	brewing: brewingSchema,
+	impressions: impressionsSchema,
+	price: {
+		type: [priceSchema],
+		default: undefined,
+	},
+	photos: photosSchema,
 	notes: String,
 }, { _id: false });
 
