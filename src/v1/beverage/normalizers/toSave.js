@@ -1,8 +1,11 @@
-const mongodb = require('mongodb');
-const get = require('lodash/get');
-const isBoolean = require('lodash/isBoolean');
-const isEmpty = require('lodash/isEmpty');
-const isNumber = require('lodash/isNumber');
+import mongodb from 'mongodb';
+import {
+	get,
+	isBoolean,
+	isEmpty,
+	isNumber,
+	isObject,
+} from 'lodash';
 
 const { ObjectId } = mongodb;
 
@@ -245,6 +248,7 @@ const beverage = ({
 					value: value.toString(),
 				})),
 			}),
+			...(isObject(get(editorial, 'photos')) && { photos: get(editorial, 'photos') }),
 			...(get(editorial, 'notes') && { notes: get(editorial, 'notes') }),
 		},
 		added: added ? new Date(added) : new Date(),
