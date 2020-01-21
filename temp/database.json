@@ -1,309 +1,4 @@
 {
-	"badge": "hop-capone",
-	"name": "Hop Capone",
-	"brewery": {
-		"badge": "Pivovsky",
-		świdnica: "www.pivovsky.eu"
-	},
-	"producer": {
-		"badge": "browar-solipiwko",
-		"name": {
-			"pl": "Browar Solipiwko",
-			"en": "Solipiwko Brewery"
-		},
-		"website": "www.browarsolipiwko.pl"
-	},
-	"country": "PL",
-	"label": {
-		"style": [
-			"Double IPA"
-		],
-		"extract": {
-			"value": 20,
-			"unit": "stopni",
-			"relation": "Plato"
-		},
-		"alcohol": {
-			"value": 7.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Prohibicja nie przyniosła niczego poza problemami. Al Capone",
-		}
-		"ingredients": {
-			"pl": "Woda, słody jęczmienny, słód pszeniczny, chmiele: citra, cascade, chinook, mosaic, amarillo, drożdże piwowarskie",
-			
-		},
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	temp: 8-14
-	"barcode": 5900718375054,
-	"added": 1554745381801,
-	cena: 10,20
-}
-
-wys 26
-
-{
-	"badge": "hopllinger",
-	"name": "hopllinger",
-	"brewery": {
-		"badge": "Pivovsky",
-		świdnica: "www.pivovsky.eu"
-	},
-	"producer": {
-		"badge": "browar-solipiwko",
-		"name": {
-			"pl": "Browar Solipiwko",
-			"en": "Solipiwko Brewery"
-		},
-		"website": "www.browarsolipiwko.pl"
-	},
-	"country": "PL",
-	"label": {
-		"style": [
-			"Double Pear IPA"
-		],
-		"extract": {
-			"value": 20,
-			"unit": "stopni",
-			"relation": "Plato"
-		},
-		"alcohol": {
-			"value": 7.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Umrzyj tak, jak żyłeś. Szybko. Niczego nie przeciągaj. Takie życie nic nie znaczy. John Dillinger",
-		}
-		"ingredients": {
-			"pl": "Woda, słody jęczmienny, słód pszeniczny, chmiele: citra, cascade, chinook, mosaic, amarillo, owoce gruszki, drożdże piwowarskie",
-			
-		},
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	temp: 8-14
-	"barcode": 5900718375061,
-	"added": 1554745657323,
-	cena: 10.20
-}
-
-wys 26
-
-{
-	"badge": "jurajskie-mojito",
-	"name": "Jurajskie mojito",
-	"producer": browar na jurze
-	"brewery": "browar na jurze"
-	"country": "PL",
-	"label": {
-		"city": "Zawiercie",
-		"alcohol": {
-			"value": 3.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Jurajskie mojito to orzeźwiający słodko-kwaśno-miętowy smak. Szlachetną goryczkę lekkiego jasnego piwa dolnej fermentacji połączyliśmy z aromatyczną miętą, limonką i cukrem trzcinowym. To nasza piwna wariacja na temat jednego z najsłynniejszych drinków świata.",
-		},
-		"ingredients": {
-			"pl": "woda źródlana, słód jęczmienny, sok z limonki, mięta, cukier trzcinowy, chmiele: Marynka i Lubelski, drożdże SafLager W43/70",
-		}
-		temp: 4-7
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "light brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5905331026642,
-	"added": 1554746004554,
-	cena: 8.50
-}
-
-wys 25
-
-{
-	"badge": "gwardzista",
-	"name": "Gwardzista",
-	"brewery": {
-		"badge": "browar-profesja",
-		"name": {
-			"pl": "Browar Profesja",
-			"en": "Profesja Brewery"
-		},
-		"website": "www.browarprofesja.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Wrocław",
-		"style": [
-			"Single Hop Challenger Gunpowder English Ale"
-		],
-		"extract": {
-			"value": 12,
-			"unit": "°",
-			"relation": "Plato"
-		},
-		"alcohol": {
-			"value": 4.9,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		pasteryzacja: tak
-		"tale": {
-			"pl": "Smak: owocowo-cytrusowy, kwiatowy, słodowy \n Aromat: cytrusowy, herbaciany, kwiatowy \n Barwa: jasnoherbaciana"
-		},
-		"ingredients": {
-			"pl": "Woda, słód jęczmienny, słód pszeniczny, chmiel, zielona herbata z bergamotką, drożdże (HotHead Ale)",
-		}
-		goryczka: 2/5
-		temperatura serwowania: 8-12C
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5904730658737,
-	"added": 1554746316884,
-	cena: 
-}
-
-wys 25
-
-{
-	"badge": "afterparty",
-	"name": "Afterparty",
-	seria: B-day
-	"producer": alebrowar
-	"brewery": {
-		"badge": "browar-pinta",
-		"name": {
-			"pl": "Browar Pinta",
-			"en": "Pinta Brewery"
-		},
-		"website": "www.browarpinta.pl"
-	},
-	"country": "PL",
-	"label": {
-		"city": "Lębork",
-		"style": [
-			"Recovery IPA"
-		],
-		"extract": {
-			"value": 9,
-			"unit": "%",
-			"relation": "wag"
-		},
-		"alcohol": {
-			"value": 2.1,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": false,
-		"tale": {
-			"pl": "Odpalamy 6. edycję B-day'a, piwa, które warzymy raz w roku, aby z przytupem wspomnieć pierwsze wspólne urodziny Pinty i AleBrowaru. \n\n Tym razem, zaispirowani trudami karnawału, postawiliśmy na lekkie i przyjemnie chmielowe India Pale Ale z ekstra zawartością witaminy C, soli i magnezu. Dobre do tańca i przyjazne uczestnikom każdego balu.",
-		},
-		"ingredients": {
-			"pl": "woda, słody: Pale Ale, pszeniczny, płatki owsiane, płatki pszeniczne, chmiele Columbus, Citra, Centennial, drożdże Safale S-33, dodatki: askorbinian sodu, MgCl2",
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "light brown",
-		"capacity": 0.5,
-		"unit": "liter"
-	},
-	"barcode": 5907222039618,
-	"added": 1554747348585,
-	cena: 7.10
-}
-
-wys 26
-
-{
-	"badge": "hogeita-bost",
-	"name": "Hogeita Bost",
-	"brewery": {
-		"badge": "browar-nepomucen",
-		"name": {
-			"pl": "Browar Nepomucen",
-			"en": "Nepomucen Brewery"
-		},
-		"website": "www.browar-nepomucen.pl"
-	},
-	cooperation: browar Lougar
-	"country": "PL",
-	"label": {
-		"city": "Jutrosin",
-		"style": [
-			"Double Vermont IPA Peaches & Oranges"
-		],
-		"extract": {
-			"value": 18,
-			"unit": "°",
-			"relation": "Blg"
-		},
-		"alcohol": {
-			"value": 7.5,
-			"unit": "%",
-			"relation": "capacity"
-		},
-		"filtered": false,
-		"pasteurized": true,
-		"tale": {
-			"pl": "Wraz z hiszpańskim browarem Laugar przedłużyliśmy dobę! Dzięki temu otrzymaliśmy podwójne uderzenie owoców tropikalnych połączone z potężną dawką chmielu."
-			"es": "Nos tiramos todo el...",
-		},
-		"ingredients": {
-			"pl": "Woda. słody: słód jęczmienny (cebada), płatki pszenne (copos de trigo), płatki owsiane (copos de avena), chmiel (lupulo), drożdże górnej fermentacji, dodatki: pomarańcz, brzoskwinia",
-		}
-	},
-	"container": {
-		"type": "bottle",
-		"material": "glass",
-		"color": "dark brown",
-		"capacity": 0.33,
-		"unit": "liter"
-	},
-	"barcode": 5905279959804,
-	"added": 1554749085166,
-	goryczka : 1.5/6
-	temp: 10-12
-	cena: 
-}
-
-wys 23
-
-{
 	"badge": "hazy-disco",
 	"name": "Hazy Disco",
 	"brewery": Browar Pinta,
@@ -693,6 +388,95 @@ NIE MA ZDJĘĆ?
 	},
 	"barcode": 5907222039250,
 	"added": 1522958256449
+}
+
+wys 26
+
+{
+	"badge": "jurajskie-mojito",
+	"name": "Jurajskie mojito",
+	"producer": browar na jurze
+	"brewery": "browar na jurze"
+	"country": "PL",
+	"label": {
+		"city": "Zawiercie",
+		"alcohol": {
+			"value": 3.5,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": true,
+		"tale": {
+			"pl": "Jurajskie mojito to orzeźwiający słodko-kwaśno-miętowy smak. Szlachetną goryczkę lekkiego jasnego piwa dolnej fermentacji połączyliśmy z aromatyczną miętą, limonką i cukrem trzcinowym. To nasza piwna wariacja na temat jednego z najsłynniejszych drinków świata.",
+		},
+		"ingredients": {
+			"pl": "woda źródlana, słód jęczmienny, sok z limonki, mięta, cukier trzcinowy, chmiele: Marynka i Lubelski, drożdże SafLager W43/70",
+		}
+		temp: 4-7
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5905331026642,
+	"added": 1554746004554,
+	cena: 8.50
+}
+
+wys 25
+
+{
+	"badge": "afterparty",
+	"name": "Afterparty",
+	seria: B-day
+	"producer": alebrowar
+	"brewery": {
+		"badge": "browar-pinta",
+		"name": {
+			"pl": "Browar Pinta",
+			"en": "Pinta Brewery"
+		},
+		"website": "www.browarpinta.pl"
+	},
+	"country": "PL",
+	"label": {
+		"city": "Lębork",
+		"style": [
+			"Recovery IPA"
+		],
+		"extract": {
+			"value": 9,
+			"unit": "%",
+			"relation": "wag"
+		},
+		"alcohol": {
+			"value": 2.1,
+			"unit": "%",
+			"relation": "capacity"
+		},
+		"filtered": false,
+		"pasteurized": false,
+		"tale": {
+			"pl": "Odpalamy 6. edycję B-day'a, piwa, które warzymy raz w roku, aby z przytupem wspomnieć pierwsze wspólne urodziny Pinty i AleBrowaru. \n\n Tym razem, zaispirowani trudami karnawału, postawiliśmy na lekkie i przyjemnie chmielowe India Pale Ale z ekstra zawartością witaminy C, soli i magnezu. Dobre do tańca i przyjazne uczestnikom każdego balu.",
+		},
+		"ingredients": {
+			"pl": "woda, słody: Pale Ale, pszeniczny, płatki owsiane, płatki pszeniczne, chmiele Columbus, Citra, Centennial, drożdże Safale S-33, dodatki: askorbinian sodu, MgCl2",
+		}
+	},
+	"container": {
+		"type": "bottle",
+		"material": "glass",
+		"color": "light brown",
+		"capacity": 0.5,
+		"unit": "liter"
+	},
+	"barcode": 5907222039618,
+	"added": 1554747348585,
+	cena: 7.10
 }
 
 wys 26
