@@ -72,6 +72,11 @@ const coverImageSchema = new mongoose.Schema({
 	width: Int32,
 }, { _id: false });
 
+const outlinesSchema = new mongoose.Schema({
+	cover: String,
+	gallery: String,
+}, { _id: false });
+
 const photosSchema = new mongoose.Schema({
 	cap: {
 		type: Boolean,
@@ -84,6 +89,7 @@ const photosSchema = new mongoose.Schema({
 	},
 	cover: coverImageSchema,
 	gallery: Int32,
+	outlines: outlinesSchema,
 }, { _id: false });
 
 const editorialSchema = new mongoose.Schema({
