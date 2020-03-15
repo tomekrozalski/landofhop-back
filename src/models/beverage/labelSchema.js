@@ -58,7 +58,7 @@ const generalSchema = new mongoose.Schema({
 const containerSchema = new mongoose.Schema({
 	color: {
 		type: String,
-		enum: ['brown', 'green', 'black', 'silver'],
+		enum: ['brown', 'green', 'black', 'silver', 'transparent'],
 	},
 	material: {
 		type: String,
